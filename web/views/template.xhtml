@@ -31,7 +31,7 @@
                         <p:menuitem value="Eps"  icon="ui-icon-document" url="#{appBean.basePath}admin/crearEps.xhtml" />
                         <p:menuitem value="Hospital"  icon="ui-icon-document" url="#{appBean.basePath}admin/crearHospital.xhtml" />
                         <p:menuitem value="Solicitar cita médica" icon="ui-icon-clipboard" url="#{appBean.basePath}usuario/cita.xhtml" />   
-                        <p:menuitem value="Salir" actionListener="#{loginBean.logout}" icon="ui-icon-close" oncomplete="handleLoginRequest(xhr, status, args)"/>                           
+                        <p:menuitem value="Salir" actionListener="#{loginBean.logout}" icon="ui-icon-close" oncomplete="handleLoginRequest(xhr, status, args)" url="#{appBean.baseUrl}faces/login.xhtml"/>                           
                     </p:menubar>   
                 </h:form>  
             </div>

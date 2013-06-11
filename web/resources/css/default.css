@@ -1,3 +1,5 @@
+@import url('http://fonts.googleapis.com/css?family=Roboto+Slab');
+
 body {
     background-color: #ffffff;
     font-size: 12px;
@@ -7,7 +9,7 @@ body {
 }
 
 h1 {
-    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-family: 'Roboto Slab', Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     border-bottom: 1px solid #AFAFAF; 
     font-size:  160%;
     font-weight: bold;
@@ -82,5 +84,12 @@ a:link:hover, a:visited:hover  {
     background-size: 1.3em 1.3em;
     width: 1.3em;
     height: 1.3em;
+}
+
+.ui-state-default .icon-clean{
+    background-image: url(../images/icons/clean.png);
+    background-size: 1.4em 1.4em;
+    width: 1.4em;
+    height: 1.4em;
 }
 

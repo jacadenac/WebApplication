@@ -5,7 +5,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
-    
+
     <body>
 
         <ui:composition template="#{appBean.baseUrl}views/templateLogin.xhtml">
@@ -26,6 +26,9 @@
                                     <p:commandButton id="loginButton" value="Login" update=":growl"   
                                                      actionListener="# {loginBean.login(actionEvent)}"  icon="icon-login"
                                                      oncomplete="handleLoginRequest(xhr, status, args)"/>
+                                    <p:menubar>  
+                                        <p:menuitem value="Inicio Temporal" icon="ui-icon-home" url="#{appBean.basePath}inicio.xhtml"/>  
+                                    </p:menubar>     
                                 </f:facet>
                             </h:panelGrid>
                         </p:panel>

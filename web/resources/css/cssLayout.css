@@ -1,3 +1,4 @@
+@import url('http://fonts.googleapis.com/css?family=Roboto+Slab');
 
 #top {
     position: relative;
@@ -17,13 +18,15 @@
 }
 
 #title{
-    font-family:  "Helvetica CE", sans-serif, Arial, "Arial CE", "Lucida Grande CE", lucida;
+    font-family:  'Roboto Slab',"Helvetica CE", sans-serif, Arial, "Arial CE", "Lucida Grande CE", lucida;
     border-bottom: 0px; 
-    font-size:  200%;
+    font-size:  230%;
     font-weight: bold;
-    margin: 0.65em 1em;
+    margin: 0.4em 0em 0em 3em;
     padding: 0px;
     color: white;
+    text-shadow: 0.07em 0.07em 0.1em #333;
+    
 }
 
 #bottom {
@@ -123,4 +126,9 @@
 #btnCrearD{
     margin-top: 0.5em;
     float: right;
+}
+
+#btnSolicitud{
+    margin-top: 0.5em;
+    margin-bottom: 1em;
 }

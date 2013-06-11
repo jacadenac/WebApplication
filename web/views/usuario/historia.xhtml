@@ -17,7 +17,7 @@
                 <p:growl id="msgs" showDetail="true" />  
                 
                 <h:form id="formDataTable">  
-                    <p:dataTable id="citas" var="cita" value="# {citaBean.citas}/"
+                    <p:dataTable id="citas" var="cita" value="#{citaBean.citas}/"
                                  paginator="true" rows="10" paginatorPosition="bottom"
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"> 
 
@@ -25,21 +25,21 @@
                             Citas Médicas
                         </f:facet> 
 
-                        <p:column headerText="Fecha Cita" style="width:24%" filterBy="# {cita.fechaCita}"   
+                        <p:column headerText="Fecha Cita" style="width:24%" filterBy="#{cita.fecha}"   
                                   footerText="contains" filterMatchMode="contains">  
-                            <h:outputText value="# {cita.fechaCita}" />  
+                            <h:outputText value="#{citaBean.selectedCita.fecha}" />  
                         </p:column>  
 
                         <p:column headerText="Hora Cita" style="width:24%" >  
-                            <h:outputText value="# {cita.horaCita}" />  
+                            <h:outputText value="#{citaBean.selectedCita.hora}" />  
                         </p:column>  
 
                         <p:column headerText="Tipo Cita" style="width:24%">  
-                            <h:outputText value="# {cita.tipoCita}" />  
+                            <h:outputText value="#{citaBean.selectedCita.tipoCita}" />  
                         </p:column>  
 
                         <p:column headerText="Observaciones" style="width:24%" >  
-                            <h:outputText value="# {cita.observaciones}"/>  
+                            <h:outputText value="#{citaBean.selectedCita.observaciones}"/>  
                         </p:column>  
                         
                         <p:column>          
@@ -56,17 +56,17 @@
                         <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
 
                             <h:outputText value="Fecha Cita:" />  
-                            <p:outputLabel value="# {citaBean.selectedCita.fechaCita}" />
+                            <p:outputLabel value="#{citaBean.selectedCita.fecha}" />
 
                             <h:outputText value="Hora Cita:" />  
-                            <p:outputLabel value="# {citaBean.selectedCita.horaCita}" />  
+                            <p:outputLabel value="#{citaBean.selectedCita.hora}" />  
 
 
                             <h:outputText value="Tipo Cita:" />  
-                            <p:outputLabel value="# {citaBean.selectedCita.tipoCita}" />  
+                            <p:outputLabel value="#{citaBean.selectedCita.tipoCita}" />  
 
                             <h:outputText value="Observaciones:" />  
-                            <p:outputLabel value="# {citaBean.selectedCita.observaciones}" />  
+                            <p:outputLabel value="#{citaBean.selectedCita.observaciones}" />  
                             
                             <f:facet name="footer">
                                 <p:commandButton id="btnLookAceptar" oncomplete="dialogCitaLook.hide()" icon="icon-check" title="Aceptar" value="Aceptar" style="margin-top: 0.35em;"/>  

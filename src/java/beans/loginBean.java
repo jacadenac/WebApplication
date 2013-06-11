@@ -20,7 +20,7 @@ import util.MyUtil;
 
 /**
  *
- * @author familia
+ * @author Alejandro
  */
 @Named(value="loginBean")
 @SessionScoped
@@ -43,19 +43,26 @@ public class loginBean implements Serializable{
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-  
+  */
     public void login(ActionEvent actionEvent) {  
-        RequestContext context = RequestContext.getCurrentInstance();  
+  /*      RequestContext context = RequestContext.getCurrentInstance();  
         FacesMessage msg;  
-        boolean loggedIn;  
+        boolean loggedIn; */ 
+        RequestContext context = RequestContext.getCurrentInstance();
         String ruta = "";
-          
+        FacesMessage msg;
+        boolean loggedIn=true;
+          /*
         this.usuario = this.usuarioDao.login(this.usuario);
         if(this.usuario != null) {  
             loggedIn = true;  
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", this.usuario.getUsuario());
-            msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", this.usuario.getUsuario());  
-            ruta = MyUtil.basepathlogin()+"views/inicio.xhtml";
+            * msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", this.usuario.getUsuario());  
+            */
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", "prueba");
+            msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", null);  
+
+            ruta = MyUtil.basepathlogin()+"views/inicio.xhtml";/*
         } else {  
             loggedIn = false;  
             msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Login Error", "Usuario y/o clave es incorrecto");  
@@ -63,13 +70,11 @@ public class loginBean implements Serializable{
                 this.usuario = new Usuario();
             }
         }  
-          
+          */
         FacesContext.getCurrentInstance().addMessage(null, msg);  
         context.addCallbackParam("loggedIn", loggedIn); 
         context.addCallbackParam("ruta", ruta); 
     }
-    
-    */
     
     public void logout(){
         String ruta = MyUtil.basepathlogin()+"login.xhtml";

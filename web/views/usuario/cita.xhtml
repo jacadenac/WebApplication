@@ -17,7 +17,7 @@
                 <p:growl id="msgs" showDetail="true" />  
 
                 <h:form id="btnSolicitud">
-                    <p:commandButton id="btnSolicitudCita" update=":fromSolicitud" oncomplete="dialogSolicitud.show()" icon="icon-new" title="Solicitud" value="Solicitud"/>  
+                    <p:commandButton id="btnSolicitudCita" update=":fromSolicitud" oncomplete="dialogSolicitud.show()" icon="icon-new" title="Solicitar cita" value="Solicitar cita"/>  
                 </h:form>
 
                 <h:form id="fromSolicitud">
@@ -26,21 +26,61 @@
                         <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
 
                             <h:outputText value="Fecha:" />  
-                            <p:calendar value="#{citaBean.fecha}" id="fechaCal" showOn="button" /> 
+                            <p:calendar value="#{citaBean.selectedCita.fecha}" id="fechaCal" /> 
 
                             <h:outputText value="Hora:" />  
-                            <p:inputText value="#{citaBean.hora}"/> 
+                            <p:inputText value="#{citaBean.selectedCita.hora}"/> 
 
                             <h:outputText value="Tipo Cita:" />  
-                            <p:inputText value="#{citaBean.tipoCita}"/> 
+                            <p:selectOneMenu value="#{citaBean.selectedCita.tipoCita}" style="width: 13.35em;">  
+                                <f:selectItem itemLabel="Odontología" itemValue="ODONTOLOGIA" />  
+                                <f:selectItem itemLabel="General" itemValue="GENERAL" />  
+                                <f:selectItem itemLabel="Pediatría" itemValue="PEDIATRIA" />
+                                <f:selectItem itemLabel="Optometría" itemValue="OPTOMETRIA" />
+                            </p:selectOneMenu> 
 
                             <f:facet name="footer">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
-                                <p:commandButton id="btnSolicitudAceptar" update=":msgs" oncomplete="dialogSolicitud.hide()" actionListener="# {citaBean.btnSolicitudCita(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnSolicitudAceptar" update=":msgs" oncomplete="dialogSolicitud.hide()" actionListener="#{citaBean.btnCreateCita(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
                                 <p:commandButton id="btnSolicitudCancelar" oncomplete="dialogSolicitud.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
                             </f:facet>
                         </h:panelGrid>  
                     </p:dialog>  
                 </h:form> 
+
+                <h:form id="form">  
+
+                    <p:growl id="messages" showDetail="true" />  
+
+                    <p:schedule id="schedule" value="#{scheduleController.eventModel}" widgetVar="myschedule">  
+
+                        <p:ajax event="dateSelect" listener="#{scheduleController.onDateSelect}" update="eventDetails" oncomplete="eventDialog.show()" />  
+                        <p:ajax event="eventSelect" listener="#{scheduleController.onEventSelect}" update="eventDetails" oncomplete="eventDialog.show()" />  
+                        <p:ajax event="eventMove" listener="#{scheduleController.onEventMove}" update="messages" />  
+                        <p:ajax event="eventResize" listener="#{scheduleController.onEventResize}" update="messages" />  
+
+                    </p:schedule>  
+
+                    <p:dialog widgetVar="eventDialog" header="Agregar un evento" showEffect="clip" hideEffect="clip">  
+                        <h:panelGrid id="eventDetails" columns="2">  
+                            <h:outputLabel for="Nombre" value="Nombre:" />  
+                            <p:inputText id="title" value="#{scheduleController.event.title}" required="true"/>  
+
+                            <h:outputLabel for="Fecha inicio" value="Fecha inicio:" />  
+                            <p:calendar value="#{scheduleController.event.startDate}" id="from" pattern="dd/MM/yyyy"/> 
+
+                            <h:outputLabel for="Fecha cierre" value="Fecha cierre:" />  
+                            <p:calendar value="#{scheduleController.event.endDate}" id="to" pattern="dd/MM/yyyy"/> 
+
+                            <h:outputLabel for="Todo el día" value="Todo el día:" />  
+                            <h:selectBooleanCheckbox id="allDay" value="#{scheduleController.event.allDay}" />  
+
+                            <p:commandButton type="reset" value="Restaurar" icon="icon-clean"/>  
+                            <p:commandButton id="addButton" value="Guardar" actionListener="#{scheduleController.addEvent}" oncomplete="myschedule.update();eventDialog.hide();" icon="icon-save"/>  
+                        </h:panelGrid>  
+                    </p:dialog>  
+
+                </h:form>
+
             </ui:define>
         </ui:composition>
 
