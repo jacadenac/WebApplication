@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template.xhtml">
+            <ui:define name="content">
+                <h2>Modificar EPS</h2>
+                <p:separator/>
+                <p>//Aquí el administrador puede añadir nuevas Eps</p>
+                <p:growl id="msgs" showDetail="true" />  
+
+                <h:form id="btnCrear">
+                    <p:commandButton id="btnEpsCreate" update=":formCreate" oncomplete="dialogEpsCreate.show()" icon="icon-new" title="Crear" value="Crear"/>  
+                </h:form>
+
+                <h:form id="formDataTable">  
+                    <p:dataTable id="epss" var="eps" value="# {epsBean.epss}/"
+                                 paginator="true" rows="10" paginatorPosition="bottom"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"> 
+
+                        <f:facet name="header">  
+                            EPS
+                        </f:facet> 
+
+                        <p:column headerText="Id Eps" filterBy="# {eps.id}" style="width: 46%;"   
+                                  footerText="contains" filterMatchMode="contains">  
+                            <h:outputText value="# {eps.id}" />  
+                        </p:column>  
+
+                        <p:column headerText="Nombre Eps" filterBy="# {eps.nombre}"   
+                                  footerText="contains" filterMatchMode="contains">  
+                            <h:outputText value="# {eps.nombre}" />  
+                        </p:column>  
+
+                        <p:column style="width: 4em;">          
+                            <p:commandButton id="btnUpdate" update=":formUpdate" oncomplete="dialogEpsUpdate.show()" icon="icon-edit" title="Modificar">  
+                                <f:setPropertyActionListener value="# {eps}" target="# {epsBean.selectedEps}" />  
+                            </p:commandButton>
+                            <p:commandButton id="btnDelete" update=":formDelete" oncomplete="dialogEpsDelete.show()" icon="icon-delete" title="Eliminar">  
+                                <f:setPropertyActionListener value="# {eps}" target="# {epsBean.selectedEps}" />  
+                            </p:commandButton>  
+                        </p:column>  
+
+                    </p:dataTable>  
+                </h:form>
+
+                <h:form id="formCreate">
+                    <p:dialog header="Añadir Eps" widgetVar="dialogEpsCreate" resizable="false" id="DlgEpsCreate"  
+                              showEffect="fade" hideEffect="explode" modal="true">  
+                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
+
+                            <h:outputText value="Id Eps:" />  
+                            <p:inputText value="# {epsBean.selectedEps.id}"/>                        
+
+                            <h:outputText value="Nombre Eps:" />  
+                            <p:inputText value="# {epsBean.selectedEps.nombre}"/> 
+
+                            <f:facet name="footer">
+                                <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogEpsCreate.hide()" actionListener="# {epsBean.btnCreatEps(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnCreateCancelar" oncomplete="dialogEpsCreate.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
+                            </f:facet>
+                        </h:panelGrid>  
+                    </p:dialog>  
+                </h:form> 
+
+                <h:form id="formUpdate">
+                    <p:dialog header="Modificar Eps" widgetVar="dialogEpsUpdate" resizable="false" id="DlgEpsUpdate"  
+                              showEffect="fade" hideEffect="explode" modal="true">  
+
+                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
+
+                            <h:outputText value="Id Eps:" />  
+                            <p:inputText value="# {epsBean.selectedEps.id}"/>                        
+
+                            <h:outputText value="Nombre Eps:" />  
+                            <p:inputText value="# {epsBean.selectedEps.nombre}"/> 
+
+                            <f:facet name="footer">
+                                <p:commandButton id="btnUpdateAceptar" update=":formDataTable, :msgs" oncomplete="dialogEpsUpdate.hide()" actionListener="# {epsBean.btnUpdateEps(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnUpdateCancelar" oncomplete="dialogEpsUpdate.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
+                            </f:facet>
+                        </h:panelGrid>  
+                    </p:dialog>  
+                </h:form>  
+
+                <h:form id="formDelete">
+                    <p:confirmDialog id="confirmDialog" message="¿Estas seguro de eliminar el registro?"  showEffect="fade" hideEffect="explode"
+                                     header="Eliminar Eps" severity="alert" widgetVar="dialogEpsDelete">  
+                        <h:inputHidden value="# {epsBean.selectedEps.id}"/>
+                        <p:commandButton id="confirm" value="Aceptar" update=":formDataTable, :msgs" oncomplete="dialogEpsDelete.hide()"  
+                                         actionListener="# {epsBean.btnDeleteEps(actionEvent)}" icon="icon-check"/>  
+                        <p:commandButton id="decline" value="Cancelar" onclick="dialogEpsDelete.hide();" type="button" icon="icon-cancel"/>   
+                    </p:confirmDialog>  
+                </h:form> 
+                
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

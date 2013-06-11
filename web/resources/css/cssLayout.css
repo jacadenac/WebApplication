@@ -1,0 +1,126 @@
+
+#top {
+    position: relative;
+    background-color: #036fab;
+    color: white;
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    min-height: 62px;
+}
+
+#logo{
+    background-repeat: no-repeat;
+    float: left;
+    margin: 0.1em 1.5em 0.1em 0.5em;
+    width: 5em;
+    height: 5em;
+}
+
+#title{
+    font-family:  "Helvetica CE", sans-serif, Arial, "Arial CE", "Lucida Grande CE", lucida;
+    border-bottom: 0px; 
+    font-size:  200%;
+    font-weight: bold;
+    margin: 0.65em 1em;
+    padding: 0px;
+    color: white;
+}
+
+#bottom {
+    text-align: center;
+    position: relative;
+    background-color: #c2dfef;
+    padding: 5px;
+    margin: 0px 0px 0px 0px;
+    height: 40px;
+}
+
+#pieDePagina{
+    margin-top: 1em;
+}
+
+#left {
+    float: left;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+#right {
+    float: right;
+    background-color: #ece3a5;
+    padding: 5px;
+    width: 150px;
+}
+
+.center_content {
+    position: relative;
+    background-color: #fff;
+    padding: 5px;
+    min-height: 31em;
+    margin-top: -1px;
+    font-size:  95%;
+    padding: 0.5em 3em 2em 3em;
+    text-align: justify;
+}
+
+#menu{
+    margin: 0px;
+}
+
+.conteiner{
+    width: 24em;
+    margin: 5em auto 5em auto;
+}
+
+#contenido {
+    width: 90%;
+    min-width: 66em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ui-state-default .icon-login{
+    background-image: url(../images/icons/login.png);
+    background-size: 1em 1em;
+    width: 1em;
+    height: 1em;
+}
+
+.left_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin-left: 170px;
+}
+
+.right_content {
+    background-color: #dddddd;
+    padding: 5px;
+    margin: 0px 170px 0px 170px;
+}
+
+#top a:link, #top a:visited {
+  color: white;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+#top a:link:hover, #top a:visited:hover  {
+  color: black;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+#formDataTable{
+    margin: 0em;
+    margin-top: 0.5em;
+}
+
+#btnCrear{
+    margin-top: 0.5em;
+}
+
+#btnCrearD{
+    margin-top: 0.5em;
+    float: right;
+}

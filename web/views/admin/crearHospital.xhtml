@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template.xhtml">
+            <ui:define name="content">
+                <h2>Modificar Hospitales</h2>
+                <p:separator/>
+                <p>//Aquí el administrador puede añadir un nuevo hospital</p>
+                <p:growl id="msgs" showDetail="true" />  
+
+                <h:form id="btnCrear">
+                    <p:commandButton id="btnHospitalCreate" update=":formCreate" oncomplete="dialogHospitalCreate.show()" icon="icon-new" title="Crear" value="Crear"/>  
+                </h:form>
+
+                <h:form id="formDataTable">  
+                    <p:dataTable id="hospitales" var="hospital" value="# {hospitalBean.hospitales}/"
+                                 paginator="true" rows="10" paginatorPosition="bottom"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"> 
+
+                        <f:facet name="header">  
+                            Hospitales
+                        </f:facet> 
+
+                        <p:column headerText="Id Hospital" filterBy="# {hospital.id}" style="width: 46%;"   
+                                  footerText="contains" filterMatchMode="contains">  
+                            <h:outputText value="# {hospital.id}" />  
+                        </p:column>  
+
+                        <p:column headerText="Nombre Hospital" filterBy="# {hospital.nombre}"   
+                                  footerText="contains" filterMatchMode="contains">  
+                            <h:outputText value="# {hospital.nombre}" />  
+                        </p:column>  
+
+                        <p:column style="width: 4em;">          
+                            <p:commandButton id="btnUpdate" update=":formUpdate" oncomplete="dialogHospitalUpdate.show()" icon="icon-edit" title="Modificar">  
+                                <f:setPropertyActionListener value="# {hospital}" target="# {hospitalBean.selectedHospital}" />  
+                            </p:commandButton>
+                            <p:commandButton id="btnDelete" update=":formDelete" oncomplete="dialogHospitalDelete.show()" icon="icon-delete" title="Eliminar">  
+                                <f:setPropertyActionListener value="# {hospital}" target="# {hospitalBean.selectedHospital}" />  
+                            </p:commandButton>  
+                        </p:column>  
+
+                    </p:dataTable>  
+                </h:form>
+
+                <h:form id="formCreate">
+                    <p:dialog header="Añadir Hospital" widgetVar="dialogHospitalCreate" resizable="false" id="DlgHospitalCreate"  
+                              showEffect="fade" hideEffect="explode" modal="true">  
+                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
+
+                            <h:outputText value="Id Hospital:" />  
+                            <p:inputText value="# {hospitalBean.selectedHospital.id}"/>                        
+
+                            <h:outputText value="Nombre Hospital:" />  
+                            <p:inputText value="# {hospitalBean.selectedHospital.nombre}"/> 
+
+                            <f:facet name="footer">
+                                <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogHospitalCreate.hide()" actionListener="#{hospitalBean.btnCreateHospital(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnCreateCancelar" oncomplete="dialogHospitalCreate.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
+                            </f:facet>
+                        </h:panelGrid>  
+                    </p:dialog>  
+                </h:form> 
+
+                <h:form id="formUpdate">
+                    <p:dialog header="Modificar Hospital" widgetVar="dialogHospitalUpdate" resizable="false" id="DlgHospitalUpdate"  
+                              showEffect="fade" hideEffect="explode" modal="true">  
+
+                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
+
+                            <h:outputText value="Id Hospital:" />  
+                            <p:inputText value="# {hospitalBean.selectedHospital.id}"/>                        
+
+                            <h:outputText value="Nombre Hospital:" />  
+                            <p:inputText value="# {hospitalBean.selectedHospital.nombre}"/> 
+
+                            <f:facet name="footer">
+                                <p:commandButton id="btnUpdateAceptar" update=":formDataTable, :msgs" oncomplete="dialogHospitalUpdate.hide()" actionListener="# {hospitalBean.btnUpdateHospital(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnUpdateCancelar" oncomplete="dialogHospitalUpdate.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
+                            </f:facet>
+                        </h:panelGrid>  
+                    </p:dialog>  
+                </h:form>  
+
+                <h:form id="formDelete">
+                    <p:confirmDialog id="confirmDialog" message="¿Estas seguro de eliminar el registro?"  showEffect="fade" hideEffect="explode"
+                                     header="Eliminar Hospital" severity="alert" widgetVar="dialogHospitalDelete">  
+                        <h:inputHidden value="# {hospitalBean.selectedHospital.id}"/>
+                        <p:commandButton id="confirm" value="Aceptar" update=":formDataTable, :msgs" oncomplete="dialogHospitalDelete.hide()"  
+                                         actionListener="# {hospitalBean.btnDeleteHospital(actionEvent)}" icon="icon-check"/>  
+                        <p:commandButton id="decline" value="Cancelar" onclick="dialogHospitalDelete.hide();" type="button" icon="icon-cancel"/>   
+                    </p:confirmDialog>  
+                </h:form> 
+
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

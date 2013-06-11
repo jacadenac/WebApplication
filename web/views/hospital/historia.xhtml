@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+        <ui:composition template="./../template.xhtml">
+            <ui:define name="content">
+                <h2>Añadir Cita Médica</h2>
+                <p:separator/>
+                <p>//Aquí el hospital puede añadir y editar las citas médicas que pertenecen a una historia médica</p>
+                <p:growl id="msgs" showDetail="true" />  
+
+                <p:outputLabel value="Ingrese la id de la Historia Clínica:" />
+                <p:inputText value="# {historiaBean.selectedHistoria.id}" style="margin: 1em;"/>
+
+                <h:form id="btnCrearD">
+                    <p:commandButton id="btnCitaCreate" update=":formCreate" oncomplete="dialogCitaCreate.show()" icon="icon-new" title="Crear" value="Crear"/>  
+                </h:form>
+
+                <h:form id="formDataTable">  
+                    <p:dataTable id="citas" var="cita" value="# {citaBean.cita}/"
+                                 paginator="true" rows="10" paginatorPosition="bottom"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"> 
+
+                        <f:facet name="header">  
+                            Citas Médicas
+                        </f:facet> 
+
+                        <p:column headerText="Id" style="max-width: 5em;" filterBy="# {cita.id}"   
+                                  footerText="contains" filterMatchMode="contains">  
+                            <h:outputText value="# {cita.id}" />  
+                        </p:column>  
+
+                        <p:column headerText="Fecha" style="max-width:5em;" >  
+                            <h:outputText value="# {cita.fechaCita}" />  
+                        </p:column>  
+
+                        <p:column headerText="Hora" style="max-width:4em;" >  
+                            <h:outputText value="# {cita.horaCita}" />  
+                        </p:column>  
+
+                        <p:column headerText="Estado" style="max-width:5em;" >  
+                            <h:outputText value="# {cita.estado}" />  
+                        </p:column> 
+
+                        <p:column headerText="Tipo Cita" style="max-width:6em;" >  
+                            <h:outputText value="# {cita.tipo}" />  
+                        </p:column> 
+
+                        <p:column headerText="Costo" style="max-width:4em;" >  
+                            <h:outputText value="# {cita.id}" />  
+                        </p:column> 
+
+                        <p:column headerText="Observaciones" style="max-width: 7em;" >  
+                            <h:outputText value="# {cita.observaciones}" />  
+                        </p:column> 
+
+                        <p:column style="width:7em;">          
+                            <p:commandButton id="btnLook" update=":formLook" oncomplete="dialogCitaLook.show()" icon="icon-extend" title="Ver"/>  
+                            <p:commandButton id="btnUpdate" update=":formUpdate" oncomplete="dialogCitaUpdate.show()" icon="icon-edit" title="Modificar">  
+                                <f:setPropertyActionListener value="# {cita}" target="# {citaBean.selectedCita}" />  
+                            </p:commandButton>
+                            <p:commandButton id="btnDelete" update=":formDelete" oncomplete="dialogCitaDelete.show()" icon="icon-delete" title="Eliminar">  
+                                <f:setPropertyActionListener value="# {cita}" target="# {usuarioBean.selectedCita}" />  
+                            </p:commandButton>  
+                        </p:column>  
+
+                    </p:dataTable>  
+                </h:form>
+
+                <h:form id="formLook">
+                    <p:dialog header="Cita Médica" widgetVar="dialogCitaLook" resizable="false" id="DlgCitaLook"  
+                              showEffect="fade" hideEffect="explode" modal="true">  
+                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
+
+                            <h:outputText value="Id:" /> 
+                            <p:outputLabel value="# {citaBean.selectedCita.id}" />  
+
+                            <h:outputText value="Fecha:" /> 
+                            <p:outputLabel value="# {citaBean.selectedCita.fechaCita}" />  
+
+                            <h:outputText value="Hora:" /> 
+                            <p:outputLabel value="# {citaBean.selectedCita.horaCita}" />  
+
+                            <h:outputText value="Estado:" />  
+                            <p:outputLabel value="# {citaBean.selectedCita.estado}" />  
+
+                            <h:outputText value="Tipo cita:" /> 
+                            <p:outputLabel value="# {citaBean.selectedCita.tipo}" />  
+
+                            <h:outputText value="Costo:" /> 
+                            <p:outputLabel value="# {citaBean.selectedCita.costo}" />  
+
+                            <h:outputText value="Observaciones:" /> 
+                            <p:outputLabel value="# {citaBean.selectedCita.observaciones}" />  
+
+                            <f:facet name="footer">
+                                <p:commandButton id="btnLookAceptar" oncomplete="dialogCitaLook.hide()" icon="icon-check" title="Aceptar" value="Aceptar" style="margin-top: 0.35em;"/>  
+                            </f:facet>
+                        </h:panelGrid>  
+                    </p:dialog>  
+                </h:form> 
+
+                <h:form id="formCreate">
+                    <p:dialog header="Crear Cita Medica" widgetVar="dialogCitaCreate" resizable="false" id="DlgCitaCreate"  
+                              showEffect="fade" hideEffect="explode" modal="true">  
+                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
+
+                            <h:outputText value="Fecha:" /> 
+                            <p:inputText value="# {citaBean.selectedCita.fechaCita}" />  
+
+                            <h:outputText value="Hora:" /> 
+                            <p:inputText value="# {citaBean.selectedCita.horaCita}" />  
+
+                            <h:outputText value="Estado:" />  
+                            <p:inputText value="# {citaBean.selectedCita.estado}" />  
+
+                            <h:outputText value="Tipo cita:" /> 
+                            <p:inputText value="# {citaBean.selectedCita.tipo}" />  
+
+                            <h:outputText value="Costo:" /> 
+                            <p:inputText value="# {citaBean.selectedCita.costo}" />  
+
+                            <h:outputText value="Observaciones:" /> 
+                            <p:inputTextarea value="# {citaBean.selectedCita.observaciones}" />  
+                            
+                            <f:facet name="footer">
+                                <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogCitaCreate.hide()" actionListener="# {citaBean.btnCreateCita(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnCreateCancelar" oncomplete="dialogCitaCreate.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
+                            </f:facet>
+                        </h:panelGrid>  
+                    </p:dialog>  
+                </h:form> 
+
+                <h:form id="formUpdate">
+                    <p:dialog header="Modificar Usuario" widgetVar="dialogCitaUpdate" resizable="false" id="DlgCitaUpdate"  
+                              showEffect="fade" hideEffect="explode" modal="true">  
+
+                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
+
+                            <h:outputText value="Fecha:" /> 
+                            <p:inputText value="# {citaBean.selectedCita.fechaCita}" />  
+
+                            <h:outputText value="Hora:" /> 
+                            <p:inputText value="# {citaBean.selectedCita.horaCita}" />  
+
+                            <h:outputText value="Estado:" />  
+                            <p:inputText value="# {citaBean.selectedCita.estado}" />  
+
+                            <h:outputText value="Tipo cita:" /> 
+                            <p:inputText value="# {citaBean.selectedCita.tipo}" />  
+
+                            <h:outputText value="Costo:" /> 
+                            <p:inputText value="# {citaBean.selectedCita.costo}" />  
+
+                            <h:outputText value="Observaciones:" /> 
+                            <p:inputTextarea value="# {citaBean.selectedCita.observaciones}" />  
+
+                            <f:facet name="footer">
+                                <p:commandButton id="btnUpdateAceptar" update=":formDataTable, :msgs" oncomplete="dialogCitaUpdate.hide()" actionListener="# {citaBean.btnUpdateCita(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnUpdateCancelar" oncomplete="dialogCitaUpdate.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
+                            </f:facet>
+                        </h:panelGrid>  
+                    </p:dialog>  
+                </h:form>  
+
+                <h:form id="formDelete">
+                    <p:confirmDialog id="confirmDialog" message="¿Estas seguro de eliminar el registro?"  showEffect="fade" hideEffect="explode"
+                                     header="Eliminar Cita Médica" severity="alert" widgetVar="dialogCitaDelete">  
+                        <h:inputHidden value="# {citaBean.selectedCita.id}"/>
+                        <p:commandButton id="confirm" value="Aceptar" update=":formDataTable, :msgs" oncomplete="dialogCitaDelete.hide()"  
+                                         actionListener="# {citaBean.btnDeleteCita(actionEvent)}" icon="icon-check"/>  
+                        <p:commandButton id="decline" value="Cancelar" onclick="dialogCitaDelete.hide();" type="button" icon="icon-cancel"/>   
+                    </p:confirmDialog>  
+                </h:form> 
+
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

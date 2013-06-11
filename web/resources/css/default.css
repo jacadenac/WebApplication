@@ -1,0 +1,86 @@
+body {
+    background-color: #ffffff;
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;  
+    margin: 10px;
+}
+
+h1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  160%;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: white;
+}
+
+a:link, a:visited {
+  color: #045491;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+a:link:hover, a:visited:hover  {
+  color: #045491;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+.ui-state-default .icon-login{
+    background-image: url(../images/icons/login.png);
+    background-size: 1.4em 1.4em;
+    width: 1.4em;
+    height: 1.4em;
+}
+
+.ui-state-default .icon-new{
+    background-image: url(../images/icons/new.png);
+    background-size: 1.3em 1.3em;
+    width: 1.3em;
+    height: 1.3em;
+}
+
+.ui-state-default .icon-edit{
+    background-image: url(../images/icons/edit.png);
+    background-size: 1.3em 1.3em;
+    width: 1.3em;
+    height: 1.3em;
+}
+
+.ui-state-default .icon-delete{
+    background-image: url(../images/icons/delete.png);
+    background-size: 1.4em 1.4em;
+    width: 1.4em;
+    height: 1.4em;
+}
+
+.ui-state-default .icon-save{
+    background-image: url(../images/icons/save.png);
+    background-size: 1.3em 1.3em;
+    width: 1.3em;
+    height: 1.3em;
+}
+
+.ui-state-default .icon-cancel{
+    background-image: url(../images/icons/cancel.png);
+    background-size: 1.1em 1.1em;
+    width: 1.1em;
+    height: 1.1em;
+}
+
+.ui-state-default .icon-check{
+    background-image: url(../images/icons/check.png);
+    background-size: 1.3em 1.3em;
+    width: 1.3em;
+    height: 1.3em;
+}
+
+.ui-state-default .icon-extend{
+    background-image: url(../images/icons/extend.png);
+    background-size: 1.3em 1.3em;
+    width: 1.3em;
+    height: 1.3em;
+}
+

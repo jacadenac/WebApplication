@@ -1,0 +1,29 @@
+/* 
+    Document   : login
+    Created on : 9/06/2013, 03:16:33 PM
+    Author     : Alejandro
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body{
+    background-color: #ECF3FD;
+}
+.conteiner{
+    width: 25em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    font-size:85%;
+}
+
+/*.ui-state-default .icon-login{
+    background-image: url(../images/icons/login.png);
+    background-size: 1.2em 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+}*/

@@ -1,0 +1,28 @@
+/* 
+    Document   : inicio
+    Created on : 10/06/2013, 11:56:58 AM
+    Author     : Alejandro
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root{
+    
+}
+
+.galeria{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+    opacity: 0;
+    width: 371px;
+    height: 278px;
+}
+
+#Imagenes{
+    float: right;
+    position: relative;
+    margin-top: 2.9em;
+    margin-left: 2em;
+}
