@@ -20,7 +20,7 @@ import javax.inject.Named;
 public class usuarioBean {
 
     private List<Usuario> usuarios;
-    private Usuario usuario;
+    private Usuario SelectedUsuario;
 
     public usuarioBean() {
         this.usuarios = new ArrayList<Usuario>();
@@ -31,11 +31,11 @@ public class usuarioBean {
     }
 
     public Usuario getUsuario() {
-        return usuario;
+        return SelectedUsuario;
     }
 
     public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+        this.SelectedUsuario = usuario;
     }
     
     public void btnCreateUsuario(ActionEvent actionEvent) {

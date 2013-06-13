@@ -28,16 +28,12 @@
                             Historias Médicas
                         </f:facet> 
 
-                        <p:column headerText="Id Cliente" style="width:43%" filterBy="#{historia.idUsuario}"   
+                        <p:column headerText="Id Historia Clinica" filterBy="#{historia.idHistoria}"  
                                   footerText="contains" filterMatchMode="contains">  
-                            <h:outputText value="#{historiaClinicaBean.selectedHistoria.idUsuario}" />  
-                        </p:column>  
-
-                        <p:column headerText="Id Historia Médica" style="width:43%" >  
                             <h:outputText value="#{historiaClinicaBean.selectedHistoria.idHistoria}" />  
                         </p:column>  
  
-                        <p:column>          
+                        <p:column style="width:7em;">          
                             <p:commandButton id="btnLook" update=":formLook" oncomplete="dialogHistoriaLook.show()" icon="icon-extend" title="Ver">  
                                 <f:setPropertyActionListener value="#{historia}" target="#{historiaClinicaBean.selectedHistoria}" />  
                             </p:commandButton>
@@ -53,12 +49,9 @@
                 </h:form>
 
                 <h:form id="formLook">
-                    <p:dialog header="Cita Médica" widgetVar="dialogHistoriaLook" resizable="false" id="DlgHistoriaLook"  
+                    <p:dialog header="Historia Médica" widgetVar="dialogHistoriaLook" resizable="false" id="DlgHistoriaLook"  
                               showEffect="fade" hideEffect="explode" modal="true">  
                         <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
-
-                            <h:outputText value="Id Cliente:" />  
-                            <p:outputLabel value="#{historiaClinicaBean.selectedHistoria.idUsuario}" />
 
                             <h:outputText value="Id Historia Médica:" />  
                             <p:outputLabel value="#{historiaClinicaBean.selectedHistoria.idHistoria}" />  
@@ -76,10 +69,7 @@
                         <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
 
                             <h:outputText value="Id Cliente:" />  
-                            <p:inputText value="#{historiaClinicaBean.selectedHistoria.idUsuario}"/>                        
-
-                            <h:outputText value="Id Historia Clinica:" />  
-                            <p:inputText value="#{historiaClinicaBean.selectedHistoria.idHistoria}"/> 
+                            <p:inputText value="#{historiaClinicaBean.selectedHistoria.idHistoria}"/>                        
 
                             <f:facet name="footer">
                                 <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogHistoriaCreate.hide()" actionListener="#{historiaClinicaBean.btnCreateHistoria(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
@@ -90,13 +80,10 @@
                 </h:form> 
                 
                 <h:form id="formUpdate">
-                    <p:dialog header="Modificar Usuario" widgetVar="dialogHistoriaUpdate" resizable="false" id="DlgHistoriaUpdate"  
+                    <p:dialog header="Editar Historia Médica" widgetVar="dialogHistoriaUpdate" resizable="false" id="DlgHistoriaUpdate"  
                               showEffect="fade" hideEffect="explode" modal="true">  
 
-                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
-
-                            <h:outputText value="Id Cliente:" />  
-                            <p:inputText value="#{historiaClinicaBean.selectedHistoria.idUsuario}"/>                        
+                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">                 
 
                             <h:outputText value="Id Historia Clinica:" />  
                             <p:inputText value="#{historiaClinicaBean.selectedHistoria.idHistoria}"/> 

@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template.xhtml">
+            <ui:define name="content">
+                <h2>Reportar Nacimientos y Muertes</h2>
+                <p:separator/>
+                <p>//Aquí los hospitales pueden reportar nacimientos y muertes</p>
+                <p:growl id="msgs" showDetail="true" />  
+
+                <h:form id="btnReportar">
+                    <p:commandButton id="btnNacimientoReport" update=":formNacimiento" oncomplete="dialogNacimientoReport.show()" icon="icon-new" title="reportar" value="Reportar Nacimiento"/> 
+                    <p:commandButton id="btnMuerteReport" update=":formMuerte" oncomplete="dialogMuerteReport.show()" icon="icon-new" title="Crear" value="Reportar Defunción"/>  
+                </h:form>
+
+                <h:form id="formDataTable">  
+                    <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
+                        <h:outputText value="#{reporteBean.selectedReporte.mensaje}" />  
+                   </h:panelGrid> 
+                </h:form>
+
+                <h:form id="formNacimiento">
+                    <p:dialog header="Agregar Doctor" widgetVar="dialogNacimientoReport" resizable="false" id="DlgNacimientoReport"  
+                              showEffect="fade" hideEffect="explode" modal="true">  
+                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
+
+                            <h:outputText value="Nombre del recién nacido:" />  
+                            <p:inputText value=""/>  
+
+                            <f:facet name="footer">
+                                <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogNacimientoReport.hide()" icon="icon-send" title="Enviar" value="Enviar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnCreateCancelar" oncomplete="dialogNacimientoReport.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
+                            </f:facet>
+                        </h:panelGrid>  
+                    </p:dialog>  
+                </h:form> 
+
+                <h:form id="formMuerte">
+                    <p:dialog header="Agregar Doctor" widgetVar="dialogMuerteReport" resizable="false" id="DlgMuerteReport"  
+                              showEffect="fade" hideEffect="explode" modal="true">  
+                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
+
+                            <h:outputText value="Documento del difunto:" />  
+                            <p:inputText value=""/>  
+
+                            <f:facet name="footer">
+                                <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogMuerteReport.hide()" icon="icon-send" title="Enviar" value="Enviar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnCreateCancelar" oncomplete="dialogMuerteReport.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
+                            </f:facet>
+                        </h:panelGrid>  
+                    </p:dialog>  
+                </h:form> 
+
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

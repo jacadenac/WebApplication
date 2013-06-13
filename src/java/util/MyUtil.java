@@ -10,8 +10,8 @@ package util;
  */
 public class MyUtil {
     public static String baseurl(){
-        return "http://localhost:42457/WebApplication/";
-        //return "http://localhost:8080/WebApplication/";
+        //return "http://localhost:42457/WebApplication/";
+        return "http://localhost:8080/WebApplication/";
     }
     
     public static String basepathlogin(){
