@@ -100,3 +100,9 @@ a:link:hover, a:visited:hover  {
     height: 1.4em;
 }
 
+.ui-state-default .icon-search{
+    background-image: url(../images/icons/search.png);
+    background-size: 1.2em 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+}

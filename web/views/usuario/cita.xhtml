@@ -26,34 +26,33 @@
                         <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
 
                             <h:outputText value="Hospital:" />  
-                            <p:selectOneMenu value="#{hospitalBean.selectedHospital.nombre}" style="width: 13.35em;">  
-                                <f:selectItem itemLabel="Hospital de Fontibón" itemValue="HOSPITAL DE FONTIBON" />  
-                                <f:selectItem itemLabel="Hospital Tunal" itemValue="HOSPITAL TUNAL" />  
-                                <f:selectItem itemLabel="Hospital Usme" itemValue="HOSPITAL USME" />
-                                <f:selectItem itemLabel="Hospital Meissen" itemValue="HOSPITAL MEISSEN" />
+                            <p:selectOneMenu id="selHosp" value="#{ControladorCita.selectedHospital}" style="width: 13.35em;">  
+                                <f:selectItems value="#{ControladorCita.hospitales}" var="hospital" itemLabel="#{hospital.nombre}"/>
+                                <!--<p:ajax update="selDoc, selEsp" listener="#{ControladorCita.actualizarDoctores()}"/>-->
+                                <p:ajax update="selDoc" listener="#{ControladorCita.handleDoctores}"/>
                             </p:selectOneMenu> 
 
                             <h:outputText value="Tipo Cita:" />  
-                            <p:selectOneMenu value="#{citaBean.selectedCita.tipoCita}" style="width: 13.35em;">  
+                            <p:selectOneMenu id="selEsp" value="#{ControladorCita.selectedEspecialidad}" style="width: 13.35em;">  
+                                <f:selectItem itemLabel="Selecciona uno" itemValue=""  noSelectionOption="true" />
                                 <f:selectItem itemLabel="Odontología" itemValue="ODONTOLOGIA" />  
                                 <f:selectItem itemLabel="General" itemValue="GENERAL" />  
                                 <f:selectItem itemLabel="Pediatría" itemValue="PEDIATRIA" />
                                 <f:selectItem itemLabel="Optometría" itemValue="OPTOMETRIA" />
+                                <p:ajax  update="selDoc" />
                             </p:selectOneMenu> 
 
                             <h:outputText value="Doctor:" />  
-                            <p:selectOneMenu value="#{doctorBean.selectedDoctor.nombre}" style="width: 13.35em;">  
-                                <f:selectItem itemLabel="Roberto Sánchez" itemValue="ROBERTO SANCHEZ" />  
-                                <f:selectItem itemLabel="Claudia Torres" itemValue="CLAUDIA TORRES" />  
-                                <f:selectItem itemLabel="MarcelaParra" itemValue="MARCELA PARRA" />
-                                <f:selectItem itemLabel="Pedro Pérez" itemValue="PEDRO PEREZ" />
+                            <p:selectOneMenu id="selDoc" value="#{ControladorCita.selectedDoctor}" style="width: 13.35em;">  
+                                <f:selectItem itemLabel="Selecciona uno" itemValue=""  noSelectionOption="true"/>
+                                <f:selectItems value="#{ControladorCita.doctores}" var="doctor" itemLabel="#{doctor.nombre}"/>
                             </p:selectOneMenu> 
 
                             <h:outputText value="Fecha:" />  
-                            <p:calendar value="#{citaBean.selectedCita.fecha}" id="fechaCal" /> 
+                            <p:calendar value="#{citaBean.selectedCita.time}" id="fechaCal" /> 
 
                             <h:outputText value="Hora:" />  
-                            <p:selectOneMenu value="#{citaBean.selectedCita.hora}" style="width: 13.35em;">  
+                            <p:selectOneMenu value="#{citaBean.selectedCita.id}" style="width: 13.35em;">  
                                 <f:selectItem itemLabel="1:00" itemValue="1" />
                                 <f:selectItem itemLabel="2:00" itemValue="2" />  
                                 <f:selectItem itemLabel="3:00" itemValue="3" />

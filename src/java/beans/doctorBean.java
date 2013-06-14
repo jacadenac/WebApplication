@@ -8,6 +8,7 @@ import classes.Doctor;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
@@ -18,16 +19,28 @@ import javax.inject.Named;
 @Named(value = "doctorBean")
 @RequestScoped
 public class doctorBean {
+    @EJB
+    Conector conector;    
+    
     private List<Doctor> doctores;
     private Doctor selectedDoctor;
 
     public doctorBean() {
         this.doctores = new ArrayList<Doctor>();
+        //this.doctores = conector.getDoctores();
+        //selectedDoctor = doctores.get(0);
+        selectedDoctor = new Doctor(90, "MAURO MARTINEZ", "GENERAL", 1);
     }
 
+    //método editado
     public List<Doctor> getDoctores() {
-        return doctores;
+        return conector.getDoctores();
     }
+    
+    //método creado
+    public List<Doctor> getDoctores(int idHospital, String tipoCita) {
+        return conector.getDoctores(idHospital, tipoCita);
+    }    
 
     public Doctor getSelectedDoctor() {
         return selectedDoctor;

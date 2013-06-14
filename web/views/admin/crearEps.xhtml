@@ -33,9 +33,9 @@
                             <h:outputText value="#{epsBean.selectedEps.id}" />  
                         </p:column>  
 
-                        <p:column headerText="Nombre Eps" filterBy="#{eps.nombre}"   
+                        <p:column headerText="Nombre Eps" filterBy="#{eps.name}"   
                                   footerText="contains" filterMatchMode="contains">  
-                            <h:outputText value="#{epsBean.selectedEps.nombre}" />  
+                            <h:outputText value="#{epsBean.selectedEps.name}" />  
                         </p:column>  
 
                         <p:column style="width: 4em;">          
@@ -59,7 +59,7 @@
                             <p:inputText value="#{epsBean.selectedEps.id}"/>                        
 
                             <h:outputText value="Nombre Eps:" />  
-                            <p:inputText value="#{epsBean.selectedEps.nombre}"/> 
+                            <p:inputText value="#{epsBean.selectedEps.name}"/> 
 
                             <f:facet name="footer">
                                 <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogEpsCreate.hide()" actionListener="#{epsBean.btnCreateEps(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
@@ -79,7 +79,7 @@
                             <p:inputText value="#{epsBean.selectedEps.id}"/>                        
 
                             <h:outputText value="Nombre Eps:" />  
-                            <p:inputText value="#{epsBean.selectedEps.nombre}"/> 
+                            <p:inputText value="#{epsBean.selectedEps.name}"/> 
 
                             <f:facet name="footer">
                                 <p:commandButton id="btnUpdateAceptar" update=":formDataTable, :msgs" oncomplete="dialogEpsUpdate.hide()" actionListener="#{epsBean.btnUpdateEps(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
