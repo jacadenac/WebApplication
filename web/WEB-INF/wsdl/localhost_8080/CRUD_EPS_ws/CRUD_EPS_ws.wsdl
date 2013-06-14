@@ -4,23 +4,11 @@
 <xsd:import namespace="http://services/" schemaLocation="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="changeEPS">
-<part name="parameters" element="tns:changeEPS"/>
-</message>
-<message name="changeEPSResponse">
-<part name="parameters" element="tns:changeEPSResponse"/>
-</message>
 <message name="readOneEPS">
 <part name="parameters" element="tns:readOneEPS"/>
 </message>
 <message name="readOneEPSResponse">
 <part name="parameters" element="tns:readOneEPSResponse"/>
-</message>
-<message name="updateEPS">
-<part name="parameters" element="tns:updateEPS"/>
-</message>
-<message name="updateEPSResponse">
-<part name="parameters" element="tns:updateEPSResponse"/>
 </message>
 <message name="createEPS">
 <part name="parameters" element="tns:createEPS"/>
@@ -28,11 +16,23 @@
 <message name="createEPSResponse">
 <part name="parameters" element="tns:createEPSResponse"/>
 </message>
+<message name="updateEPS">
+<part name="parameters" element="tns:updateEPS"/>
+</message>
+<message name="updateEPSResponse">
+<part name="parameters" element="tns:updateEPSResponse"/>
+</message>
 <message name="deleteEPS">
 <part name="parameters" element="tns:deleteEPS"/>
 </message>
 <message name="deleteEPSResponse">
 <part name="parameters" element="tns:deleteEPSResponse"/>
+</message>
+<message name="changeEPS">
+<part name="parameters" element="tns:changeEPS"/>
+</message>
+<message name="changeEPSResponse">
+<part name="parameters" element="tns:changeEPSResponse"/>
 </message>
 <message name="readAllEPS">
 <part name="parameters" element="tns:readAllEPS"/>
@@ -41,25 +41,25 @@
 <part name="parameters" element="tns:readAllEPSResponse"/>
 </message>
 <portType name="CRUD_EPS_ws">
-<operation name="changeEPS">
-<input wsam:Action="http://services/CRUD_EPS_ws/changeEPSRequest" message="tns:changeEPS"/>
-<output wsam:Action="http://services/CRUD_EPS_ws/changeEPSResponse" message="tns:changeEPSResponse"/>
-</operation>
 <operation name="readOneEPS">
 <input wsam:Action="http://services/CRUD_EPS_ws/readOneEPSRequest" message="tns:readOneEPS"/>
 <output wsam:Action="http://services/CRUD_EPS_ws/readOneEPSResponse" message="tns:readOneEPSResponse"/>
-</operation>
-<operation name="updateEPS">
-<input wsam:Action="http://services/CRUD_EPS_ws/updateEPSRequest" message="tns:updateEPS"/>
-<output wsam:Action="http://services/CRUD_EPS_ws/updateEPSResponse" message="tns:updateEPSResponse"/>
 </operation>
 <operation name="createEPS">
 <input wsam:Action="http://services/CRUD_EPS_ws/createEPSRequest" message="tns:createEPS"/>
 <output wsam:Action="http://services/CRUD_EPS_ws/createEPSResponse" message="tns:createEPSResponse"/>
 </operation>
+<operation name="updateEPS">
+<input wsam:Action="http://services/CRUD_EPS_ws/updateEPSRequest" message="tns:updateEPS"/>
+<output wsam:Action="http://services/CRUD_EPS_ws/updateEPSResponse" message="tns:updateEPSResponse"/>
+</operation>
 <operation name="deleteEPS">
 <input wsam:Action="http://services/CRUD_EPS_ws/deleteEPSRequest" message="tns:deleteEPS"/>
 <output wsam:Action="http://services/CRUD_EPS_ws/deleteEPSResponse" message="tns:deleteEPSResponse"/>
+</operation>
+<operation name="changeEPS">
+<input wsam:Action="http://services/CRUD_EPS_ws/changeEPSRequest" message="tns:changeEPS"/>
+<output wsam:Action="http://services/CRUD_EPS_ws/changeEPSResponse" message="tns:changeEPSResponse"/>
 </operation>
 <operation name="readAllEPS">
 <input wsam:Action="http://services/CRUD_EPS_ws/readAllEPSRequest" message="tns:readAllEPS"/>
@@ -68,25 +68,7 @@
 </portType>
 <binding name="CRUD_EPS_wsPortBinding" type="tns:CRUD_EPS_ws">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="changeEPS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="readOneEPS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="updateEPS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -104,7 +86,25 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="updateEPS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="deleteEPS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="changeEPS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

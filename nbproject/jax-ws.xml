@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
-  <services>
-  </services>
+  <services/>
   <clients>
     <client name="CRUD_EPS_ws">
       <wsdl-url>http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?wsdl</wsdl-url>

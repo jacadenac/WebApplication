@@ -7,6 +7,18 @@
 <xsd:import namespace="http://fachadews/" schemaLocation="http://localhost:8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS?xsd=2"/>
 </xsd:schema>
 </types>
+<message name="createMedicalRecord">
+<part name="parameters" element="tns:createMedicalRecord"/>
+</message>
+<message name="createMedicalRecordResponse">
+<part name="parameters" element="tns:createMedicalRecordResponse"/>
+</message>
+<message name="deleteMedicalRecord">
+<part name="parameters" element="tns:deleteMedicalRecord"/>
+</message>
+<message name="deleteMedicalRecordResponse">
+<part name="parameters" element="tns:deleteMedicalRecordResponse"/>
+</message>
 <message name="readMedicalRecord">
 <part name="parameters" element="tns:readMedicalRecord"/>
 </message>
@@ -19,19 +31,15 @@
 <message name="updateMedicalRecordResponse">
 <part name="parameters" element="tns:updateMedicalRecordResponse"/>
 </message>
-<message name="deleteMedicalRecord">
-<part name="parameters" element="tns:deleteMedicalRecord"/>
-</message>
-<message name="deleteMedicalRecordResponse">
-<part name="parameters" element="tns:deleteMedicalRecordResponse"/>
-</message>
-<message name="createMedicalRecord">
-<part name="parameters" element="tns:createMedicalRecord"/>
-</message>
-<message name="createMedicalRecordResponse">
-<part name="parameters" element="tns:createMedicalRecordResponse"/>
-</message>
 <portType name="MedicalRecordsCRUDUrlWS">
+<operation name="createMedicalRecord">
+<input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/createMedicalRecordRequest" message="tns:createMedicalRecord"/>
+<output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/createMedicalRecordResponse" message="tns:createMedicalRecordResponse"/>
+</operation>
+<operation name="deleteMedicalRecord">
+<input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/deleteMedicalRecordRequest" message="tns:deleteMedicalRecord"/>
+<output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/deleteMedicalRecordResponse" message="tns:deleteMedicalRecordResponse"/>
+</operation>
 <operation name="readMedicalRecord">
 <input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readMedicalRecordRequest" message="tns:readMedicalRecord"/>
 <output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readMedicalRecordResponse" message="tns:readMedicalRecordResponse"/>
@@ -40,17 +48,27 @@
 <input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/updateMedicalRecordRequest" message="tns:updateMedicalRecord"/>
 <output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/updateMedicalRecordResponse" message="tns:updateMedicalRecordResponse"/>
 </operation>
-<operation name="deleteMedicalRecord">
-<input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/deleteMedicalRecordRequest" message="tns:deleteMedicalRecord"/>
-<output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/deleteMedicalRecordResponse" message="tns:deleteMedicalRecordResponse"/>
-</operation>
-<operation name="createMedicalRecord">
-<input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/createMedicalRecordRequest" message="tns:createMedicalRecord"/>
-<output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/createMedicalRecordResponse" message="tns:createMedicalRecordResponse"/>
-</operation>
 </portType>
 <binding name="MedicalRecordsCRUDUrlWSPortBinding" type="tns:MedicalRecordsCRUDUrlWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="createMedicalRecord">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="deleteMedicalRecord">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="readMedicalRecord">
 <soap:operation soapAction=""/>
 <input>
@@ -61,24 +79,6 @@
 </output>
 </operation>
 <operation name="updateMedicalRecord">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="deleteMedicalRecord">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="createMedicalRecord">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

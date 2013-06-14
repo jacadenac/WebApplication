@@ -7,17 +7,17 @@
 <xsd:import namespace="http://fachadews/" schemaLocation="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?xsd=2"/>
 </xsd:schema>
 </types>
-<message name="getAppointment">
-<part name="parameters" element="tns:getAppointment"/>
-</message>
-<message name="getAppointmentResponse">
-<part name="parameters" element="tns:getAppointmentResponse"/>
-</message>
 <message name="deleteAppoinment">
 <part name="parameters" element="tns:deleteAppoinment"/>
 </message>
 <message name="deleteAppoinmentResponse">
 <part name="parameters" element="tns:deleteAppoinmentResponse"/>
+</message>
+<message name="getAppointment">
+<part name="parameters" element="tns:getAppointment"/>
+</message>
+<message name="getAppointmentResponse">
+<part name="parameters" element="tns:getAppointmentResponse"/>
 </message>
 <message name="addAppoinment">
 <part name="parameters" element="tns:addAppoinment"/>
@@ -26,13 +26,13 @@
 <part name="parameters" element="tns:addAppoinmentResponse"/>
 </message>
 <portType name="AppointmentCRUDUrlWS">
-<operation name="getAppointment">
-<input wsam:Action="http://services/AppointmentCRUDUrlWS/getAppointmentRequest" message="tns:getAppointment"/>
-<output wsam:Action="http://services/AppointmentCRUDUrlWS/getAppointmentResponse" message="tns:getAppointmentResponse"/>
-</operation>
 <operation name="deleteAppoinment">
 <input wsam:Action="http://services/AppointmentCRUDUrlWS/deleteAppoinmentRequest" message="tns:deleteAppoinment"/>
 <output wsam:Action="http://services/AppointmentCRUDUrlWS/deleteAppoinmentResponse" message="tns:deleteAppoinmentResponse"/>
+</operation>
+<operation name="getAppointment">
+<input wsam:Action="http://services/AppointmentCRUDUrlWS/getAppointmentRequest" message="tns:getAppointment"/>
+<output wsam:Action="http://services/AppointmentCRUDUrlWS/getAppointmentResponse" message="tns:getAppointmentResponse"/>
 </operation>
 <operation name="addAppoinment">
 <input wsam:Action="http://services/AppointmentCRUDUrlWS/addAppoinmentRequest" message="tns:addAppoinment"/>
@@ -41,7 +41,7 @@
 </portType>
 <binding name="AppointmentCRUDUrlWSPortBinding" type="tns:AppointmentCRUDUrlWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="getAppointment">
+<operation name="deleteAppoinment">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -50,7 +50,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="deleteAppoinment">
+<operation name="getAppointment">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
