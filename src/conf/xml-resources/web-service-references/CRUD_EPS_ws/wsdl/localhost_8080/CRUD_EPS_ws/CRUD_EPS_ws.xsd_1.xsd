@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://services/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://services/">
+
+<xs:element name="changeEPS" type="tns:changeEPS"/>
+
+<xs:element name="changeEPSResponse" type="tns:changeEPSResponse"/>
+
+<xs:element name="createEPS" type="tns:createEPS"/>
+
+<xs:element name="createEPSResponse" type="tns:createEPSResponse"/>
+
+<xs:element name="deleteEPS" type="tns:deleteEPS"/>
+
+<xs:element name="deleteEPSResponse" type="tns:deleteEPSResponse"/>
+
+<xs:element name="readAllEPS" type="tns:readAllEPS"/>
+
+<xs:element name="readAllEPSResponse" type="tns:readAllEPSResponse"/>
+
+<xs:element name="readOneEPS" type="tns:readOneEPS"/>
+
+<xs:element name="readOneEPSResponse" type="tns:readOneEPSResponse"/>
+
+<xs:element name="updateEPS" type="tns:updateEPS"/>
+
+<xs:element name="updateEPSResponse" type="tns:updateEPSResponse"/>
+
+<xs:complexType name="changeEPS">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="fromEPS" type="tns:eps" minOccurs="0"/>
+<xs:element name="toEPS" type="tns:eps" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eps">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="urlAppointments" type="xs:string" minOccurs="0"/>
+<xs:element name="urlRecords" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="changeEPSResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="deleteEPS">
+<xs:sequence>
+<xs:element name="idEPS" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteEPSResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="createEPS">
+<xs:sequence>
+<xs:element name="idEPS" type="xs:int"/>
+<xs:element name="nombreEPS" type="xs:string" minOccurs="0"/>
+<xs:element name="urlMedicalRecord" type="xs:string" minOccurs="0"/>
+<xs:element name="urlAppointment" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createEPSResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="readOneEPS">
+<xs:sequence>
+<xs:element name="idEPS" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readOneEPSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:eps" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateEPS">
+<xs:sequence>
+<xs:element name="idEPS" type="xs:int"/>
+<xs:element name="nombreEPS" type="xs:string" minOccurs="0"/>
+<xs:element name="urlMedicalRecord" type="xs:string" minOccurs="0"/>
+<xs:element name="urlAppointment" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateEPSResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="readAllEPS">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="readAllEPSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:eps" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

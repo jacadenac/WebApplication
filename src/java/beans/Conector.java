@@ -74,7 +74,7 @@ public class Conector {
     }      
     
     public List<Doctor> getDoctores(Integer idHospital, String especialidad) {
-        List<Doctor> lista = new ArrayList<Doctor>();
+       List<Doctor> lista = new ArrayList<Doctor>();
        for(Doctor d:listaDoctores) {
            if(d.getHospital().intValue()==idHospital.intValue() && d.getEspecialidad().equals(especialidad))                
                lista.add(d);

@@ -2,4 +2,12 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8080/DataService/DataService?wsdl" uri="wsdl/localhost_8080/DataService/DataService.wsdl"/>
     <system systemId="http://localhost:8080/DataService/DataService?xsd=1" uri="wsdl/localhost_8080/DataService/DataService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?wsdl" uri="wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.wsdl"/>
+    <system systemId="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?xsd=1" uri="wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS?wsdl" uri="wsdl/localhost_8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS.wsdl"/>
+    <system systemId="http://localhost:8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS?xsd=1" uri="wsdl/localhost_8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS?xsd=2" uri="wsdl/localhost_8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?wsdl" uri="wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl"/>
+    <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?xsd=1" uri="wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?xsd=2" uri="wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.xsd_2.xsd"/>
 </catalog>

@@ -28,7 +28,8 @@
                             <h:outputText value="Hospital:" />  
                             <p:selectOneMenu id="selHosp" value="#{ControladorCita.selectedHospital}" style="width: 13.35em;">  
                                 <f:selectItems value="#{ControladorCita.hospitales}" var="hospital" itemLabel="#{hospital.nombre}"/>
-                                <p:ajax update="selEsp selDoc" listener="#{ControladorCita.actualizarDoctores()}"/>
+                                <!--<p:ajax update="selDoc, selEsp" listener="#{ControladorCita.actualizarDoctores()}"/>-->
+                                <p:ajax update="selDoc" listener="#{ControladorCita.handleDoctores}"/>
                             </p:selectOneMenu> 
 
                             <h:outputText value="Tipo Cita:" />  
@@ -48,10 +49,10 @@
                             </p:selectOneMenu> 
 
                             <h:outputText value="Fecha:" />  
-                            <p:calendar value="#{citaBean.selectedCita.fecha}" id="fechaCal" /> 
+                            <p:calendar value="#{citaBean.selectedCita.time}" id="fechaCal" /> 
 
                             <h:outputText value="Hora:" />  
-                            <p:selectOneMenu value="#{citaBean.selectedCita.hora}" style="width: 13.35em;">  
+                            <p:selectOneMenu value="#{citaBean.selectedCita.id}" style="width: 13.35em;">  
                                 <f:selectItem itemLabel="1:00" itemValue="1" />
                                 <f:selectItem itemLabel="2:00" itemValue="2" />  
                                 <f:selectItem itemLabel="3:00" itemValue="3" />

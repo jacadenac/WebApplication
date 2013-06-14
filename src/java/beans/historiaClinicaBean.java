@@ -4,12 +4,16 @@
  */
 package beans;
 
-import classes.HistoriaClinica;
+import fachadews.MedicalRecord;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
+import javax.xml.ws.WebServiceRef;
+import services.AppointmentCRUDUrlWS_Service;
+import services.Eps;
+import services.MedicalRecordsCRUDUrlWS_Service;
 
 /**
  *
@@ -18,34 +22,62 @@ import javax.inject.Named;
 @Named(value = "historiaClinicaBean")
 @RequestScoped
 public class historiaClinicaBean {
-    private List<HistoriaClinica> historias;
-    private HistoriaClinica selectedHistoria; 
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl")
+    private AppointmentCRUDUrlWS_Service service_1;
+
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS.wsdl")
+    private MedicalRecordsCRUDUrlWS_Service service;
+    private List<MedicalRecord> historias;
+    private MedicalRecord selectedHistoria;
+    private Eps epsAsociada;
 
     public historiaClinicaBean() {
-        this.historias = new ArrayList<HistoriaClinica>();
+        this.historias = new ArrayList<MedicalRecord>();
     }
 
-    public List<HistoriaClinica> getHistorias() {
+    public List<MedicalRecord> getHistorias() {
+        //historias = 
         return historias;
     }
 
-    public HistoriaClinica getSelectedHistoria() {
+    public MedicalRecord getSelectedHistoria() {
         return selectedHistoria;
     }
 
-    public void setSelectedHistoria(HistoriaClinica selectedHistoria) {
+    public void setSelectedHistoria(MedicalRecord selectedHistoria) {
         this.selectedHistoria = selectedHistoria;
     }
-    
+
     public void btnCreateHistoria(ActionEvent actionEvent) {
-        //implementar método que se comunica con el otro compomente
+        createMedicalRecord(selectedHistoria.getIdHistoria(), epsAsociada.getId());
+    }
+
+    private void createMedicalRecord(int idRecord, int idEPS) {
+        services.MedicalRecordsCRUDUrlWS port = service.getMedicalRecordsCRUDUrlWSPort();
+        port.createMedicalRecord(idRecord, idEPS);
     }
 
     public void btnUpdateHistoria(ActionEvent actionEvent) {
-        //implementar método que se comunica con el otro compomente
+        updateMedicalRecord(selectedHistoria, epsAsociada.getId());
+    }
+
+    private void updateMedicalRecord(fachadews.MedicalRecord record, int idEPS) {
+        services.MedicalRecordsCRUDUrlWS port = service.getMedicalRecordsCRUDUrlWSPort();
+        port.updateMedicalRecord(record, idEPS);
     }
 
     public void btnDeleteHistoria(ActionEvent actionEvent) {
-        //implementar método que se comunica con el otro compomente
+        deleteMedicalRecord(selectedHistoria.getIdHistoria(), epsAsociada.getId());
     }
+
+    private void deleteMedicalRecord(int idRecord, int idEPS) {
+        services.MedicalRecordsCRUDUrlWS port = service.getMedicalRecordsCRUDUrlWSPort();
+        port.deleteMedicalRecord(idRecord, idEPS);
+    }
+
+    private MedicalRecord readMedicalRecord(int idRecord, int idEPS) {
+        services.MedicalRecordsCRUDUrlWS port = service.getMedicalRecordsCRUDUrlWSPort();
+        return port.readMedicalRecord(idRecord, idEPS);
+    }
+
 }

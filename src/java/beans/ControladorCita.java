@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -55,7 +57,15 @@ public class ControladorCita {
     }
 
     public List<Doctor> getDoctores() {
+        doctores = conector.getDoctores(selectedHospital.getId(),selectedEspecialidad);
         return doctores;
+    }
+    
+    public void handleDoctores() {
+            FacesMessage msg;
+            doctores = conector.getDoctores(selectedHospital.getId(),selectedEspecialidad);
+            msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "FILTRO", null);
+            FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
     public void setDoctores(List<Doctor> doctores) {
@@ -101,10 +111,13 @@ public class ControladorCita {
     public void setSelectedDoctor(Doctor selectedDoctor) {
         this.selectedDoctor = selectedDoctor;
     }
-
+    
     public void actualizarDoctores() {
+               
         if(selectedHospital!=null) {
+            System.out.print(selectedHospital.getId());
             doctores = conector.getDoctores(selectedHospital.getId(),selectedEspecialidad);
+            
         }
     }
 
