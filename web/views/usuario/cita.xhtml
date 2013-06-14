@@ -26,26 +26,25 @@
                         <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
 
                             <h:outputText value="Hospital:" />  
-                            <p:selectOneMenu id="selHosp" value="#{hospitalBean.selectedHospital}" style="width: 13.35em;">  
-                                <f:selectItem itemLabel="Selecciona uno" itemValue=""  noSelectionOption="true"/>
-                                <f:selectItems value="#{hospitalBean.hospitales}" var="hospital" itemLabel="#{hospital.nombre}"/>
-                                <p:ajax update="selEsp selDoc" />
+                            <p:selectOneMenu id="selHosp" value="#{ControladorCita.selectedHospital}" style="width: 13.35em;">  
+                                <f:selectItems value="#{ControladorCita.hospitales}" var="hospital" itemLabel="#{hospital.nombre}"/>
+                                <p:ajax update="selEsp selDoc" listener="#{ControladorCita.actualizarDoctores()}"/>
                             </p:selectOneMenu> 
 
                             <h:outputText value="Tipo Cita:" />  
-                            <p:selectOneMenu id="selEsp" value="#{hospitalBean.selectedTipoCita}" style="width: 13.35em;">  
+                            <p:selectOneMenu id="selEsp" value="#{ControladorCita.selectedEspecialidad}" style="width: 13.35em;">  
                                 <f:selectItem itemLabel="Selecciona uno" itemValue=""  noSelectionOption="true" />
                                 <f:selectItem itemLabel="Odontología" itemValue="ODONTOLOGIA" />  
                                 <f:selectItem itemLabel="General" itemValue="GENERAL" />  
                                 <f:selectItem itemLabel="Pediatría" itemValue="PEDIATRIA" />
                                 <f:selectItem itemLabel="Optometría" itemValue="OPTOMETRIA" />
-                                <p:ajax update="selDoc" />
+                                <p:ajax  update="selDoc" />
                             </p:selectOneMenu> 
 
                             <h:outputText value="Doctor:" />  
-                            <p:selectOneMenu id="selDoc" value="#{hospitalBean.selectedDoctor}" style="width: 13.35em;" disabled="#{empty hospitalBean.doctores}">  
+                            <p:selectOneMenu id="selDoc" value="#{ControladorCita.selectedDoctor}" style="width: 13.35em;">  
                                 <f:selectItem itemLabel="Selecciona uno" itemValue=""  noSelectionOption="true"/>
-                                <f:selectItems value="#{hospitalBean.doctores}" var="doctor" itemLabel="#{doctor.nombre}"/>
+                                <f:selectItems value="#{ControladorCita.doctores}" var="doctor" itemLabel="#{doctor.nombre}"/>
                             </p:selectOneMenu> 
 
                             <h:outputText value="Fecha:" />  
