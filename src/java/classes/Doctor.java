@@ -12,8 +12,16 @@ public class Doctor {
     private Integer id;
     private String nombre;
     private String especialidad;
+    //provisional
+    private Integer hospital;
 
-    public Doctor() {
+    public Doctor() {}
+
+    public Doctor(Integer id, String nombre, String especialidad, Integer hospital) {
+        this.id = id;
+        this.nombre = nombre;
+        this.especialidad = especialidad;
+        this.hospital = hospital;
     }
 
     public Integer getId() {
@@ -39,4 +47,13 @@ public class Doctor {
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
+
+    public Integer getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(Integer hospital) {
+        this.hospital = hospital;
+    }
+
 }

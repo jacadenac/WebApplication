@@ -12,10 +12,16 @@ public class Hospital {
 
     private Integer id;
     private String nombre;
+    
 
     public Hospital() {
         this.id=0;
         this.nombre = "";
+    }
+
+    public Hospital(Integer id, String nombre) {
+        this.id = id;
+        this.nombre = nombre;
     }
 
     public Integer getId() {

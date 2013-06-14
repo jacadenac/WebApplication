@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://servicios/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servicios/">
+
+<xs:element name="getDoctor" type="tns:getDoctor"/>
+
+<xs:element name="getDoctorResponse" type="tns:getDoctorResponse"/>
+
+<xs:element name="getHospital" type="tns:getHospital"/>
+
+<xs:element name="getHospitalResponse" type="tns:getHospitalResponse"/>
+
+<xs:element name="getTipoCita" type="tns:getTipoCita"/>
+
+<xs:element name="getTipoCitaResponse" type="tns:getTipoCitaResponse"/>
+
+<xs:complexType name="getDoctor">
+<xs:sequence>
+<xs:element name="idHospital" type="xs:int"/>
+<xs:element name="tipoCita" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getDoctorResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:doctor" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="doctor">
+<xs:sequence>
+<xs:element name="especialidad" type="xs:string" minOccurs="0"/>
+<xs:element name="hospital" type="xs:int" minOccurs="0"/>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getHospital">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getHospitalResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:hospital" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hospital">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getTipoCita">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getTipoCitaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
