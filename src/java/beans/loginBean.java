@@ -6,45 +6,79 @@ package beans;
 
 //import dao.UsuarioDao;
 //import dao.UsuarioDaoImpl;
+import facadews.Role;
+import facadews.UserRole;
+import facadews.UserRoleWS_Service;
 import java.awt.event.ActionEvent;
 import java.io.Serializable;
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.inject.Named;
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.WebServiceRef;
 //import model.Usuario;
 import org.primefaces.context.RequestContext;
 import util.MyUtil;
 
 /**
  *
- * @author Alejandro
+ * @author William
  */
-@Named(value="loginBean")
+@ManagedBean(name="loginBean")
 @SessionScoped
 public class loginBean implements Serializable{
-/*
-    private Usuario usuario;
-    private UsuarioDao usuarioDao;
+    @EJB
+    private Session session;
     
-    public loginBean() {
-        this.usuarioDao = new UsuarioDaoImpl();
-        if(this.usuario == null){
-            this.usuario = new Usuario();
-        }
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl")
+    private UserRoleWS_Service service;
+    
+    private String username;
+    private String password;
+    
+
+    //    private Usuario usuario;
+    //    private UsuarioDao usuarioDao;
+    //
+    //    public loginBean() {
+    //        this.usuarioDao = new UsuarioDaoImpl();
+    //        if(this.usuario == null){
+    //            this.usuario = new Usuario();
+    //        }
+    //    }
+    //
+    //    public Usuario getUsuario() {
+    //        return usuario;
+    //    }
+    //
+    //    public void setUsuario(Usuario usuario) {
+    //        this.usuario = usuario;
+    //    }
+    
+    
+    public Session getSession() {
+        return session;
+    }
+    
+    public String getUsername() {
+        return username;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public String getPassword() {
+        return password;
     }
-  */
-    public void login(ActionEvent actionEvent) {  
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+ 
+    public String login() {  
   /*      RequestContext context = RequestContext.getCurrentInstance();  
         FacesMessage msg;  
         boolean loggedIn; */ 
@@ -59,10 +93,19 @@ public class loginBean implements Serializable{
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", this.usuario.getUsuario());
             * msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", this.usuario.getUsuario());  
             */
-            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", "prueba");
-            msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", null);  
+        if(findUser()) {
+            loggedIn = true;
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(username, password);
+            //msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", null);  
 
-            ruta = MyUtil.basepathlogin()+"views/inicio.xhtml";/*
+            //ruta = MyUtil.basepathlogin()+"views/inicio.xhtml";
+            return "views/inicio?faces-redirect=true";
+            
+        } else {  
+            loggedIn = false;  
+            msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Login Error", "Usuario y/o clave es incorrecto");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+        } /*
         } else {  
             loggedIn = false;  
             msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Login Error", "Usuario y/o clave es incorrecto");  
@@ -74,6 +117,8 @@ public class loginBean implements Serializable{
         FacesContext.getCurrentInstance().addMessage(null, msg);  
         context.addCallbackParam("loggedIn", loggedIn); 
         context.addCallbackParam("ruta", ruta); 
+        
+        return "";
     }
     
     public void logout(){
@@ -81,10 +126,42 @@ public class loginBean implements Serializable{
         RequestContext context = RequestContext.getCurrentInstance();
         FacesContext facesContext = FacesContext.getCurrentInstance();
         
+        session = null;
+        
         HttpSession sesion = (HttpSession) facesContext.getExternalContext().getSession(false);
         sesion.invalidate();
         
         context.addCallbackParam("loggetOut", true);
         context.addCallbackParam("ruta", ruta);
     }
+    
+    private boolean findUser() {
+        if(username.contains("a")){
+            UserRole ur = new UserRole();
+            ur.setId(1);
+            ur.setIdEntity(1);
+            ur.setRole(Role.SUPERADMIN);
+            
+            session.setId(Integer.valueOf(password));
+            session.setIdEntity(ur.getIdEntity());
+            session.setRole(ur.getRole().toString());
+            
+            return true;
+        }           
+        
+//        UserRole ur = getUR(Integer.valueOf(username)); 
+//        if(ur!=null) {
+//            session.setId(ur.getId());
+//            session.setIdEntity(ur.getIdEntity());
+//            session.setRole(ur.getRole().toString());
+//            return true;
+//        }
+        return false;
+    }
+
+    private UserRole getUR(java.lang.Integer arg0) {
+        facadews.UserRoleWS port = service.getUserRoleWSPort();
+        return port.getUR(arg0);
+    }
+    
 }
