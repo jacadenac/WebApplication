@@ -10,4 +10,6 @@
     <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?wsdl" uri="wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl"/>
     <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?xsd=1" uri="wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?xsd=2" uri="wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/UserRoleWS/UserRoleWS?WSDL" uri="wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl"/>
+    <system systemId="http://localhost:8080/UserRoleWS/UserRoleWS?xsd=1" uri="wsdl/localhost_8080/UserRoleWS/UserRoleWS.xsd_1.xsd"/>
 </catalog>

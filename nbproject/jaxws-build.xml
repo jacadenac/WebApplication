@@ -74,5 +74,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/services"/>
         <delete dir="${build.generated.dir}/jax-wsCache/AppointmentCRUDUrlWS"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-CRUD_EPS_ws, wsimport-client-MedicalRecordsCRUDUrlWS, wsimport-client-AppointmentCRUDUrlWS"/>
+    <target name="wsimport-client-UserRoleWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/UserRoleWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/UserRoleWS" destdir="${build.generated.dir}/jax-wsCache/UserRoleWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/UserRoleWS/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/UserRoleWS/UserRoleWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/UserRoleWS/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/UserRoleWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/UserRoleWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-UserRoleWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/facadews"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/UserRoleWS"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-CRUD_EPS_ws, wsimport-client-MedicalRecordsCRUDUrlWS, wsimport-client-AppointmentCRUDUrlWS, wsimport-client-UserRoleWS"/>
 </project>
