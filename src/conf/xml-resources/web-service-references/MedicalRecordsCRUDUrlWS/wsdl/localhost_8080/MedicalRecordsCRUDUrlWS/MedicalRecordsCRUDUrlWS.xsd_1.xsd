@@ -10,6 +10,10 @@
 
 <xs:element name="deleteMedicalRecordResponse" type="tns:deleteMedicalRecordResponse"/>
 
+<xs:element name="readAllMedicalRecord" type="tns:readAllMedicalRecord"/>
+
+<xs:element name="readAllMedicalRecordResponse" type="tns:readAllMedicalRecordResponse"/>
+
 <xs:element name="readMedicalRecord" type="tns:readMedicalRecord"/>
 
 <xs:element name="readMedicalRecordResponse" type="tns:readMedicalRecordResponse"/>
@@ -51,6 +55,18 @@
 
 <xs:complexType name="updateMedicalRecordResponse">
 <xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="readAllMedicalRecord">
+<xs:sequence>
+<xs:element name="idEPS" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readAllMedicalRecordResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:medicalRecord" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="createMedicalRecord">

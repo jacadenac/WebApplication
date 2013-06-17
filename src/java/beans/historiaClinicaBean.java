@@ -32,11 +32,14 @@ public class historiaClinicaBean {
     private Eps epsAsociada;
 
     public historiaClinicaBean() {
+        this.epsAsociada = new Eps();
+        this.epsAsociada.setId(new Integer(99));
+        this.selectedHistoria = new MedicalRecord();
         this.historias = new ArrayList<MedicalRecord>();
     }
 
     public List<MedicalRecord> getHistorias() {
-        //historias = 
+        historias = readAllMedicalRecords(1);
         return historias;
     }
 
@@ -49,6 +52,8 @@ public class historiaClinicaBean {
     }
 
     public void btnCreateHistoria(ActionEvent actionEvent) {
+        System.out.println(selectedHistoria.getIdHistoria());
+        System.out.println(epsAsociada.getId());
         createMedicalRecord(selectedHistoria.getIdHistoria(), epsAsociada.getId());
     }
 
@@ -75,6 +80,11 @@ public class historiaClinicaBean {
         port.deleteMedicalRecord(idRecord, idEPS);
     }
 
+    private List<MedicalRecord> readAllMedicalRecords(int idEPS) {
+        services.MedicalRecordsCRUDUrlWS port = service.getMedicalRecordsCRUDUrlWSPort();
+        return port.readAllMedicalRecord(idEPS);
+    }
+    
     private MedicalRecord readMedicalRecord(int idRecord, int idEPS) {
         services.MedicalRecordsCRUDUrlWS port = service.getMedicalRecordsCRUDUrlWSPort();
         return port.readMedicalRecord(idRecord, idEPS);

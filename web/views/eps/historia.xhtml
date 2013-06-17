@@ -20,7 +20,7 @@
                 </h:form>
                 
                 <h:form id="formDataTable">  
-                    <p:dataTable id="historias" var="historia" value="#{historiaClinicaBean.historias}/"
+                    <p:dataTable id="historias" value="#{historiaClinicaBean.historias}" var="historia" 
                                  paginator="true" rows="10" paginatorPosition="bottom"
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"> 
 
@@ -30,7 +30,7 @@
 
                         <p:column headerText="Id Historia Clinica" filterBy="#{historia.idHistoria}"  
                                   footerText="contains" filterMatchMode="contains">  
-                            <h:outputText value="#{historiaClinicaBean.selectedHistoria.idHistoria}" />  
+                            <h:outputText value="#{historia.idHistoria}" />  
                         </p:column>  
  
                         <p:column style="width:7em;">          
@@ -99,7 +99,7 @@
                 <h:form id="formDelete">
                     <p:confirmDialog id="confirmDialog" message="¿Estas seguro de eliminar el registro?"  showEffect="fade" hideEffect="explode"
                                      header="Eliminar Historia Clinica" severity="alert" widgetVar="dialogHistoriaDelete">  
-                        <h:inputHidden value="#{historiaClinicaBean.selectedHistoria.idUsuario}"/>
+                        <h:inputHidden value="#{historiaClinicaBean.selectedHistoria.idHistoria}"/>
                         <p:commandButton id="confirm" value="Aceptar" update=":formDataTable, :msgs" oncomplete="dialogHistoriaDelete.hide()"  
                                          actionListener="#{historiaClinicaBean.btnDeleteHistoria(actionEvent)}" icon="icon-check"/>  
                         <p:commandButton id="decline" value="Cancelar" onclick="dialogHistoriaDelete.hide();" type="button" icon="icon-cancel"/>   

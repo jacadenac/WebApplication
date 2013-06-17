@@ -29,6 +29,7 @@ public class epsBean {
     private Eps selectedEps;
 
     public epsBean() {
+        this.selectedEps = new Eps();
         this.epss = new ArrayList<Eps>();
     }
 
@@ -91,7 +92,15 @@ public class epsBean {
 
     private java.util.List<services.Eps> readAllEPS() {
         services.CRUDEPSWs port = this.service.getCRUDEPSWsPort();
-        return port.readAllEPS();
+        List<services.Eps> list = port.readAllEPS();
+        
+        for (services.Eps e : list) {
+            System.out.println(e.getId());
+            System.out.println(e.getName());
+        }
+        System.out.println(list.size());
+        this.epss = list;
+        return list;
     }
 
     private Eps readOneEPS(int idEPS) {

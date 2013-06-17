@@ -20,22 +20,21 @@
                 </h:form>
 
                 <h:form id="formDataTable">  
-                    <p:dataTable id="epss" var="eps" value="#{epsBean.epss}/"
+                    <p:dataTable id="epss" value="#{epsBean.getEpss()}" var="eps" 
                                  paginator="true" rows="10" paginatorPosition="bottom"
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"> 
-
+                                 
                         <f:facet name="header">  
-                            EPS
+                             <h:outputText value="EPS" />  
                         </f:facet> 
-
                         <p:column headerText="Id Eps" filterBy="#{eps.id}" style="width: 46%;"   
                                   footerText="contains" filterMatchMode="contains">  
-                            <h:outputText value="#{epsBean.selectedEps.id}" />  
+                            <h:outputText value="#{eps.id}" />  
                         </p:column>  
 
                         <p:column headerText="Nombre Eps" filterBy="#{eps.name}"   
                                   footerText="contains" filterMatchMode="contains">  
-                            <h:outputText value="#{epsBean.selectedEps.name}" />  
+                            <h:outputText value="#{eps.name}" />  
                         </p:column>  
 
                         <p:column style="width: 4em;">          
