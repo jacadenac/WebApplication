@@ -19,9 +19,10 @@ public class Hospital {
         this.nombre = "";
     }
 
-    public Hospital(Integer id, String nombre) {
+    public Hospital(Integer id, String nombre, String url) {
         this.id = id;
         this.nombre = nombre;
+        this.url = url;
     }
 
     public Integer getId() {

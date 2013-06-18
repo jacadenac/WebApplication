@@ -28,10 +28,10 @@ public class Conector {
     public Conector() {
         //creación de un listado de hospitales
         listaHospitales = new ArrayList<Hospital>();
-        listaHospitales.add(new Hospital(1, "HOSPITAL DE FONTIBON"));
-        listaHospitales.add(new Hospital(2, "HOSPITAL TUNAL"));
-        listaHospitales.add(new Hospital(3, "HOSPITAL USME"));
-        listaHospitales.add(new Hospital(4, "HOSPITAL MEISSEN"));
+        listaHospitales.add(new Hospital(1, "HOSPITAL DE FONTIBON","www.com"));
+        listaHospitales.add(new Hospital(2, "HOSPITAL TUNAL","www.com"));
+        listaHospitales.add(new Hospital(3, "HOSPITAL USME","www.com"));
+        listaHospitales.add(new Hospital(4, "HOSPITAL MEISSEN","www.com"));
         
         //creación de un listado de doctores
         listaDoctores = new ArrayList<Doctor>();

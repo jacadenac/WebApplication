@@ -9,7 +9,6 @@ package beans;
 import facadews.Role;
 import facadews.UserRole;
 import facadews.UserRoleWS_Service;
-import java.awt.event.ActionEvent;
 import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;

@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://Services/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Services/">
+
+<xs:element name="createHospital" type="tns:createHospital"/>
+
+<xs:element name="createHospitalResponse" type="tns:createHospitalResponse"/>
+
+<xs:element name="deleteHospital" type="tns:deleteHospital"/>
+
+<xs:element name="deleteHospitalResponse" type="tns:deleteHospitalResponse"/>
+
+<xs:element name="readAllHospital" type="tns:readAllHospital"/>
+
+<xs:element name="readAllHospitalResponse" type="tns:readAllHospitalResponse"/>
+
+<xs:element name="readHospitalbyID" type="tns:readHospitalbyID"/>
+
+<xs:element name="readHospitalbyIDResponse" type="tns:readHospitalbyIDResponse"/>
+
+<xs:element name="updateHospital" type="tns:updateHospital"/>
+
+<xs:element name="updateHospitalResponse" type="tns:updateHospitalResponse"/>
+
+<xs:complexType name="deleteHospital">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteHospitalResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="readHospitalbyID">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readHospitalbyIDResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:hospital" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hospital">
+<xs:sequence>
+<xs:element name="ID" type="xs:int"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="URL" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readAllHospital">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="readAllHospitalResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:hospital" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createHospital">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+<xs:element name="arg2" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createHospitalResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="updateHospital">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+<xs:element name="arg2" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateHospitalResponse">
+<xs:sequence/>
+</xs:complexType>
+</xs:schema>

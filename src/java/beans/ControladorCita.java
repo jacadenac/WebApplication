@@ -40,7 +40,7 @@ public class ControladorCita {
     public ControladorCita() {
         
         this.hospitales = new ArrayList<Hospital>();
-        this.selectedHospital = new Hospital(3, "HOSPITAL TUNAL");
+        this.selectedHospital = new Hospital(3, "HOSPITAL TUNAL","www.com");
         this.doctores = new ArrayList<Doctor>();
         this.selectedDoctor = new Doctor();
         this.citas = new ArrayList<Cita>();
@@ -119,14 +119,6 @@ public class ControladorCita {
             doctores = conector.getDoctores(selectedHospital.getId(),selectedEspecialidad);
             
         }
-    }
-
-    public void btnUpdateHospital(ActionEvent actionEvent) {
-        //implementar método que se comunica con el otro compomente
-    }
-
-    public void btnDeleteHospital(ActionEvent actionEvent) {
-        //implementar método que se comunica con el otro compomente
     }
 
 }
