@@ -7,6 +7,7 @@ import javax.ejb.Stateless;
 @Stateless
 public class Session {
     
+    //variables del usuario
     private Integer id;
     private Integer idEntity;
     private String Role;

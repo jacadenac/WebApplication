@@ -37,6 +37,11 @@
                                   footerText="contains" filterMatchMode="contains">  
                             <h:outputText value="#{hospitalBean.selectedHospital.nombre}" />  
                         </p:column>  
+                        
+                        <p:column headerText="URL Hospital" filterBy="#{hospital.url}"   
+                                  footerText="contains" filterMatchMode="contains">  
+                            <h:outputText value="#{hospitalBean.selectedHospital.url}" />  
+                        </p:column>                         
 
                         <p:column style="width: 4em;">          
                             <p:commandButton id="btnUpdate" update=":formUpdate" oncomplete="dialogHospitalUpdate.show()" icon="icon-edit" title="Modificar">  
@@ -61,6 +66,9 @@
                             <h:outputText value="Nombre Hospital:" />  
                             <p:inputText value="#{hospitalBean.selectedHospital.nombre}"/> 
 
+                            <h:outputText value="URL Hospital:" />  
+                            <p:inputText value="#{hospitalBean.selectedHospital.url}"/>                             
+                            
                             <f:facet name="footer">
                                 <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogHospitalCreate.hide()" actionListener="#{hospitalBean.btnCreateHospital(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
                                 <p:commandButton id="btnCreateCancelar" oncomplete="dialogHospitalCreate.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  

@@ -121,10 +121,6 @@ public class ControladorCita {
         }
     }
 
-    public void btnCreateHospital(ActionEvent actionEvent) {
-        //implementar método que se comunica con el otro compomente
-    }
-
     public void btnUpdateHospital(ActionEvent actionEvent) {
         //implementar método que se comunica con el otro compomente
     }
