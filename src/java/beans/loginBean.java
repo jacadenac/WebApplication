@@ -38,26 +38,6 @@ public class loginBean implements Serializable{
     private String username;
     private String password;
     
-
-    //    private Usuario usuario;
-    //    private UsuarioDao usuarioDao;
-    //
-    //    public loginBean() {
-    //        this.usuarioDao = new UsuarioDaoImpl();
-    //        if(this.usuario == null){
-    //            this.usuario = new Usuario();
-    //        }
-    //    }
-    //
-    //    public Usuario getUsuario() {
-    //        return usuario;
-    //    }
-    //
-    //    public void setUsuario(Usuario usuario) {
-    //        this.usuario = usuario;
-    //    }
-    
-    
     public Session getSession() {
         return session;
     }
@@ -86,13 +66,7 @@ public class loginBean implements Serializable{
         String ruta = "";
         FacesMessage msg;
         boolean loggedIn=true;
-          /*
-        this.usuario = this.usuarioDao.login(this.usuario);
-        if(this.usuario != null) {  
-            loggedIn = true;  
-            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", this.usuario.getUsuario());
-            * msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", this.usuario.getUsuario());  
-            */
+
         if(findUser()) {
             loggedIn = true;
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(username, password);
@@ -105,15 +79,8 @@ public class loginBean implements Serializable{
             loggedIn = false;  
             msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Login Error", "Usuario y/o clave es incorrecto");
             FacesContext.getCurrentInstance().addMessage(null, msg);
-        } /*
-        } else {  
-            loggedIn = false;  
-            msg = new FacesMessage(FacesMessage.SEVERITY_WARN, "Login Error", "Usuario y/o clave es incorrecto");  
-            if(this.usuario == null){
-                this.usuario = new Usuario();
-            }
-        }  
-          */
+        }
+        
         FacesContext.getCurrentInstance().addMessage(null, msg);  
         context.addCallbackParam("loggedIn", loggedIn); 
         context.addCallbackParam("ruta", ruta); 
