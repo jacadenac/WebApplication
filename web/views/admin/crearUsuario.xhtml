@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template.xhtml">
+            <ui:define name="content">
+                <h2>Administración de usuarios</h2>
+                <p:separator/>
+                <p>//Aquí el administrador puede ver, crear, actualizar y eliminar usuarios</p>
+                <p:growl id="msgs" showDetail="true" />  
+
+                <h:form id="btnCrear">
+                    <p:commandButton id="btnHospitalCreate" update=":formCreate" oncomplete="dialogHospitalCreate.show()" icon="icon-new" title="Crear" value="Crear"/>  
+                </h:form>
+
+                <h:form id="formDataTable">  
+                    <p:dataTable id="hospitales"  value="#{usuarioBean.usuarios}" var="usuario"
+                                 paginator="true" rows="10" paginatorPosition="bottom"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"> 
+
+                        <f:facet name="header">  
+                            Usuarios
+                        </f:facet> 
+
+                        <p:column headerText="Id Usuario" filterBy="#{usuario.id}" style="width: 15%;"   
+                                  footerText="contains" filterMatchMode="contains">  
+                            <h:outputText value="#{usuario.id}" />  
+                        </p:column>  
+
+                        <p:column headerText="Rol" filterBy="#{usuario.rol}"   
+                                  footerText="contains" filterMatchMode="contains">  
+                            <h:outputText value="#{usuario.rol}" />  
+                        </p:column>  
+                        
+                        <p:column headerText="Id de la entidad asociada" filterBy="#{usuario.idEntity}"   
+                                  footerText="contains" filterMatchMode="contains">  
+                            <h:outputText value="#{usuario.idEntity}" />  
+                        </p:column>                         
+
+                        <p:column style="width: 4em;">          
+                            <p:commandButton id="btnUpdate" update=":formUpdate" oncomplete="dialogHospitalUpdate.show()" icon="icon-edit" title="Modificar">  
+                                <f:setPropertyActionListener value="#{usuario}" target="#{usuarioBean.selectedUsuario}" />  
+                            </p:commandButton>
+                            <p:commandButton id="btnDelete" update=":formDelete" oncomplete="dialogHospitalDelete.show()" icon="icon-delete" title="Eliminar">  
+                                <f:setPropertyActionListener value="#{usuario}" target="#{usuarioBean.selectedUsuario}" />  
+                            </p:commandButton>  
+                        </p:column>  
+
+                    </p:dataTable>  
+                </h:form>
+
+                <h:form id="formCreate">
+                    <p:dialog header="Añadir Usuario" widgetVar="dialogHospitalCreate" resizable="false" id="DlgHospitalCreate"  
+                              showEffect="fade" hideEffect="explode" modal="true">  
+                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
+
+                            <h:outputText value="Id Usuario:" />  
+                            <p:inputText value="#{usuarioBean.selectedUsuario.id}"/>                        
+
+                            <h:outputText value="Rol:" />  
+                            <p:selectOneMenu value="#{usuarioBean.selectedUsuario.rol}" style="width: 13.35em;">  
+                                <f:selectItem itemLabel="Selecciona uno" itemValue=""  noSelectionOption="true" />
+                                <f:selectItem itemLabel="Administrador General" itemValue="SUPERADMIN" />  
+                                <f:selectItem itemLabel="Administrador EPS" itemValue="ADMINEPS" />  
+                                <f:selectItem itemLabel="Administrador Hospital" itemValue="ADMINHOSPITAL" />  
+                                <f:selectItem itemLabel="Doctor" itemValue="DOCTOR" />
+                                <f:selectItem itemLabel="Usuario" itemValue="USER" />
+                            </p:selectOneMenu>                              
+
+                            <h:outputText value="id del la entidad asociada:" />                              
+                            <p:inputText value="#{usuarioBean.selectedUsuario.idEntity}"/>                             
+                            
+                            <f:facet name="footer">
+                                <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogHospitalCreate.hide()" actionListener="#{usuarioBean.btnCreateUsuario(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnCreateCancelar" oncomplete="dialogHospitalCreate.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
+                            </f:facet>
+                        </h:panelGrid>  
+                    </p:dialog>  
+                </h:form> 
+
+                <h:form id="formUpdate">
+                    <p:dialog header="Modificar Usuario" widgetVar="dialogHospitalUpdate" resizable="false" id="DlgHospitalUpdate"  
+                              showEffect="fade" hideEffect="explode" modal="true">  
+
+                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
+
+                            <h:outputText value="Id Usuario:" />  
+                            <p:inputText value="#{usuarioBean.selectedUsuario.id}"/>                        
+
+                            <h:outputText value="Rol:" />  
+                            <p:selectOneMenu value="#{usuarioBean.selectedUsuario.rol}" style="width: 13.35em;">  
+                                <f:selectItem itemLabel="Selecciona uno" itemValue=""  noSelectionOption="true" />
+                                <f:selectItem itemLabel="Administrador General" itemValue="SUPERADMIN" />  
+                                <f:selectItem itemLabel="Administrador EPS" itemValue="ADMINEPS" />  
+                                <f:selectItem itemLabel="Administrador Hospital" itemValue="ADMINHOSPITAL" />  
+                                <f:selectItem itemLabel="Doctor" itemValue="DOCTOR" />
+                                <f:selectItem itemLabel="Usuario" itemValue="USER" />
+                            </p:selectOneMenu>                              
+                            
+                            <h:outputText value="Id de la entidad asociada:" />  
+                            <p:inputText value="#{usuarioBean.selectedUsuario.idEntity}"/>                             
+
+                            <f:facet name="footer">
+                                <p:commandButton id="btnUpdateAceptar" update=":formDataTable, :msgs" oncomplete="dialogHospitalUpdate.hide()" actionListener="#{usuarioBean.btnUpdateUsuario(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnUpdateCancelar" oncomplete="dialogHospitalUpdate.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
+                            </f:facet>
+                        </h:panelGrid>  
+                    </p:dialog>  
+                </h:form>  
+
+                <h:form id="formDelete">
+                    <p:confirmDialog id="confirmDialog" message="¿Estas seguro de eliminar el registro?"  showEffect="fade" hideEffect="explode"
+                                     header="Eliminar Hospital" severity="alert" widgetVar="dialogHospitalDelete"> 
+                        <h:inputHidden value="#{usuarioBean.selectedUsuario.id}"/>
+                        <p:commandButton id="confirm" value="Aceptar" update=":formDataTable, :msgs" oncomplete="dialogHospitalDelete.hide()"  
+                                         action="#{usuarioBean.borrarUsuario()}" icon="icon-check"/>  
+                        <p:commandButton id="decline" value="Cancelar" onclick="dialogHospitalDelete.hide();" type="button" icon="icon-cancel"/>   
+                    </p:confirmDialog>  
+                </h:form> 
+
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

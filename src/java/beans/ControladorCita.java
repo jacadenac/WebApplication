@@ -7,7 +7,6 @@ package beans;
 import classes.Cita;
 import classes.Doctor;
 import classes.Hospital;
-import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;

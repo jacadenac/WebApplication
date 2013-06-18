@@ -108,9 +108,10 @@ public class loginBean implements Serializable{
             ur.setIdEntity(1);
             ur.setRole(Role.SUPERADMIN);
             
-            session.setId(Integer.valueOf(password));
+            session.setId(ur.getId());
             session.setIdEntity(ur.getIdEntity());
-            session.setRole(ur.getRole().toString());
+            //session.setRole(ur.getRole().toString());
+            session.setRole(username);
             
             return true;
         }           

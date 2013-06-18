@@ -8,12 +8,11 @@ import classes.Hospital;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.xml.ws.WebServiceRef;
-import services.CRUDHospital;
 
 /**
  *
@@ -22,8 +21,8 @@ import services.CRUDHospital;
 @ManagedBean
 @RequestScoped
 public class HospitalBean {
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.wsdl")
-    private CRUDHospital service;
+    @EJB
+    private Conector conector;
     
     private List<Hospital> hospitales;
     private Hospital selectedHospital;
@@ -53,28 +52,47 @@ public class HospitalBean {
     
     //métodos intermediarios entre los métodos del ws y la webapp
     public void btnCreateHospital(ActionEvent actionEvent) {
-        //implementar método que se comunica con el otro compomente
-        createHospital(selectedHospital.getId(), selectedHospital.getNombre(), selectedHospital.getUrl());
-        String msg = "Se creo correctamente el registro.";
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, null);
-        FacesContext.getCurrentInstance().addMessage(null, message);        
+        String msg;
+        FacesMessage message;
+        if(existeHospital(selectedHospital.getId())) {
+            msg = "El id especificado ya se encuentra registrado";
+            message = new FacesMessage(FacesMessage.SEVERITY_FATAL, msg, null);
+        }
+        else {
+            conector.createHospital(selectedHospital.getId(), selectedHospital.getNombre(), selectedHospital.getUrl());
+            msg = "Se ha creado un nuevo hospital";
+            message = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, null);
+        }
+        FacesContext.getCurrentInstance().addMessage(null, message);       
     }   
 
     public void btnUpdateHospital(ActionEvent actionEvent) {
-        //implementar método que se comunica con el otro compomente
+        String msg = "Se ha actualizado el registro";
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, null);
+        FacesContext.getCurrentInstance().addMessage(null, message); 
+        conector.updateHospital(selectedHospital.getId(), selectedHospital.getNombre(), selectedHospital.getUrl());
+        System.out.println("updateHospital: nombre="+selectedHospital.getNombre()+" id="+selectedHospital.getId()
+                +" url:"+selectedHospital.getUrl());
     }
     
-    public String borrarHospital(){
-        String msg = "Se ha borrado: "+selectedHospital.getNombre();
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, null);
-        FacesContext.getCurrentInstance().addMessage(null, message);  
-        deleteHospital(selectedHospital.getId());
-        return "";
+    public void borrarHospital(){        
+        String msg;
+        FacesMessage message;
+        if(!existeHospital(selectedHospital.getId())) {
+            msg = "No hay hospitales con el id especificado";
+            message = new FacesMessage(FacesMessage.SEVERITY_FATAL, msg, null);
+        }
+        else {
+            conector.deleteHospital(selectedHospital.getId());
+            msg = "Se ha borrado el registro";
+            message = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, null);   
+        }
+        FacesContext.getCurrentInstance().addMessage(null, message);           
     }
     
     public List<Hospital> leerHospitales() {
         
-        List<services.Hospital> listaWS = readAllHospital();
+        List<services.Hospital> listaWS = conector.readAllHospital();
         List<Hospital> rta = new ArrayList<Hospital>();
         
         for(services.Hospital sh:listaWS) {
@@ -82,22 +100,12 @@ public class HospitalBean {
             rta.add(h);
         }
         return rta;       
-    }    
+    } 
     
-    //métodos del web service
-    private void createHospital(int arg0, java.lang.String arg1, java.lang.String arg2) {
-        services.CRUDHospitalWS port = service.getCRUDHospitalWSPort();
-        port.createHospital(arg0, arg1, arg2);
+    public boolean existeHospital(Integer id) {
+        services.Hospital sh = conector.readHospitalbyID(id);
+        if(sh==null) return false;
+        return true;
     }
-
-    private java.util.List<services.Hospital> readAllHospital() {
-        services.CRUDHospitalWS port = service.getCRUDHospitalWSPort();
-        return port.readAllHospital();
-    }
-
-    private void deleteHospital(int arg0) {
-        services.CRUDHospitalWS port = service.getCRUDHospitalWSPort();
-        port.deleteHospital(arg0);
-    }
-    
+  
 }

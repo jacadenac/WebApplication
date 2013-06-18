@@ -7,11 +7,16 @@ package beans;
 import classes.Cita;
 import classes.Doctor;
 import classes.Hospital;
+import facadews.ProcessResult;
+import facadews.UserRole;
+import facadews.UserRoleWS_Service;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.xml.ws.WebServiceRef;
+import services.CRUDHospital;
 
 /**
  *
@@ -19,6 +24,10 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class Conector {
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.wsdl")
+    private CRUDHospital service_1;
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl")
+    private UserRoleWS_Service service;
      
     private List<Hospital> listaHospitales;
     private List<Doctor> listaDoctores;
@@ -81,6 +90,65 @@ public class Conector {
         }
        lista.add(new Doctor(idHospital, "IdHospital"+idHospital.toString(), especialidad, idHospital));
        return lista;
-    }      
+    }    
+    
+    
+    /* ---- MÉTODOS WS ---- */
+    //UserRoleWS
+    public ProcessResult createUR(java.lang.Integer arg0, facadews.Role arg1, java.lang.Integer arg2) {
+        facadews.UserRoleWS port = service.getUserRoleWSPort();
+        return port.createUR(arg0, arg1, arg2);
+    }
 
+    public ProcessResult deleteUR(java.lang.Integer arg0) {
+        facadews.UserRoleWS port = service.getUserRoleWSPort();
+        return port.deleteUR(arg0);
+    }
+
+    public java.util.List<facadews.UserRole> getListUR(facadews.Role arg0) {
+        facadews.UserRoleWS port = service.getUserRoleWSPort();
+        return port.getListUR(arg0);
+    }
+
+    public java.util.List<facadews.UserRole> getListURByEntity(facadews.Role arg0, java.lang.Integer arg1) {
+        facadews.UserRoleWS port = service.getUserRoleWSPort();
+        return port.getListURByEntity(arg0, arg1);
+    }
+
+    public UserRole getUR(java.lang.Integer arg0) {
+        facadews.UserRoleWS port = service.getUserRoleWSPort();
+        return port.getUR(arg0);
+    }
+
+    public void setUR(facadews.UserRole arg0) {
+        facadews.UserRoleWS port = service.getUserRoleWSPort();
+        port.setUR(arg0);
+    }
+    
+    //CRUDHospitalWS
+    public void createHospital(int arg0, java.lang.String arg1, java.lang.String arg2) {
+        services.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
+        port.createHospital(arg0, arg1, arg2);
+    }
+
+    public void deleteHospital(int arg0) {
+        services.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
+        port.deleteHospital(arg0);
+    }
+
+    public java.util.List<services.Hospital> readAllHospital() {
+        services.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
+        return port.readAllHospital();
+    }
+
+    public services.Hospital readHospitalbyID(int arg0) {
+        services.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
+        return port.readHospitalbyID(arg0);
+    }
+
+    public void updateHospital(int arg0, java.lang.String arg1, java.lang.String arg2) {
+        services.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
+        port.updateHospital(arg0, arg1, arg2);
+    }
+  
 }

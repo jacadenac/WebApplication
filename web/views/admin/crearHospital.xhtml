@@ -88,6 +88,9 @@
 
                             <h:outputText value="Nombre Hospital:" />  
                             <p:inputText value="#{hospitalBean.selectedHospital.nombre}"/> 
+                            
+                            <h:outputText value="URL Hospital:" />  
+                            <p:inputText value="#{hospitalBean.selectedHospital.url}"/>                             
 
                             <f:facet name="footer">
                                 <p:commandButton id="btnUpdateAceptar" update=":formDataTable, :msgs" oncomplete="dialogHospitalUpdate.hide()" actionListener="#{hospitalBean.btnUpdateHospital(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
