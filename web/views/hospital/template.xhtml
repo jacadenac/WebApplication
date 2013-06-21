@@ -24,9 +24,8 @@
             <div id="menu">
                 <h:form>  
                     <p:menubar>  
-                        <p:menuitem value="Inicio" icon="ui-icon-home" url="#{appBean.basePath}doctor/inicio.xhtml"/>  
-                        <p:menuitem value="Historia clínica"  icon="ui-icon-pencil" url="#{appBean.basePath}doctor/historia.xhtml"/>
-                        <p:menuitem value="Reportes"  icon="ui-icon-mail-closed" url="#{appBean.basePath}doctor/reportes.xhtml"/>
+                        <p:menuitem value="Inicio" icon="ui-icon-home" url="#{appBean.basePath}hospital/inicio.xhtml"/>  
+                        <p:menuitem value="Editar Doctores"  icon="ui-icon-pencil" url="#{appBean.basePath}hospital/editarDoctores.xhtml"/>
                         <p:menuitem value="Salir" actionListener="#{loginBean.logout}" icon="ui-icon-close" oncomplete="handleLoginRequest(xhr, status, args)" url="#{appBean.baseUrl}faces/login.xhtml"/>                           
                     </p:menubar>   
                 </h:form>  

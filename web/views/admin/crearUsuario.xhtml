@@ -8,7 +8,8 @@
 
     <body>
 
-        <ui:composition template="./../template.xhtml">
+        <!--<ui:composition template="./../template.xhtml">-->
+        <ui:composition template="./template.xhtml">
             <ui:define name="content">
                 <h2>Administración de usuarios</h2>
                 <p:separator/>
@@ -37,7 +38,7 @@
                                   footerText="contains" filterMatchMode="contains">  
                             <h:outputText value="#{usuario.rol}" />  
                         </p:column>  
-                        
+
                         <p:column headerText="Id de la entidad asociada" filterBy="#{usuario.idEntity}"   
                                   footerText="contains" filterMatchMode="contains">  
                             <h:outputText value="#{usuario.idEntity}" />  
@@ -75,7 +76,7 @@
 
                             <h:outputText value="id del la entidad asociada:" />                              
                             <p:inputText value="#{usuarioBean.selectedUsuario.idEntity}"/>                             
-                            
+
                             <f:facet name="footer">
                                 <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogHospitalCreate.hide()" actionListener="#{usuarioBean.btnCreateUsuario(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
                                 <p:commandButton id="btnCreateCancelar" oncomplete="dialogHospitalCreate.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
@@ -102,7 +103,7 @@
                                 <f:selectItem itemLabel="Doctor" itemValue="DOCTOR" />
                                 <f:selectItem itemLabel="Usuario" itemValue="USER" />
                             </p:selectOneMenu>                              
-                            
+
                             <h:outputText value="Id de la entidad asociada:" />  
                             <p:inputText value="#{usuarioBean.selectedUsuario.idEntity}"/>                             
 

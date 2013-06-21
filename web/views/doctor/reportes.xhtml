@@ -7,8 +7,8 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
     <body>
-
-        <ui:composition template="./../template.xhtml">
+        <!--<ui:composition template="./../template.xhtml">-->
+        <ui:composition template="./template.xhtml">
             <ui:define name="content">
                 <h2>Reportar Nacimientos y Muertes</h2>
                 <p:separator/>
@@ -23,7 +23,7 @@
                 <h:form id="formDataTable">  
                     <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
                         <h:outputText value="#{reporteBean.selectedReporte.mensaje}" />  
-                   </h:panelGrid> 
+                    </h:panelGrid> 
                 </h:form>
 
                 <h:form id="formNacimiento">
@@ -33,7 +33,7 @@
 
                             <h:outputText value="Nombre del recién nacido:" />  
                             <p:inputText value="#{reporteBean.nombre}"/>  
-                            
+
                             <h:outputText value="Hospital:" />  
                             <p:selectOneMenu id="selHosp" value="#{reporteBean.selectedHospital}" style="width: 13.35em;">  
                                 <f:selectItems value="#{hospitalBean.hospitales}" var="hospital" itemLabel="#{hospital.nombre}" itemValue="#{hospital}"/>
@@ -54,7 +54,7 @@
 
                             <h:outputText value="Documento del difunto:" />  
                             <p:inputText value="#{reporteBean.idPersona}"/>  
-                            
+
                             <h:outputText value="Hospital:" />  
                             <p:selectOneMenu id="selHosp" value="#{reporteBean.selectedHospital}" style="width: 13.35em;">  
                                 <f:selectItems value="#{hospitalBean.hospitales}" var="hospital" itemLabel="#{hospital.nombre}" itemValue="#{hospital}"/>

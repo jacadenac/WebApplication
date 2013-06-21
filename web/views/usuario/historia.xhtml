@@ -7,15 +7,15 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
     <body>
-
-        <ui:composition template="./../template.xhtml">
+        <!--<ui:composition template="./../template.xhtml">-->
+        <ui:composition template="./template.xhtml">
             <ui:define name="content">
                 <h2>Mi Historia Médica</h2>
                 <p:separator/>
                 <p>//Aquí el usuario puede ver su historia médica, que consta de
                     un listado de citas. Se podrá realizar filtro por fecha</p>
                 <p:growl id="msgs" showDetail="true" />  
-                
+
                 <h:form id="formDataTable">  
                     <p:dataTable id="citas" var="cita" value="@@@/"
                                  paginator="true" rows="10" paginatorPosition="bottom"
@@ -41,7 +41,7 @@
                         <p:column headerText="Observaciones" style="width:24%" >  
                             <h:outputText value="#{citaBean.selectedCita.observaciones}"/>  
                         </p:column>  
-                        
+
                         <p:column>          
                             <p:commandButton id="btnLook" update=":formLook" oncomplete="dialogCitaLook.show()" icon="icon-extend" title="Ver"/>  
                         </p:column>  
@@ -67,7 +67,7 @@
 
                             <h:outputText value="Observaciones:" />  
                             <p:outputLabel value="#{citaBean.selectedCita.observaciones}" />  
-                            
+
                             <f:facet name="footer">
                                 <p:commandButton id="btnLookAceptar" oncomplete="dialogCitaLook.hide()" icon="icon-check" title="Aceptar" value="Aceptar" style="margin-top: 0.35em;"/>  
                             </f:facet>

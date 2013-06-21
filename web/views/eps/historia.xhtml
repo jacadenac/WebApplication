@@ -7,18 +7,18 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
     <body>
-
-        <ui:composition template="./../template.xhtml">
+        <!--<ui:composition template="./../template.xhtml">-->
+        <ui:composition template="./template.xhtml">
             <ui:define name="content">
                 <h2>Crear Historia Médica</h2>
                 <p:separator/>
                 <p>//Aquí la Eps puede añadir una nueva historia médica</p>
                 <p:growl id="msgs" showDetail="true" />  
-                
+
                 <h:form id="btnCrear">
                     <p:commandButton id="btnHistoriaCreate" update=":formCreate" oncomplete="dialogHistoriaCreate.show()" icon="icon-new" title="Crear" value="Crear"/>  
                 </h:form>
-                
+
                 <h:form id="formDataTable">  
                     <p:dataTable id="historias" value="#{historiaClinicaBean.historias}" var="historia" 
                                  paginator="true" rows="10" paginatorPosition="bottom"
@@ -32,7 +32,7 @@
                                   footerText="contains" filterMatchMode="contains">  
                             <h:outputText value="#{historia.idHistoria}" />  
                         </p:column>  
- 
+
                         <p:column style="width:7em;">          
                             <p:commandButton id="btnLook" update=":formLook" oncomplete="dialogHistoriaLook.show()" icon="icon-extend" title="Ver">  
                                 <f:setPropertyActionListener value="#{historia}" target="#{historiaClinicaBean.selectedHistoria}" />  
@@ -78,7 +78,7 @@
                         </h:panelGrid>  
                     </p:dialog>  
                 </h:form> 
-                
+
                 <h:form id="formUpdate">
                     <p:dialog header="Editar Historia Médica" widgetVar="dialogHistoriaUpdate" resizable="false" id="DlgHistoriaUpdate"  
                               showEffect="fade" hideEffect="explode" modal="true">  
@@ -95,7 +95,7 @@
                         </h:panelGrid>  
                     </p:dialog>  
                 </h:form>  
-                
+
                 <h:form id="formDelete">
                     <p:confirmDialog id="confirmDialog" message="¿Estas seguro de eliminar el registro?"  showEffect="fade" hideEffect="explode"
                                      header="Eliminar Historia Clinica" severity="alert" widgetVar="dialogHistoriaDelete">  
@@ -105,7 +105,7 @@
                         <p:commandButton id="decline" value="Cancelar" onclick="dialogHistoriaDelete.hide();" type="button" icon="icon-cancel"/>   
                     </p:confirmDialog>  
                 </h:form> 
-                
+
             </ui:define>
         </ui:composition>
 

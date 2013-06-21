@@ -70,10 +70,10 @@ public class loginBean implements Serializable {
             msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "¡Bienvenido!", null);
             if (session.getRole().equals("SuperAdmin")) {
                 ruta = MyUtil.basepathlogin() + "views/admin/inicio.xhtml";
-            }if(session.getRole().equals("AdminHosptial")){
+            }if(session.getRole().equals("AdminHospital")){
                 ruta = MyUtil.basepathlogin() + "views/hospital/inicio.xhtml";
             }if(session.getRole().equals("AdminEPS")){
-                ruta = MyUtil.basepathlogin() + "views/EPS/inicio.xhtml";
+                ruta = MyUtil.basepathlogin() + "views/eps/inicio.xhtml";
             }if(session.getRole().equals("Doctor")){
                 ruta = MyUtil.basepathlogin() + "views/doctor/inicio.xhtml";
             }if(session.getRole().equals("User")){
@@ -117,8 +117,12 @@ public class loginBean implements Serializable {
 
             session.setId(ur.getId());
             session.setIdEntity(ur.getIdEntity());
-            //session.setRole(ur.getRole().toString());
+          //  session.setRole(String.valueOf(ur.getRole()));
             session.setRole("User"); //<- MANUAL
+            //session.setRole("SuperAdmin");
+            //session.setRole("AdminHospital");
+            //session.setRole("AdminEPS");
+            //session.setRole("Doctor");
 
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "ROOOOOLLLL+ur.getRole()", null);
             System.out.print("ROOOOLLLL!!!" + ur.getRole());
