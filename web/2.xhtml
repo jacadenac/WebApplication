@@ -24,8 +24,8 @@
                                             id="password" required="true" label="password"/>
                                 <f:facet name="footer">
                                     <p:commandButton id="loginButton" value="Login" update=":growl"   
-                                                     actionListener="#{loginBean.login(actionEvent)}"  icon="icon-login"
-                                                     oncomplete="handleLoginRequest(xhr, status, args)"/>
+                                                     action="#{loginBean.login()}"  icon="icon-login"
+                                                     />
                                     <p:menubar>  
                                         <p:menuitem value="Inicio Temporal" icon="ui-icon-home" url="#{appBean.basePath}inicio.xhtml"/>  
                                     </p:menubar>     
@@ -34,7 +34,7 @@
                         </p:panel>
                     </h:form> 
                 </div> 
-                <script type="text/javascript">
+                <!--<script type="text/javascript">
                     function handleLoginRequest(xhr, status, args) {
                         if (args.validationFailed || !args.loggedIn) {
                             jQuery('#formLogin').effect("shake", {times: 3}, 100);
@@ -43,7 +43,7 @@
                             location.href = args.ruta;
                         }
                     }
-                </script>
+                </script> -->
             </ui:define>
         </ui:composition>
 

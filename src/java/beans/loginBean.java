@@ -58,9 +58,6 @@ public class loginBean implements Serializable{
     }
  
     public String login() {  
-  /*      RequestContext context = RequestContext.getCurrentInstance();  
-        FacesMessage msg;  
-        boolean loggedIn; */ 
         RequestContext context = RequestContext.getCurrentInstance();
         String ruta = "";
         FacesMessage msg;
@@ -69,9 +66,9 @@ public class loginBean implements Serializable{
         if(findUser()) {
             loggedIn = true;
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(username, password);
-            //msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", null);  
+            msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", null);  
 
-            //ruta = MyUtil.basepathlogin()+"views/inicio.xhtml";
+            ruta = MyUtil.basepathlogin()+"views/inicio.xhtml";
             return "views/inicio?faces-redirect=true";
             
         } else {  

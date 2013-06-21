@@ -16,12 +16,6 @@
 <message name="SetURResponse">
 <part name="parameters" element="tns:SetURResponse"/>
 </message>
-<message name="GetListURByEntity">
-<part name="parameters" element="tns:GetListURByEntity"/>
-</message>
-<message name="GetListURByEntityResponse">
-<part name="parameters" element="tns:GetListURByEntityResponse"/>
-</message>
 <message name="DeleteUR">
 <part name="parameters" element="tns:DeleteUR"/>
 </message>
@@ -33,6 +27,12 @@
 </message>
 <message name="CreateURResponse">
 <part name="parameters" element="tns:CreateURResponse"/>
+</message>
+<message name="GetListURByEntity">
+<part name="parameters" element="tns:GetListURByEntity"/>
+</message>
+<message name="GetListURByEntityResponse">
+<part name="parameters" element="tns:GetListURByEntityResponse"/>
 </message>
 <message name="GetListUR">
 <part name="parameters" element="tns:GetListUR"/>
@@ -49,10 +49,6 @@
 <input wsam:Action="http://facadews/UserRoleWS/SetURRequest" message="tns:SetUR"/>
 <output wsam:Action="http://facadews/UserRoleWS/SetURResponse" message="tns:SetURResponse"/>
 </operation>
-<operation name="GetListURByEntity">
-<input wsam:Action="http://facadews/UserRoleWS/GetListURByEntityRequest" message="tns:GetListURByEntity"/>
-<output wsam:Action="http://facadews/UserRoleWS/GetListURByEntityResponse" message="tns:GetListURByEntityResponse"/>
-</operation>
 <operation name="DeleteUR">
 <input wsam:Action="http://facadews/UserRoleWS/DeleteURRequest" message="tns:DeleteUR"/>
 <output wsam:Action="http://facadews/UserRoleWS/DeleteURResponse" message="tns:DeleteURResponse"/>
@@ -60,6 +56,10 @@
 <operation name="CreateUR">
 <input wsam:Action="http://facadews/UserRoleWS/CreateURRequest" message="tns:CreateUR"/>
 <output wsam:Action="http://facadews/UserRoleWS/CreateURResponse" message="tns:CreateURResponse"/>
+</operation>
+<operation name="GetListURByEntity">
+<input wsam:Action="http://facadews/UserRoleWS/GetListURByEntityRequest" message="tns:GetListURByEntity"/>
+<output wsam:Action="http://facadews/UserRoleWS/GetListURByEntityResponse" message="tns:GetListURByEntityResponse"/>
 </operation>
 <operation name="GetListUR">
 <input wsam:Action="http://facadews/UserRoleWS/GetListURRequest" message="tns:GetListUR"/>
@@ -86,15 +86,6 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="GetListURByEntity">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="DeleteUR">
 <soap:operation soapAction=""/>
 <input>
@@ -105,6 +96,15 @@
 </output>
 </operation>
 <operation name="CreateUR">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GetListURByEntity">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
