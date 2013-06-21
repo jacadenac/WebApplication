@@ -35,5 +35,24 @@ public class Session {
     public void setIdEntity(Integer idEntity) {
         this.idEntity = idEntity;
     }
-
+    
+    public boolean isSuperAdmin() {
+        return Role.equals("SUPERADMIN");
+    }
+    
+    public boolean isAdminEPS() {
+        return Role.equals("ADMINEPS");
+    }
+    
+    public boolean isAdminHospital() {
+        return Role.equals("ADMINHOSPITAL");
+    }
+    
+    public boolean isDoctor() {
+        return Role.equals("DOCTOR");
+    }    
+    
+    public boolean isUser() {
+        return Role.equals("USER");
+    }    
 }
