@@ -10,6 +10,11 @@
     <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?wsdl" uri="wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl"/>
     <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?xsd=1" uri="wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?xsd=2" uri="wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.xsd_2.xsd"/>
-    <system systemId="http://localhost:8080/UserRoleWS/UserRoleWS?wsdl" uri="wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl"/>
+    <system systemId="http://localhost:8080/UserRoleWS/UserRoleWS?WSDL" uri="wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl"/>
     <system systemId="http://localhost:8080/UserRoleWS/UserRoleWS?xsd=1" uri="wsdl/localhost_8080/UserRoleWS/UserRoleWS.xsd_1.xsd"/>
+    <system systemId="http://25.18.215.115:8080/CRUDHospital/CRUDHospitalWS?WSDL" uri="wsdl/25.18.215.115_8080/CRUDHospital/CRUDHospitalWS.wsdl"/>
+    <system systemId="http://25.18.215.115:8080/CRUDHospital/CRUDHospitalWS?xsd=1" uri="wsdl/25.18.215.115_8080/CRUDHospital/CRUDHospitalWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CRUDHospital/CRUDHospitalWS?WSDL" uri="wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.wsdl"/>
+    <system systemId="http://localhost:8080/CRUDHospital/CRUDHospitalWS?xsd=1" uri="wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/UserRoleWS/UserRoleWS?wsdl" uri="wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl"/>
 </catalog>

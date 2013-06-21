@@ -7,17 +7,17 @@
 <xsd:import namespace="http://fachadews/" schemaLocation="http://localhost:8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS?xsd=2"/>
 </xsd:schema>
 </types>
-<message name="createMedicalRecord">
-<part name="parameters" element="tns:createMedicalRecord"/>
-</message>
-<message name="createMedicalRecordResponse">
-<part name="parameters" element="tns:createMedicalRecordResponse"/>
-</message>
 <message name="deleteMedicalRecord">
 <part name="parameters" element="tns:deleteMedicalRecord"/>
 </message>
 <message name="deleteMedicalRecordResponse">
 <part name="parameters" element="tns:deleteMedicalRecordResponse"/>
+</message>
+<message name="createMedicalRecord">
+<part name="parameters" element="tns:createMedicalRecord"/>
+</message>
+<message name="createMedicalRecordResponse">
+<part name="parameters" element="tns:createMedicalRecordResponse"/>
 </message>
 <message name="readAllMedicalRecord">
 <part name="parameters" element="tns:readAllMedicalRecord"/>
@@ -38,13 +38,13 @@
 <part name="parameters" element="tns:updateMedicalRecordResponse"/>
 </message>
 <portType name="MedicalRecordsCRUDUrlWS">
-<operation name="createMedicalRecord">
-<input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/createMedicalRecordRequest" message="tns:createMedicalRecord"/>
-<output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/createMedicalRecordResponse" message="tns:createMedicalRecordResponse"/>
-</operation>
 <operation name="deleteMedicalRecord">
 <input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/deleteMedicalRecordRequest" message="tns:deleteMedicalRecord"/>
 <output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/deleteMedicalRecordResponse" message="tns:deleteMedicalRecordResponse"/>
+</operation>
+<operation name="createMedicalRecord">
+<input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/createMedicalRecordRequest" message="tns:createMedicalRecord"/>
+<output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/createMedicalRecordResponse" message="tns:createMedicalRecordResponse"/>
 </operation>
 <operation name="readAllMedicalRecord">
 <input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readAllMedicalRecordRequest" message="tns:readAllMedicalRecord"/>
@@ -61,7 +61,7 @@
 </portType>
 <binding name="MedicalRecordsCRUDUrlWSPortBinding" type="tns:MedicalRecordsCRUDUrlWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="createMedicalRecord">
+<operation name="deleteMedicalRecord">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -70,7 +70,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="deleteMedicalRecord">
+<operation name="createMedicalRecord">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

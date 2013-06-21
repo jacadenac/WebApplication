@@ -16,16 +16,16 @@
                         <p:panel header="Ingresar Usuario y Clave">  
                             <h:panelGrid columns="2" cellpadding="5">  
                                 <h:outputLabel for="username" value="Usuario:" />  
-                                <p:inputText value="# {loginBean.usuario.usuario}"   
+                                <p:inputText value="#{loginBean.username}"   
                                              id="username" required="true" label="username" />  
 
                                 <h:outputLabel for="password" value="Clave:" />  
-                                <p:password value="# {loginBean.usuario.clave}"   
+                                <p:password value="#{loginBean.password}"   
                                             id="password" required="true" label="password"/>
                                 <f:facet name="footer">
                                     <p:commandButton id="loginButton" value="Login" update=":growl"   
-                                                     actionListener="# {loginBean.login(actionEvent)}"  icon="icon-login"
-                                                     oncomplete="handleLoginRequest(xhr, status, args)"/>
+                                                     action="#{loginBean.login()}"  icon="icon-login"
+                                                     />
                                     <p:menubar>  
                                         <p:menuitem value="Inicio Temporal" icon="ui-icon-home" url="#{appBean.basePath}inicio.xhtml"/>  
                                     </p:menubar>     

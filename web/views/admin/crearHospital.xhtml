@@ -20,7 +20,7 @@
                 </h:form>
 
                 <h:form id="formDataTable">  
-                    <p:dataTable id="hospitales" var="hospital" value="#{hospitalBean.hospitales}/"
+                    <p:dataTable id="hospitales"  value="#{hospitalBean.hospitales}" var="hospital"
                                  paginator="true" rows="10" paginatorPosition="bottom"
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"> 
 
@@ -28,15 +28,20 @@
                             Hospitales
                         </f:facet> 
 
-                        <p:column headerText="Id Hospital" filterBy="#{hospital.id}" style="width: 46%;"   
+                        <p:column headerText="Id Hospital" filterBy="#{hospital.id}" style="width: 15%;"   
                                   footerText="contains" filterMatchMode="contains">  
-                            <h:outputText value="#{hospitalBean.selectedHospital.id}" />  
+                            <h:outputText value="#{hospital.id}" />  
                         </p:column>  
 
                         <p:column headerText="Nombre Hospital" filterBy="#{hospital.nombre}"   
                                   footerText="contains" filterMatchMode="contains">  
-                            <h:outputText value="#{hospitalBean.selectedHospital.nombre}" />  
+                            <h:outputText value="#{hospital.nombre}" />  
                         </p:column>  
+                        
+                        <p:column headerText="URL Hospital" filterBy="#{hospital.url}"   
+                                  footerText="contains" filterMatchMode="contains">  
+                            <h:outputText value="#{hospital.url}" />  
+                        </p:column>                         
 
                         <p:column style="width: 4em;">          
                             <p:commandButton id="btnUpdate" update=":formUpdate" oncomplete="dialogHospitalUpdate.show()" icon="icon-edit" title="Modificar">  
@@ -61,6 +66,9 @@
                             <h:outputText value="Nombre Hospital:" />  
                             <p:inputText value="#{hospitalBean.selectedHospital.nombre}"/> 
 
+                            <h:outputText value="URL Hospital:" />  
+                            <p:inputText value="#{hospitalBean.selectedHospital.url}"/>                             
+                            
                             <f:facet name="footer">
                                 <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogHospitalCreate.hide()" actionListener="#{hospitalBean.btnCreateHospital(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
                                 <p:commandButton id="btnCreateCancelar" oncomplete="dialogHospitalCreate.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
@@ -80,6 +88,9 @@
 
                             <h:outputText value="Nombre Hospital:" />  
                             <p:inputText value="#{hospitalBean.selectedHospital.nombre}"/> 
+                            
+                            <h:outputText value="URL Hospital:" />  
+                            <p:inputText value="#{hospitalBean.selectedHospital.url}"/>                             
 
                             <f:facet name="footer">
                                 <p:commandButton id="btnUpdateAceptar" update=":formDataTable, :msgs" oncomplete="dialogHospitalUpdate.hide()" actionListener="#{hospitalBean.btnUpdateHospital(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
@@ -91,10 +102,11 @@
 
                 <h:form id="formDelete">
                     <p:confirmDialog id="confirmDialog" message="¿Estas seguro de eliminar el registro?"  showEffect="fade" hideEffect="explode"
-                                     header="Eliminar Hospital" severity="alert" widgetVar="dialogHospitalDelete">  
+                                     header="Eliminar Hospital" severity="alert" widgetVar="dialogHospitalDelete"> 
+                        <h:inputHidden value="#{hospitalBean.selectedHospital.nombre}"/>
                         <h:inputHidden value="#{hospitalBean.selectedHospital.id}"/>
                         <p:commandButton id="confirm" value="Aceptar" update=":formDataTable, :msgs" oncomplete="dialogHospitalDelete.hide()"  
-                                         actionListener="#{hospitalBean.btnDeleteHospital(actionEvent)}" icon="icon-check"/>  
+                                         action="#{hospitalBean.borrarHospital()}" icon="icon-check"/>  
                         <p:commandButton id="decline" value="Cancelar" onclick="dialogHospitalDelete.hide();" type="button" icon="icon-cancel"/>   
                     </p:confirmDialog>  
                 </h:form> 

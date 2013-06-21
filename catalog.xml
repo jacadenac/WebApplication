@@ -16,6 +16,10 @@
     
     
     
+    
+    
+    
+    
     <system systemId="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?wsdl" uri="src/conf/xml-resources/web-service-references/CRUD_EPS_ws/wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.wsdl"/>
     <system systemId="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?xsd=1" uri="src/conf/xml-resources/web-service-references/CRUD_EPS_ws/wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?wsdl" uri="src/conf/xml-resources/web-service-references/AppointmentCRUDUrlWS/wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl"/>
