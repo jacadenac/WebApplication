@@ -27,13 +27,13 @@
                         <p:menuitem value="Inicio" icon="ui-icon-home" url="#{appBean.basePath}inicio.xhtml"/>  
                         <p:menuitem value="Eps"  icon="ui-icon-document" url="#{appBean.basePath}admin/crearEps.xhtml"/>
                         <p:menuitem value="Hospital"  icon="ui-icon-document" url="#{appBean.basePath}admin/crearHospital.xhtml"/>
+                        <p:menuitem value="Crear Usuario"  icon="ui-icon-plus" url="#{appBean.basePath}admin/crearUsuario.xhtml"/>
                         <p:menuitem value="Editar Doctores"  icon="ui-icon-pencil" url="#{appBean.basePath}hospital/editarDoctores.xhtml"/>
                         <p:menuitem value="Historia clínica"  icon="ui-icon-plus" url="#{appBean.basePath}eps/historia.xhtml"/>
                         <p:menuitem value="Historia clínica"  icon="ui-icon-pencil" url="#{appBean.basePath}doctor/historia.xhtml"/>
                         <p:menuitem value="Reportes"  icon="ui-icon-mail-closed" url="#{appBean.basePath}doctor/reportes.xhtml"/>
                         <p:menuitem value="Historia clínica"  icon="ui-icon-contact" url="#{appBean.basePath}usuario/historia.xhtml"/>
                         <p:menuitem value="Solicitar cita médica" icon="ui-icon-clipboard" url="#{appBean.basePath}usuario/cita.xhtml"/> 
-                        <p:menuitem value="Administrar Usuarios" icon="ui-icon-clipboard" url="#{appBean.basePath}admin/crearUsuario.xhtml" /> 
                         <!--<p:menuitem value="Eps"  icon="ui-icon-document" url="#{appBean.basePath}admin/crearEps.xhtml" <rendered="#{request.isUserInRole('SuperAdmin')}"/>
                         <p:menuitem value="Hospital"  icon="ui-icon-document" url="#{appBean.basePath}admin/crearHospital.xhtml" rendered="#{request.isUserInRole('SuperAdmin')}"/>
                         <p:menuitem value="Editar Doctores"  icon="ui-icon-pencil" url="#{appBean.basePath}hospital/editarDoctores.xhtml" rendered="#{request.isUserInRole('AdminHospital')}"/>
@@ -41,8 +41,7 @@
                         <p:menuitem value="Historia clínica"  icon="ui-icon-pencil" url="#{appBean.basePath}doctor/historia.xhtml" rendered="#{request.isUserInRole('Doctor')}"/>
                         <p:menuitem value="Reportes"  icon="ui-icon-mail-closed" url="#{appBean.basePath}doctor/reportes.xhtml" rendered="#{request.isUserInRole('Doctor')}"/>
                         <p:menuitem value="Historia clínica"  icon="ui-icon-contact" url="#{appBean.basePath}usuario/historia.xhtml" rendered="#{request.isUserInRole('User')}"/>
-                        <p:menuitem value="Solicitar cita médica" icon="ui-icon-clipboard" url="#{appBean.basePath}usuario/cita.xhtml" rendered="#{request.isUserInRole('User')}"/>
-                        <p:menuitem value="Administrar Usuarios" icon="ui-icon-clipboard" url="#{appBean.basePath}admin/crearUsuario.xhtml" rendered="#{request.isUserInRole('SuperAdmin')}" /> -->
+                        <p:menuitem value="Solicitar cita médica" icon="ui-icon-clipboard" url="#{appBean.basePath}usuario/cita.xhtml" rendered="#{request.isUserInRole('User')}"/>   -->
                         <p:menuitem value="Salir" actionListener="#{loginBean.logout}" icon="ui-icon-close" oncomplete="handleLoginRequest(xhr, status, args)" url="#{appBean.baseUrl}faces/login.xhtml"/>                           
                     </p:menubar>   
                 </h:form>  

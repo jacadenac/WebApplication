@@ -26,18 +26,6 @@
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="deleteAppoinment">
-<xs:sequence>
-<xs:element name="idRecord" type="xs:int"/>
-<xs:element name="idAppointment" type="xs:int"/>
-<xs:element name="idEPS" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="deleteAppoinmentResponse">
-<xs:sequence/>
-</xs:complexType>
-
 <xs:complexType name="getAppointment">
 <xs:sequence>
 <xs:element name="idRecord" type="xs:int"/>
@@ -47,6 +35,18 @@
 </xs:complexType>
 
 <xs:complexType name="getAppointmentResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="deleteAppoinment">
+<xs:sequence>
+<xs:element name="idRecord" type="xs:int"/>
+<xs:element name="idAppointment" type="xs:int"/>
+<xs:element name="idEPS" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="deleteAppoinmentResponse">
 <xs:sequence/>
 </xs:complexType>
 </xs:schema>

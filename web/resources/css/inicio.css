@@ -26,3 +26,13 @@ root{
     margin-top: 2.9em;
     margin-left: 2em;
 }
+
+#Bienvenida{
+    color: #0075ac;
+    font-family: "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  120%;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 0.9em;
+    padding: 0px;
+}

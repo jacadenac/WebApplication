@@ -34,18 +34,18 @@ public class loginBean implements Serializable{
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl")
     private UserRoleWS_Service service;
     
-    private String username;
+    private Integer username;
     private String password;
     
     public Session getSession() {
         return session;
     }
     
-    public String getUsername() {
+    public Integer getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(Integer username) {
         this.username = username;
     }
 
@@ -58,18 +58,19 @@ public class loginBean implements Serializable{
     }
  
     public String login() {  
+        System.out.print("Entró a login!!");
         RequestContext context = RequestContext.getCurrentInstance();
         String ruta = "";
         FacesMessage msg;
-        boolean loggedIn=true;
+        boolean loggedIn;
 
-        if(findUser()) {
+        if(this.findUser()) {
             loggedIn = true;
-            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(username, password);
-            msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenido", null);  
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("username", password);
+            msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "¡Bienvenido!", null);  
 
             ruta = MyUtil.basepathlogin()+"views/inicio.xhtml";
-            return "views/inicio?faces-redirect=true";
+            //return "views/inicio?faces-redirect=true";
             
         } else {  
             loggedIn = false;  
@@ -99,7 +100,7 @@ public class loginBean implements Serializable{
     }
     
     private boolean findUser() {
-        if(username.contains("a")){
+        if(String.valueOf(username).contains("1")){
             UserRole ur = new UserRole();
             ur.setId(1);
             ur.setIdEntity(1);
@@ -108,7 +109,7 @@ public class loginBean implements Serializable{
             session.setId(ur.getId());
             session.setIdEntity(ur.getIdEntity());
             //session.setRole(ur.getRole().toString());
-            session.setRole(username);
+            session.setRole(String.valueOf(username));
             
             return true;
         }           

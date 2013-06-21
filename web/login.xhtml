@@ -15,20 +15,20 @@
                     <h:form id="formLogin">  
                         <p:panel header="Ingresar Usuario y Clave">  
                             <h:panelGrid columns="2" cellpadding="5">  
-                                <h:outputLabel for="username" value="Usuario:" />  
+                                <h:outputLabel for="username" value="Documento (DNI):" />  
                                 <p:inputText value="#{loginBean.username}"   
                                              id="username" required="true" label="username" />  
 
-                                <h:outputLabel for="password" value="Clave:" />  
+                                <h:outputLabel for="password" value="Contraseña:" />  
                                 <p:password value="#{loginBean.password}"   
                                             id="password" required="true" label="password"/>
                                 <f:facet name="footer">
                                     <p:commandButton id="loginButton" value="Login" update=":growl"   
-                                                     actionListener="#{loginBean.login(actionEvent)}"  icon="icon-login"
+                                                     actionListener="#{loginBean.login()}"  icon="icon-login"
                                                      oncomplete="handleLoginRequest(xhr, status, args)"/>
-                                    <p:menubar>  
+                                    <!--<p:menubar>  
                                         <p:menuitem value="Inicio Temporal" icon="ui-icon-home" url="#{appBean.basePath}inicio.xhtml"/>  
-                                    </p:menubar>     
+                                    </p:menubar>     -->
                                 </f:facet>
                             </h:panelGrid>
                         </p:panel>
