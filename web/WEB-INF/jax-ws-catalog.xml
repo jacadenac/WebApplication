@@ -23,4 +23,8 @@
     <system systemId="http://localhost:8080/ManageHospital/ManageHospital?xsd=1" uri="wsdl/localhost_8080/ManageHospital/ManageHospital.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/CRUDHospital/CRUDHospitalWS?wsdl" uri="wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.wsdl"/>
     <system systemId="http://localhost:8080/ManageHospital/ManageHospital?wsdl" uri="wsdl/localhost_8080/ManageHospital/ManageHospital.wsdl"/>
+    <system systemId="http://localhost:8080/OPIaccess/OPIaccess?wsdl" uri="wsdl/localhost_8080/OPIaccess/OPIaccess.wsdl"/>
+    <system systemId="http://localhost:8080/OPIaccess/OPIaccess?xsd=1" uri="wsdl/localhost_8080/OPIaccess/OPIaccess.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/SRAaccess/SRAaccess?wsdl" uri="wsdl/localhost_8080/SRAaccess/SRAaccess.wsdl"/>
+    <system systemId="http://localhost:8080/SRAaccess/SRAaccess?xsd=1" uri="wsdl/localhost_8080/SRAaccess/SRAaccess.xsd_1.xsd"/>
 </catalog>

@@ -26,22 +26,6 @@
             <isset property="conf.dir"/>
         </condition>
     </target>
-    <target name="wsimport-client-CRUD_EPS_ws" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/CRUD_EPS_ws"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CRUD_EPS_ws" destdir="${build.generated.dir}/jax-wsCache/CRUD_EPS_ws" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CRUD_EPS_ws/wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/CRUD_EPS_ws/wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/CRUD_EPS_ws"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/CRUD_EPS_ws">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-CRUD_EPS_ws" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/services"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/CRUD_EPS_ws"/>
-    </target>
     <target name="wsimport-client-AppointmentCRUDUrlWS" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/AppointmentCRUDUrlWS"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/AppointmentCRUDUrlWS" destdir="${build.generated.dir}/jax-wsCache/AppointmentCRUDUrlWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/AppointmentCRUDUrlWS/wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?wsdl" xnocompile="true" xendorsed="true">
@@ -122,5 +106,53 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/services"/>
         <delete dir="${build.generated.dir}/jax-wsCache/ManageHospital"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-CRUD_EPS_ws, wsimport-client-AppointmentCRUDUrlWS, wsimport-client-MedicalRecordsCRUDUrlWS, wsimport-client-UserRoleWS, wsimport-client-CRUDHospitalWS, wsimport-client-ManageHospital"/>
+    <target name="wsimport-client-CRUD_EPS_ws" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/CRUD_EPS_ws"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CRUD_EPS_ws" destdir="${build.generated.dir}/jax-wsCache/CRUD_EPS_ws" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CRUD_EPS_ws/wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/CRUD_EPS_ws/wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/CRUD_EPS_ws"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/CRUD_EPS_ws">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-CRUD_EPS_ws" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/services"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/CRUD_EPS_ws"/>
+    </target>
+    <target name="wsimport-client-OPIaccess" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/OPIaccess"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/OPIaccess" destdir="${build.generated.dir}/jax-wsCache/OPIaccess" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/OPIaccess/wsdl/localhost_8080/OPIaccess/OPIaccess.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/OPIaccess/OPIaccess?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/OPIaccess/wsdl/localhost_8080/OPIaccess/OPIaccess.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/OPIaccess"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/OPIaccess">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-OPIaccess" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/services"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/OPIaccess"/>
+    </target>
+    <target name="wsimport-client-SRAaccess" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/SRAaccess"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/SRAaccess" destdir="${build.generated.dir}/jax-wsCache/SRAaccess" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/SRAaccess/wsdl/localhost_8080/SRAaccess/SRAaccess.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/SRAaccess/SRAaccess?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/SRAaccess/wsdl/localhost_8080/SRAaccess/SRAaccess.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/SRAaccess"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/SRAaccess">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-SRAaccess" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/services"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/SRAaccess"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-AppointmentCRUDUrlWS, wsimport-client-MedicalRecordsCRUDUrlWS, wsimport-client-UserRoleWS, wsimport-client-CRUDHospitalWS, wsimport-client-ManageHospital, wsimport-client-CRUD_EPS_ws, wsimport-client-OPIaccess, wsimport-client-SRAaccess"/>
 </project>

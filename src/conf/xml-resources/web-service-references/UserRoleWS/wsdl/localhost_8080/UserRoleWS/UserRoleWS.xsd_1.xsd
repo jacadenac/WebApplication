@@ -8,10 +8,6 @@
 
 <xs:element name="DeleteURResponse" type="tns:DeleteURResponse"/>
 
-<xs:element name="GetFullListUR" type="tns:GetFullListUR"/>
-
-<xs:element name="GetFullListURResponse" type="tns:GetFullListURResponse"/>
-
 <xs:element name="GetListUR" type="tns:GetListUR"/>
 
 <xs:element name="GetListURByEntity" type="tns:GetListURByEntity"/>
@@ -90,16 +86,6 @@
 </xs:complexType>
 
 <xs:complexType name="GetListURResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:userRole" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="GetFullListUR">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="GetFullListURResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:userRole" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>

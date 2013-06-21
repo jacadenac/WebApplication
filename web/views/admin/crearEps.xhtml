@@ -37,6 +37,16 @@
                                   footerText="contains" filterMatchMode="contains">  
                             <h:outputText value="#{eps.name}" />  
                         </p:column>  
+                        
+                        <p:column headerText="URL Historia Clinica" filterBy="#{eps.urlRecords}"   
+                                  footerText="contains" filterMatchMode="contains">  
+                            <h:outputText value="#{eps.urlRecords}" />  
+                        </p:column>  
+                        
+                        <p:column headerText="URL Citas" filterBy="#{eps.urlAppointments}"   
+                                  footerText="contains" filterMatchMode="contains">  
+                            <h:outputText value="#{eps.urlAppointments}" />  
+                        </p:column>  
 
                         <p:column style="width: 4em;">          
                             <p:commandButton id="btnUpdate" update=":formUpdate" oncomplete="dialogEpsUpdate.show()" icon="icon-edit" title="Modificar">  
@@ -45,6 +55,9 @@
                             <p:commandButton id="btnDelete" update=":formDelete" oncomplete="dialogEpsDelete.show()" icon="icon-delete" title="Eliminar">  
                                 <f:setPropertyActionListener value="#{eps}" target="#{epsBean.selectedEps}" />  
                             </p:commandButton>  
+                            <p:commandButton id="btnRegister" update=":formRegister" oncomplete="dialogEpsRegister.show()" icon="icon-delete" title="Register">  
+                                <f:setPropertyActionListener value="#{eps}" target="#{epsBean.selectedEps}" />  
+                            </p:commandButton> 
                         </p:column>  
 
                     </p:dataTable>  
@@ -60,6 +73,9 @@
 
                             <h:outputText value="Nombre Eps:" />  
                             <p:inputText value="#{epsBean.selectedEps.name}"/> 
+                            
+                            <h:outputText value="IP:Puerto :" />  
+                            <p:inputText value="#{epsBean.selectedEps.urlRecords}"/> 
 
                             <f:facet name="footer">
                                 <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogEpsCreate.hide()" actionListener="#{epsBean.btnCreateEps(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
@@ -68,7 +84,24 @@
                         </h:panelGrid>  
                     </p:dialog>  
                 </h:form> 
+                <h:form id="formRegister">
+                    <p:dialog header="Register Eps" widgetVar="dialogEpsRegister" resizable="false" id="DlgEpsRegister"  
+                              showEffect="fade" hideEffect="explode" modal="true">  
+                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
 
+                            <h:outputText value="Nombre EPS:" />  
+                            <p:inputText value="#{epsBean.selectedEps.name}"/>                        
+
+                            <h:outputText value="Numero cuenta:" />  
+                            <p:inputText value="#{epsBean.accountNumber}"/> 
+
+                            <f:facet name="footer">
+                                <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogEpsRegister.hide()" actionListener="#{epsBean.btnRegisterEps(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnCreateCancelar" oncomplete="dialogEpsRegister.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
+                            </f:facet>
+                        </h:panelGrid>  
+                    </p:dialog>  
+                </h:form> 
                 <h:form id="formUpdate">
                     <p:dialog header="Modificar Eps" widgetVar="dialogEpsUpdate" resizable="false" id="DlgEpsUpdate"  
                               showEffect="fade" hideEffect="explode" modal="true">  
@@ -80,6 +113,12 @@
 
                             <h:outputText value="Nombre Eps:" />  
                             <p:inputText value="#{epsBean.selectedEps.name}"/> 
+                            
+                            <h:outputText value="IP:Puerto :" />  
+                            <p:inputText value="#{epsBean.selectedEps.urlRecords}"/> 
+                            
+                            <h:outputText value="IP:Puerto :" />  
+                            <p:inputText value="#{epsBean.selectedEps.urlAppointments}"/> 
 
                             <f:facet name="footer">
                                 <p:commandButton id="btnUpdateAceptar" update=":formDataTable, :msgs" oncomplete="dialogEpsUpdate.hide()" actionListener="#{epsBean.btnUpdateEps(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
