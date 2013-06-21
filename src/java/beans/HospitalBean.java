@@ -22,6 +22,7 @@ import javax.inject.Named;
 
 @ManagedBean
 @RequestScoped
+@Named(value = "hospitalBean")
 public class HospitalBean {
     @EJB
     private Conector conector;
@@ -30,8 +31,8 @@ public class HospitalBean {
     private Hospital selectedHospital;
     
     public HospitalBean() {
-        hospitales = new ArrayList<Hospital>();
-        selectedHospital = new Hospital();
+        this.hospitales = new ArrayList<Hospital>();
+        this.selectedHospital = new Hospital();
     }
 
     public List<Hospital> getHospitales() {

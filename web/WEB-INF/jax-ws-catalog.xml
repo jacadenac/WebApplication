@@ -27,4 +27,6 @@
     <system systemId="http://localhost:8080/OPIaccess/OPIaccess?xsd=1" uri="wsdl/localhost_8080/OPIaccess/OPIaccess.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/SRAaccess/SRAaccess?wsdl" uri="wsdl/localhost_8080/SRAaccess/SRAaccess.wsdl"/>
     <system systemId="http://localhost:8080/SRAaccess/SRAaccess?xsd=1" uri="wsdl/localhost_8080/SRAaccess/SRAaccess.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/registerEPSBankAccount/RegisterEPSBankAccount?wsdl" uri="wsdl/localhost_8080/registerEPSBankAccount/RegisterEPSBankAccount.wsdl"/>
+    <system systemId="http://localhost:8080/registerEPSBankAccount/RegisterEPSBankAccount?xsd=1" uri="wsdl/localhost_8080/registerEPSBankAccount/RegisterEPSBankAccount.xsd_1.xsd"/>
 </catalog>

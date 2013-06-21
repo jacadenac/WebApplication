@@ -6,6 +6,8 @@ package beans;
 
 //import fachadews.ProcessResult;
 //import fachadews.RegisterEPSBankAccount_Service;
+import fachadews.ProcessResult;
+import fachadews.RegisterEPSBankAccount_Service;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +25,8 @@ import services.OPIaccess_Service;
 @Named(value = "epsBean")
 @RequestScoped
 public class epsBean {
-    /*@WebServiceRef(wsdlLocation = "WEB-INF/wsdl/RegisterEPSBankAccount.wsdl")
-    private RegisterEPSBankAccount_Service service_2;*/
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/registerEPSBankAccount/RegisterEPSBankAccount.wsdl")
+    private RegisterEPSBankAccount_Service service_2;
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/OPIaccess/OPIaccess.wsdl")
     private OPIaccess_Service service_1;
 
@@ -82,7 +84,7 @@ public class epsBean {
     private void registerEPS(java.lang.String name, java.lang.Long accountNumber) {
         /*services.OPIaccess port = service_1.getOPIaccessPort();
         port.registerEPS(name, accountNumber);*/
-        /*registerEPSBankAccount(accountNumber, name, name);*/ //TODO:
+        //registerEPSBankAccount(accountNumber, name, name);
     }
 
     public void btnUpdateEps(ActionEvent actionEvent) {
@@ -117,9 +119,9 @@ public class epsBean {
         return port.readOneEPS(idEPS);
     }
 
-    /*private ProcessResult registerEPSBankAccount(java.lang.Long arg0, java.lang.String arg1, java.lang.String arg2) {
+    private ProcessResult registerEPSBankAccount(java.lang.Long arg0, java.lang.String arg1, java.lang.String arg2) {
         fachadews.RegisterEPSBankAccount port = service_2.getRegisterEPSBankAccountPort();
         return port.registerEPSBankAccount(arg0, arg1, arg2);
-    }*/
+    }
 
 }

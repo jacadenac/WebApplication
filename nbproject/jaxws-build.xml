@@ -154,5 +154,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/services"/>
         <delete dir="${build.generated.dir}/jax-wsCache/SRAaccess"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-AppointmentCRUDUrlWS, wsimport-client-MedicalRecordsCRUDUrlWS, wsimport-client-UserRoleWS, wsimport-client-CRUDHospitalWS, wsimport-client-ManageHospital, wsimport-client-CRUD_EPS_ws, wsimport-client-OPIaccess, wsimport-client-SRAaccess"/>
+    <target name="wsimport-client-RegisterEPSBankAccount" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/RegisterEPSBankAccount"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegisterEPSBankAccount" destdir="${build.generated.dir}/jax-wsCache/RegisterEPSBankAccount" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/RegisterEPSBankAccount/wsdl/localhost_8080/registerEPSBankAccount/RegisterEPSBankAccount.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/registerEPSBankAccount/RegisterEPSBankAccount?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/RegisterEPSBankAccount/wsdl/localhost_8080/registerEPSBankAccount/RegisterEPSBankAccount.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/RegisterEPSBankAccount"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/RegisterEPSBankAccount">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-RegisterEPSBankAccount" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/fachadews"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/RegisterEPSBankAccount"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-AppointmentCRUDUrlWS, wsimport-client-MedicalRecordsCRUDUrlWS, wsimport-client-UserRoleWS, wsimport-client-CRUDHospitalWS, wsimport-client-ManageHospital, wsimport-client-CRUD_EPS_ws, wsimport-client-OPIaccess, wsimport-client-SRAaccess, wsimport-client-RegisterEPSBankAccount"/>
 </project>

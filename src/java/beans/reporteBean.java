@@ -29,6 +29,7 @@ public class reporteBean {
     private Hospital selectedHospital;
 
     public reporteBean() {
+        selectedHospital = new Hospital();
     }
 
     public String getNombre() {
@@ -56,6 +57,7 @@ public class reporteBean {
     }
 
     public Hospital getSelectedHospital() {
+        System.out.println("Id " + selectedHospital.getId() + "  " + " Nombre  " + selectedHospital.getNombre());
         return selectedHospital;
     }
 
@@ -73,7 +75,8 @@ public class reporteBean {
     
     
     
-    public void btnReportarNacimiento(ActionEvent actionEvent ) {
+    public void btnReportarNacimiento( ) {
+        System.out.println("Reportar Nacimiento");
         conector.reportBirth(nombre, selectedHospital.getId());
     }  
     

@@ -45,4 +45,6 @@
     <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?wsdl" uri="src/conf/xml-resources/web-service-references/AppointmentCRUDUrlWS/wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl"/>
     <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?xsd=1" uri="src/conf/xml-resources/web-service-references/AppointmentCRUDUrlWS/wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?xsd=2" uri="src/conf/xml-resources/web-service-references/AppointmentCRUDUrlWS/wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/registerEPSBankAccount/RegisterEPSBankAccount?wsdl" uri="src/conf/xml-resources/web-service-references/RegisterEPSBankAccount/wsdl/localhost_8080/registerEPSBankAccount/RegisterEPSBankAccount.wsdl"/>
+    <system systemId="http://localhost:8080/registerEPSBankAccount/RegisterEPSBankAccount?xsd=1" uri="src/conf/xml-resources/web-service-references/RegisterEPSBankAccount/wsdl/localhost_8080/registerEPSBankAccount/RegisterEPSBankAccount.xsd_1.xsd"/>
 </catalog>
