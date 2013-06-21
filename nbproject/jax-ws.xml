@@ -30,6 +30,34 @@
         </wsimport-option>
       </wsimport-options>
     </client>
+    <client name="AppointmentCRUDUrlWS">
+      <wsdl-url>http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl</local-wsdl-file>
+      <package-name>services</package-name>
+      <catalog-file>catalog.xml</catalog-file>
+      <wsimport-options>
+        <wsimport-option>
+          <wsimport-option-name>extension</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>verbose</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>wsdlLocation</wsimport-option-name>
+          <wsimport-option-value>http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?wsdl</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xnocompile</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+        <wsimport-option>
+          <wsimport-option-name>xendorsed</wsimport-option-name>
+          <wsimport-option-value>true</wsimport-option-value>
+        </wsimport-option>
+      </wsimport-options>
+    </client>
     <client name="MedicalRecordsCRUDUrlWS">
       <wsdl-url>http://localhost:8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS?wsdl</wsdl-url>
       <local-wsdl-file>localhost_8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS.wsdl</local-wsdl-file>
@@ -58,10 +86,10 @@
         </wsimport-option>
       </wsimport-options>
     </client>
-    <client name="AppointmentCRUDUrlWS">
-      <wsdl-url>http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?wsdl</wsdl-url>
-      <local-wsdl-file>localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl</local-wsdl-file>
-      <package-name>services</package-name>
+    <client name="UserRoleWS">
+      <wsdl-url>http://localhost:8080/UserRoleWS/UserRoleWS?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8080/UserRoleWS/UserRoleWS.wsdl</local-wsdl-file>
+      <package-name>facadews</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -74,7 +102,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8080/UserRoleWS/UserRoleWS?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

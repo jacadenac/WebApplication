@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://facadews/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://facadews/">
+
+<xs:element name="CreateUR" type="tns:CreateUR"/>
+
+<xs:element name="CreateURResponse" type="tns:CreateURResponse"/>
+
+<xs:element name="DeleteUR" type="tns:DeleteUR"/>
+
+<xs:element name="DeleteURResponse" type="tns:DeleteURResponse"/>
+
+<xs:element name="GetListUR" type="tns:GetListUR"/>
+
+<xs:element name="GetListURByEntity" type="tns:GetListURByEntity"/>
+
+<xs:element name="GetListURByEntityResponse" type="tns:GetListURByEntityResponse"/>
+
+<xs:element name="GetListURResponse" type="tns:GetListURResponse"/>
+
+<xs:element name="GetUR" type="tns:GetUR"/>
+
+<xs:element name="GetURResponse" type="tns:GetURResponse"/>
+
+<xs:element name="SetUR" type="tns:SetUR"/>
+
+<xs:element name="SetURResponse" type="tns:SetURResponse"/>
+
+<xs:complexType name="SetUR">
+<xs:sequence>
+<xs:element name="arg0" type="tns:userRole" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="userRole">
+<xs:sequence>
+<xs:element name="id" type="xs:int" minOccurs="0"/>
+<xs:element name="idEntity" type="xs:int" minOccurs="0"/>
+<xs:element name="role" type="tns:role" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SetURResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="GetListURByEntity">
+<xs:sequence>
+<xs:element name="arg0" type="tns:role" minOccurs="0"/>
+<xs:element name="arg1" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetListURByEntityResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:userRole" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetUR">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetURResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:userRole" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DeleteUR">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DeleteURResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:processResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetListUR">
+<xs:sequence>
+<xs:element name="arg0" type="tns:role" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetListURResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:userRole" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CreateUR">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int" minOccurs="0"/>
+<xs:element name="arg1" type="tns:role" minOccurs="0"/>
+<xs:element name="arg2" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CreateURResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:processResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="role">
+<xs:restriction base="xs:string">
+<xs:enumeration value="SUPERADMIN"/>
+<xs:enumeration value="ADMINEPS"/>
+<xs:enumeration value="ADMINHOSPITAL"/>
+<xs:enumeration value="DOCTOR"/>
+<xs:enumeration value="USER"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="processResult">
+<xs:restriction base="xs:string">
+<xs:enumeration value="ERROR"/>
+<xs:enumeration value="COMPLETED"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

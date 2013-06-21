@@ -19,17 +19,17 @@
 <message name="deleteMedicalRecordResponse">
 <part name="parameters" element="tns:deleteMedicalRecordResponse"/>
 </message>
-<message name="readMedicalRecord">
-<part name="parameters" element="tns:readMedicalRecord"/>
-</message>
-<message name="readMedicalRecordResponse">
-<part name="parameters" element="tns:readMedicalRecordResponse"/>
-</message>
 <message name="readAllMedicalRecord">
 <part name="parameters" element="tns:readAllMedicalRecord"/>
 </message>
 <message name="readAllMedicalRecordResponse">
 <part name="parameters" element="tns:readAllMedicalRecordResponse"/>
+</message>
+<message name="readMedicalRecord">
+<part name="parameters" element="tns:readMedicalRecord"/>
+</message>
+<message name="readMedicalRecordResponse">
+<part name="parameters" element="tns:readMedicalRecordResponse"/>
 </message>
 <message name="updateMedicalRecord">
 <part name="parameters" element="tns:updateMedicalRecord"/>
@@ -46,13 +46,13 @@
 <input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/deleteMedicalRecordRequest" message="tns:deleteMedicalRecord"/>
 <output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/deleteMedicalRecordResponse" message="tns:deleteMedicalRecordResponse"/>
 </operation>
-<operation name="readMedicalRecord">
-<input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readMedicalRecordRequest" message="tns:readMedicalRecord"/>
-<output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readMedicalRecordResponse" message="tns:readMedicalRecordResponse"/>
-</operation>
 <operation name="readAllMedicalRecord">
 <input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readAllMedicalRecordRequest" message="tns:readAllMedicalRecord"/>
 <output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readAllMedicalRecordResponse" message="tns:readAllMedicalRecordResponse"/>
+</operation>
+<operation name="readMedicalRecord">
+<input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readMedicalRecordRequest" message="tns:readMedicalRecord"/>
+<output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readMedicalRecordResponse" message="tns:readMedicalRecordResponse"/>
 </operation>
 <operation name="updateMedicalRecord">
 <input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/updateMedicalRecordRequest" message="tns:updateMedicalRecord"/>
@@ -79,7 +79,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="readMedicalRecord">
+<operation name="readAllMedicalRecord">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -88,7 +88,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="readAllMedicalRecord">
+<operation name="readMedicalRecord">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

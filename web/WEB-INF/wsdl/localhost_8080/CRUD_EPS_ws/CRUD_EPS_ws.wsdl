@@ -4,6 +4,12 @@
 <xsd:import namespace="http://services/" schemaLocation="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="readAllEPS">
+<part name="parameters" element="tns:readAllEPS"/>
+</message>
+<message name="readAllEPSResponse">
+<part name="parameters" element="tns:readAllEPSResponse"/>
+</message>
 <message name="readOneEPS">
 <part name="parameters" element="tns:readOneEPS"/>
 </message>
@@ -34,13 +40,11 @@
 <message name="changeEPSResponse">
 <part name="parameters" element="tns:changeEPSResponse"/>
 </message>
-<message name="readAllEPS">
-<part name="parameters" element="tns:readAllEPS"/>
-</message>
-<message name="readAllEPSResponse">
-<part name="parameters" element="tns:readAllEPSResponse"/>
-</message>
 <portType name="CRUD_EPS_ws">
+<operation name="readAllEPS">
+<input wsam:Action="http://services/CRUD_EPS_ws/readAllEPSRequest" message="tns:readAllEPS"/>
+<output wsam:Action="http://services/CRUD_EPS_ws/readAllEPSResponse" message="tns:readAllEPSResponse"/>
+</operation>
 <operation name="readOneEPS">
 <input wsam:Action="http://services/CRUD_EPS_ws/readOneEPSRequest" message="tns:readOneEPS"/>
 <output wsam:Action="http://services/CRUD_EPS_ws/readOneEPSResponse" message="tns:readOneEPSResponse"/>
@@ -61,13 +65,18 @@
 <input wsam:Action="http://services/CRUD_EPS_ws/changeEPSRequest" message="tns:changeEPS"/>
 <output wsam:Action="http://services/CRUD_EPS_ws/changeEPSResponse" message="tns:changeEPSResponse"/>
 </operation>
-<operation name="readAllEPS">
-<input wsam:Action="http://services/CRUD_EPS_ws/readAllEPSRequest" message="tns:readAllEPS"/>
-<output wsam:Action="http://services/CRUD_EPS_ws/readAllEPSResponse" message="tns:readAllEPSResponse"/>
-</operation>
 </portType>
 <binding name="CRUD_EPS_wsPortBinding" type="tns:CRUD_EPS_ws">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="readAllEPS">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="readOneEPS">
 <soap:operation soapAction=""/>
 <input>
@@ -105,15 +114,6 @@
 </output>
 </operation>
 <operation name="changeEPS">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="readAllEPS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

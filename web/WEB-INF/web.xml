@@ -25,4 +25,87 @@
         <param-name>primefaces.THEME</param-name>  
         <param-value>start</param-value>  
     </context-param>  
+    
+        <!--#Security constraints -->  
+    <!--<security-constraint>  
+        <web-resource-collection>  
+            <web-resource-name>AllUser Authentication Policy</web-resource-name>  
+            <url-pattern>/views/inicio.xhtml</url-pattern>  
+        </web-resource-collection>  
+        <auth-constraint>  
+            <role-name>*</role-name>  
+        </auth-constraint>  
+    </security-constraint>  
+    
+    <security-constraint>  
+        <web-resource-collection>  
+            <web-resource-name>SuperAdmin Authentication Policy</web-resource-name>  
+            <url-pattern>/views/admin/*</url-pattern>  
+        </web-resource-collection>  
+        <auth-constraint>  
+            <role-name>SuperAdmin</role-name>  
+        </auth-constraint>  
+    </security-constraint>  
+    
+    <security-constraint>  
+        <web-resource-collection>  
+            <web-resource-name>Hospital Administrator Authentication Policy</web-resource-name>  
+            <url-pattern>/views/hospital/*</url-pattern>  
+        </web-resource-collection>  
+        <auth-constraint>  
+            <role-name>AdminHospital</role-name>  
+        </auth-constraint>  
+    </security-constraint> 
+    
+    <security-constraint>  
+        <web-resource-collection>  
+            <web-resource-name>EPS Administrator Authentication Policy</web-resource-name>  
+            <url-pattern>/views/eps/*</url-pattern>  
+        </web-resource-collection>  
+        <auth-constraint>  
+            <role-name>AdminEPS</role-name>  
+        </auth-constraint>  
+    </security-constraint> 
+    
+    <security-constraint>  
+        <web-resource-collection>  
+            <web-resource-name>Doctor Authentication Policy</web-resource-name>  
+            <url-pattern>/views/doctor/*</url-pattern>  
+        </web-resource-collection>  
+        <auth-constraint>  
+            <role-name>Doctor</role-name>  
+        </auth-constraint>  
+    </security-constraint> 
+    
+    <security-constraint>  
+        <web-resource-collection>  
+            <web-resource-name>User Authentication Policy</web-resource-name>  
+            <url-pattern>/views/usuario/*</url-pattern>  
+        </web-resource-collection>  
+        <auth-constraint>  
+            <role-name>User</role-name>  
+        </auth-constraint>  
+    </security-constraint> -->
+    
+    <!--#Roles -->  
+    <security-role>  
+        <description>Super Admin</description>  
+        <role-name>SuperAdmin</role-name>  
+    </security-role>  
+    <security-role>  
+        <description>Admin Hospital</description>  
+        <role-name>AdminHospital</role-name>  
+    </security-role>
+    <security-role>  
+        <description>Admin EPS</description>  
+        <role-name>AdminEPS</role-name>  
+    </security-role>
+    <security-role>  
+        <description>Doctor</description>  
+        <role-name>Doctor</role-name>  
+    </security-role>
+    <security-role>  
+        <description>User</description>  
+        <role-name>User</role-name>  
+    </security-role>
 </web-app>
