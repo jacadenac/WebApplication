@@ -17,4 +17,8 @@
     <system systemId="http://localhost:8080/CRUDHospital/CRUDHospitalWS?WSDL" uri="wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.wsdl"/>
     <system systemId="http://localhost:8080/CRUDHospital/CRUDHospitalWS?xsd=1" uri="wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/UserRoleWS/UserRoleWS?wsdl" uri="wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl"/>
+    <system systemId="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?WSDL" uri="wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.wsdl"/>
+    <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?WSDL" uri="wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl"/>
+    <system systemId="http://localhost:8080/ManageHospital/ManageHospital?WSDL" uri="wsdl/localhost_8080/ManageHospital/ManageHospital.wsdl"/>
+    <system systemId="http://localhost:8080/ManageHospital/ManageHospital?xsd=1" uri="wsdl/localhost_8080/ManageHospital/ManageHospital.xsd_1.xsd"/>
 </catalog>

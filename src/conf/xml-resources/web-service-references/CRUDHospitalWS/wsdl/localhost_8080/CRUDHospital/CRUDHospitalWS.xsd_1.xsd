@@ -12,9 +12,9 @@
 
 <xs:element name="readAllHospitalResponse" type="tns:readAllHospitalResponse"/>
 
-<xs:element name="readHospitalbyID" type="tns:readHospitalbyID"/>
+<xs:element name="readHospitalbyId" type="tns:readHospitalbyId"/>
 
-<xs:element name="readHospitalbyIDResponse" type="tns:readHospitalbyIDResponse"/>
+<xs:element name="readHospitalbyIdResponse" type="tns:readHospitalbyIdResponse"/>
 
 <xs:element name="updateHospital" type="tns:updateHospital"/>
 
@@ -30,15 +30,13 @@
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="readHospitalbyID">
-<xs:sequence>
-<xs:element name="arg0" type="xs:int"/>
-</xs:sequence>
+<xs:complexType name="readAllHospital">
+<xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="readHospitalbyIDResponse">
+<xs:complexType name="readAllHospitalResponse">
 <xs:sequence>
-<xs:element name="return" type="tns:hospital" minOccurs="0"/>
+<xs:element name="return" type="tns:hospital" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -47,16 +45,6 @@
 <xs:element name="ID" type="xs:int"/>
 <xs:element name="name" type="xs:string" minOccurs="0"/>
 <xs:element name="URL" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="readAllHospital">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="readAllHospitalResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:hospital" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -82,5 +70,17 @@
 
 <xs:complexType name="updateHospitalResponse">
 <xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="readHospitalbyId">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readHospitalbyIdResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:hospital" minOccurs="0"/>
+</xs:sequence>
 </xs:complexType>
 </xs:schema>

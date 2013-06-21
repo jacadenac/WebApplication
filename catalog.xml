@@ -21,13 +21,19 @@
     
     
     <system systemId="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?wsdl" uri="src/conf/xml-resources/web-service-references/CRUD_EPS_ws/wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.wsdl"/>
-    <system systemId="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?xsd=1" uri="src/conf/xml-resources/web-service-references/CRUD_EPS_ws/wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?wsdl" uri="src/conf/xml-resources/web-service-references/AppointmentCRUDUrlWS/wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl"/>
+    <system systemId="http://localhost:8080/UserRoleWS/UserRoleWS?wsdl" uri="src/conf/xml-resources/web-service-references/UserRoleWS/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl"/>
+    <system systemId="http://localhost:8080/UserRoleWS/UserRoleWS?xsd=1" uri="src/conf/xml-resources/web-service-references/UserRoleWS/wsdl/localhost_8080/UserRoleWS/UserRoleWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?WSDL" uri="src/conf/xml-resources/web-service-references/CRUD_EPS_ws/wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.wsdl"/>
+    <system systemId="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?xsd=1" uri="src/conf/xml-resources/web-service-references/CRUD_EPS_ws/wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?WSDL" uri="src/conf/xml-resources/web-service-references/AppointmentCRUDUrlWS/wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl"/>
     <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?xsd=1" uri="src/conf/xml-resources/web-service-references/AppointmentCRUDUrlWS/wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS?xsd=2" uri="src/conf/xml-resources/web-service-references/AppointmentCRUDUrlWS/wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/ManageHospital/ManageHospital?WSDL" uri="src/conf/xml-resources/web-service-references/ManageHospital/wsdl/localhost_8080/ManageHospital/ManageHospital.wsdl"/>
+    <system systemId="http://localhost:8080/ManageHospital/ManageHospital?xsd=1" uri="src/conf/xml-resources/web-service-references/ManageHospital/wsdl/localhost_8080/ManageHospital/ManageHospital.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS?wsdl" uri="src/conf/xml-resources/web-service-references/MedicalRecordsCRUDUrlWS/wsdl/localhost_8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS.wsdl"/>
     <system systemId="http://localhost:8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS?xsd=1" uri="src/conf/xml-resources/web-service-references/MedicalRecordsCRUDUrlWS/wsdl/localhost_8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS?xsd=2" uri="src/conf/xml-resources/web-service-references/MedicalRecordsCRUDUrlWS/wsdl/localhost_8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS.xsd_2.xsd"/>
-    <system systemId="http://localhost:8080/UserRoleWS/UserRoleWS?wsdl" uri="src/conf/xml-resources/web-service-references/UserRoleWS/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl"/>
-    <system systemId="http://localhost:8080/UserRoleWS/UserRoleWS?xsd=1" uri="src/conf/xml-resources/web-service-references/UserRoleWS/wsdl/localhost_8080/UserRoleWS/UserRoleWS.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/CRUDHospital/CRUDHospitalWS?WSDL" uri="src/conf/xml-resources/web-service-references/CRUDHospitalWS/wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.wsdl"/>
+    <system systemId="http://localhost:8080/CRUDHospital/CRUDHospitalWS?xsd=1" uri="src/conf/xml-resources/web-service-references/CRUDHospitalWS/wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.xsd_1.xsd"/>
 </catalog>

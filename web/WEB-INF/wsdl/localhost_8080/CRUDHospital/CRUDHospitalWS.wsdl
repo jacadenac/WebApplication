@@ -16,11 +16,11 @@
 <message name="readAllHospitalResponse">
 <part name="parameters" element="tns:readAllHospitalResponse"/>
 </message>
-<message name="readHospitalbyID">
-<part name="parameters" element="tns:readHospitalbyID"/>
+<message name="readHospitalbyId">
+<part name="parameters" element="tns:readHospitalbyId"/>
 </message>
-<message name="readHospitalbyIDResponse">
-<part name="parameters" element="tns:readHospitalbyIDResponse"/>
+<message name="readHospitalbyIdResponse">
+<part name="parameters" element="tns:readHospitalbyIdResponse"/>
 </message>
 <message name="updateHospital">
 <part name="parameters" element="tns:updateHospital"/>
@@ -43,9 +43,9 @@
 <input wsam:Action="http://Services/CRUDHospitalWS/readAllHospitalRequest" message="tns:readAllHospital"/>
 <output wsam:Action="http://Services/CRUDHospitalWS/readAllHospitalResponse" message="tns:readAllHospitalResponse"/>
 </operation>
-<operation name="readHospitalbyID">
-<input wsam:Action="http://Services/CRUDHospitalWS/readHospitalbyIDRequest" message="tns:readHospitalbyID"/>
-<output wsam:Action="http://Services/CRUDHospitalWS/readHospitalbyIDResponse" message="tns:readHospitalbyIDResponse"/>
+<operation name="readHospitalbyId">
+<input wsam:Action="http://Services/CRUDHospitalWS/readHospitalbyIdRequest" message="tns:readHospitalbyId"/>
+<output wsam:Action="http://Services/CRUDHospitalWS/readHospitalbyIdResponse" message="tns:readHospitalbyIdResponse"/>
 </operation>
 <operation name="updateHospital">
 <input wsam:Action="http://Services/CRUDHospitalWS/updateHospitalRequest" message="tns:updateHospital"/>
@@ -76,7 +76,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="readHospitalbyID">
+<operation name="readHospitalbyId">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

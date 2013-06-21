@@ -27,7 +27,7 @@
 
                             <h:outputText value="Hospital:" />  
                             <p:selectOneMenu id="selHosp" value="#{ControladorCita.selectedHospital}" style="width: 13.35em;">  
-                                <f:selectItems value="#{ControladorCita.hospitales}" var="hospital" itemLabel="#{hospital.nombre}"/>
+                                <f:selectItems value="#{ControladorCita.hospitales}" var="hospital" itemLabel="#{hospital.nombre}" itemValue="#{hospital}"/>
                                 <!--<p:ajax update="selDoc, selEsp" listener="#{ControladorCita.actualizarDoctores()}"/>-->
                                 <p:ajax update="selDoc" listener="#{ControladorCita.handleDoctores}"/>
                             </p:selectOneMenu> 

@@ -32,11 +32,16 @@
                         <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
 
                             <h:outputText value="Nombre del recién nacido:" />  
-                            <p:inputText value=""/>  
+                            <p:inputText value="#{reporteBean.nombre}"/>  
+                            
+                            <h:outputText value="Hospital:" />  
+                            <p:selectOneMenu id="selHosp" value="#{reporteBean.selectedHospital}" style="width: 13.35em;">  
+                                <f:selectItems value="#{hospitalBean.hospitales}" var="hospital" itemLabel="#{hospital.nombre}" itemValue="#{hospital}"/>
+                            </p:selectOneMenu>                             
 
                             <f:facet name="footer">
-                                <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogNacimientoReport.hide()" icon="icon-send" title="Enviar" value="Enviar" style="margin-top: 0.35em;"/>  
-                                <p:commandButton id="btnCreateCancelar" oncomplete="dialogNacimientoReport.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogNacimientoReport.hide()" icon="icon-send" actionListener="#{reporteBean.btnReportarNacimiento(actionEvent)}" title="Enviar" value="Enviar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnCreateCancelar" oncomplete="dialogNacimientoReport.hide()" icon="icon-cancel"  title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
                             </f:facet>
                         </h:panelGrid>  
                     </p:dialog>  
@@ -48,10 +53,15 @@
                         <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
 
                             <h:outputText value="Documento del difunto:" />  
-                            <p:inputText value=""/>  
+                            <p:inputText value="#{reporteBean.idPersona}"/>  
+                            
+                            <h:outputText value="Hospital:" />  
+                            <p:selectOneMenu id="selHosp" value="#{reporteBean.selectedHospital}" style="width: 13.35em;">  
+                                <f:selectItems value="#{hospitalBean.hospitales}" var="hospital" itemLabel="#{hospital.nombre}" itemValue="#{hospital}"/>
+                            </p:selectOneMenu>                                
 
                             <f:facet name="footer">
-                                <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogMuerteReport.hide()" icon="icon-send" title="Enviar" value="Enviar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogMuerteReport.hide()" actionListener="#{reporteBean.btnReportarMuerte(actionEvent)}" icon="icon-send" title="Enviar" value="Enviar" style="margin-top: 0.35em;"/>  
                                 <p:commandButton id="btnCreateCancelar" oncomplete="dialogMuerteReport.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
                             </f:facet>
                         </h:panelGrid>  

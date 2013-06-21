@@ -1,0 +1,174 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://Services/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Services/">
+
+<xs:element name="cancelAppointment" type="tns:cancelAppointment"/>
+
+<xs:element name="cancelAppointmentResponse" type="tns:cancelAppointmentResponse"/>
+
+<xs:element name="checkAvailability" type="tns:checkAvailability"/>
+
+<xs:element name="checkAvailabilityResponse" type="tns:checkAvailabilityResponse"/>
+
+<xs:element name="completeAppointment" type="tns:completeAppointment"/>
+
+<xs:element name="completeAppointmentResponse" type="tns:completeAppointmentResponse"/>
+
+<xs:element name="createAppoinment" type="tns:createAppoinment"/>
+
+<xs:element name="createAppoinmentResponse" type="tns:createAppoinmentResponse"/>
+
+<xs:element name="createEmergency" type="tns:createEmergency"/>
+
+<xs:element name="createEmergencyResponse" type="tns:createEmergencyResponse"/>
+
+<xs:element name="getAppointmentByDoctor" type="tns:getAppointmentByDoctor"/>
+
+<xs:element name="getAppointmentByDoctorResponse" type="tns:getAppointmentByDoctorResponse"/>
+
+<xs:element name="getAppointmentsByPerson" type="tns:getAppointmentsByPerson"/>
+
+<xs:element name="getAppointmentsByPersonResponse" type="tns:getAppointmentsByPersonResponse"/>
+
+<xs:element name="reportBirth" type="tns:reportBirth"/>
+
+<xs:element name="reportBirthResponse" type="tns:reportBirthResponse"/>
+
+<xs:element name="reportDeath" type="tns:reportDeath"/>
+
+<xs:element name="reportDeathResponse" type="tns:reportDeathResponse"/>
+
+<xs:complexType name="getAppointmentsByPerson">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAppointmentsByPersonResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reportDeath">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reportDeathResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="checkAvailability">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:anySimpleType" minOccurs="0"/>
+<xs:element name="arg2" type="tns:time" minOccurs="0"/>
+<xs:element name="arg3" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="time">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="checkAvailabilityResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelAppointment">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelAppointmentResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="completeAppointment">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="completeAppointmentResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="reportBirth">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reportBirthResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createAppoinment">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:anySimpleType" minOccurs="0"/>
+<xs:element name="arg2" type="tns:time" minOccurs="0"/>
+<xs:element name="arg3" type="xs:int"/>
+<xs:element name="arg4" type="xs:string" minOccurs="0"/>
+<xs:element name="arg5" type="tns:appointmentType" minOccurs="0"/>
+<xs:element name="arg6" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createAppoinmentResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createEmergency">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:anySimpleType" minOccurs="0"/>
+<xs:element name="arg2" type="tns:time" minOccurs="0"/>
+<xs:element name="arg3" type="xs:int"/>
+<xs:element name="arg4" type="xs:string" minOccurs="0"/>
+<xs:element name="arg5" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createEmergencyResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAppointmentByDoctor">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAppointmentByDoctorResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="appointmentType">
+<xs:restriction base="xs:string">
+<xs:enumeration value="EMERGENCY"/>
+<xs:enumeration value="SURGERY"/>
+<xs:enumeration value="GENERAL"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

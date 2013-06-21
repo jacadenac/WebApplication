@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.xml.ws.WebServiceRef;
+import services.AppointmentCRUDUrlWS_Service;
 import services.CRUDHospital;
+import services.ManageHospital_Service;
 
 /**
  *
@@ -24,6 +26,10 @@ import services.CRUDHospital;
  */
 @Stateless
 public class Conector {
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/ManageHospital/ManageHospital.wsdl")
+    private ManageHospital_Service service_3;
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl")
+    private AppointmentCRUDUrlWS_Service service_2;
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.wsdl")
     private CRUDHospital service_1;
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl")
@@ -141,14 +147,36 @@ public class Conector {
         return port.readAllHospital();
     }
 
-    public services.Hospital readHospitalbyID(int arg0) {
+    public services.Hospital readHospitalbyId(int arg0) {
         services.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
-        return port.readHospitalbyID(arg0);
-    }
+        return port.readHospitalbyId(arg0);
+    }    
 
     public void updateHospital(int arg0, java.lang.String arg1, java.lang.String arg2) {
         services.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
         port.updateHospital(arg0, arg1, arg2);
     }
+
+    //AppoitmentCRUD
+    public void addAppoinment(int idRecord, fachadews.Appointment appointment, int idEPS) {
+        services.AppointmentCRUDUrlWS port = service_2.getAppointmentCRUDUrlWSPort();
+        port.addAppoinment(idRecord, appointment, idEPS);
+    }
   
+    //ManageHospital
+
+    public boolean reportBirth(java.lang.String arg0, int arg1) {
+        services.ManageHospital port = service_3.getManageHospitalPort();
+        return port.reportBirth(arg0, arg1);
+    }
+
+    public boolean reportDeath(java.lang.Long arg0, int arg1) {
+        services.ManageHospital port = service_3.getManageHospitalPort();
+        return port.reportDeath(arg0, arg1);
+    }
+
+
+
+    
+    
 }

@@ -103,7 +103,7 @@ public class HospitalBean {
     } 
     
     public boolean existeHospital(Integer id) {
-        services.Hospital sh = conector.readHospitalbyID(id);
+        services.Hospital sh = conector.readHospitalbyId(id);
         if(sh==null) return false;
         return true;
     }
