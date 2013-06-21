@@ -36,7 +36,7 @@
 
                             <h:outputText value="Hospital:" />  
                             <p:selectOneMenu id="selHosp" value="#{reporteBean.selectedHospital}" style="width: 13.35em;">  
-                                <f:selectItems value="#{hospitalBean.hospitales}" var="hospital" itemLabel="#{hospital.nombre}" itemValue="#{hospital}"/>
+                                <f:selectItems value="#{hospitalBean().hospitales}" var="hospital" itemLabel="#{hospital.nombre}" itemValue="#{hospital}"/>
                             </p:selectOneMenu>                             
 
                             <f:facet name="footer">
@@ -57,7 +57,7 @@
 
                             <h:outputText value="Hospital:" />  
                             <p:selectOneMenu id="selHosp" value="#{reporteBean.selectedHospital}" style="width: 13.35em;">  
-                                <f:selectItems value="#{hospitalBean.hospitales}" var="hospital" itemLabel="#{hospital.nombre}" itemValue="#{hospital}"/>
+                                <f:selectItems value="#{hospitalBean().hospitales}" var="hospital" itemLabel="#{hospital.nombre}" itemValue="#{hospital}"/>
                             </p:selectOneMenu>                                
 
                             <f:facet name="footer">

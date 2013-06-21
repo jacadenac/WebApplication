@@ -55,18 +55,6 @@
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="readOneEPS">
-<xs:sequence>
-<xs:element name="idEPS" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="readOneEPSResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:eps" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="createEPS">
 <xs:sequence>
 <xs:element name="idEPS" type="xs:int"/>
@@ -78,6 +66,18 @@
 
 <xs:complexType name="createEPSResponse">
 <xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="readOneEPS">
+<xs:sequence>
+<xs:element name="idEPS" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="readOneEPSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:eps" minOccurs="0"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="updateEPS">
