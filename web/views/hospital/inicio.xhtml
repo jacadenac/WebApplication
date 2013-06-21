@@ -7,14 +7,7 @@
     <body>
         <ui:composition template="./template.xhtml">
             <ui:define name="content"> 
-                <p id="Bienvenida">Bienvenido #{loginBean.session.role}</p>
-                <p>SuperAdmin #{request.isUserInRole('SuperAdmin')}</p>
-                <p>SUPERADMIN #{request.isUserInRole('SUPERADMIN')}</p>
-                <p>AdminHospital #{request.isUserInRole('AdminHosptial')}</p>
-                <p>AdminEPS #{request.isUserInRole('AdminEPS')}</p>
-                <p>Doctor #{request.isUserInRole('Doctor')}</p>
-                <p>User #{request.isUserInRole('user')}</p>
-                
+                <p id="Bienvenida">Bienvenido #{loginBean.session.id}</p>
                 <h2>¿Quiénes Somos?</h2>
                 <p:separator/>
                 <div id="Imagenes">

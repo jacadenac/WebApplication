@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="#{appBean.baseUrl}resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="#{appBean.baseUrl}resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <link href="#{appBean.baseUrl}resources/css/inicio.css" rel="stylesheet" type="text/css" />
+        <title>Administrador de Servicios de Salud</title>
+    </h:head>
+
+    <h:body>
+        <div id="contenido">
+            <div id="top" class="ui-widget-header ui-corner-all">
+                <ui:insert name="top">
+                    <h:graphicImage id="logo" alt="Centro de Salud" url="#{appBean.baseUrl}resources/images/logo.jpg"></h:graphicImage>
+                    <h1 id="title">Administrador de Servicios de Salud</h1>
+                </ui:insert>
+            </div>
+            <div id="menu">
+                <h:form>  
+                    <p:menubar>  
+                        <p:menuitem value="Inicio" icon="ui-icon-home" url="#{appBean.basePath}hospital/inicio.xhtml"/>  
+                        <p:menuitem value="Editar Doctores"  icon="ui-icon-pencil" url="#{appBean.basePath}hospital/editarDoctores.xhtml"/>
+                        <p:menuitem value="Salir" actionListener="#{loginBean.logout}" icon="ui-icon-close" oncomplete="handleLoginRequest(xhr, status, args)" url="#{appBean.baseUrl}faces/login.xhtml"/>                           
+                    </p:menubar>   
+                </h:form>  
+            </div>
+            <div id="content" class="center_content ui-widget-content ui-corner-all">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+
+            <div id="bottom" class="ui-widget-header ui-corner-all">
+                <ui:insert name="bottom"><p id="pieDePagina">&copy; 2013</p></ui:insert>
+            </div>
+        </div>    
+          
+        <script type="text/javascript">  
+            function handleLoginRequest(xhr, status, args) {  
+                if(args.loggetOut) {  
+                    location.href = args.ruta;
+                }  
+            }  
+        </script>
+    </h:body>
+
+</html>
