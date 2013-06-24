@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+        <!--<ui:composition template="./../template.xhtml">-->
+        <ui:composition template="./template.xhtml">
+            <ui:define name="content">
+                <h2>Reportar Emergencia</h2>
+                <p:separator/>
+                <p>//Aquí los doctores pueden reportar las urgencias</p>
+                <p:growl id="msgs" showDetail="true" />   
+                
+                <h:form id="formEmergencia"> 
+                        <h:outputText value="Nueva emergencia:" />  
+                        <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">                              
+                            <h:outputText value="Id del paciente:" />  
+                            <p:inputText value="#{emergenciaBean.idPaciente}"/> 
+
+                            <h:outputText value="Id del hospital:" />  
+                            <p:inputText value="#{emergenciaBean.idHospital}"/> 
+                            
+                            <h:outputText value="Costo:" />  
+                            <p:inputText value="#{emergenciaBean.costo}"/> 
+                            
+                            <h:outputText value="Fecha:" />  
+                            <h:outputText value="#{emergenciaBean.fecha}" id="popupFecha">  
+                                <f:convertDateTime pattern="d/M/yyyy"/>  
+                            </h:outputText>                             
+
+                            <f:facet name="footer">
+                                <p:commandButton id="btnCreateAceptar" actionListener="#{emergenciaBean.btnNuevaEmergencia(actionEvent)}" icon="icon-send" title="Enviar" value="Enviar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnCreateCancelar" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
+                            </f:facet>
+                        </h:panelGrid>    
+                </h:form>                 
+
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

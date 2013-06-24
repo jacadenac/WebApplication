@@ -175,6 +175,11 @@ public class Conector {
         return port.reportDeath(arg0, arg1);
     }
 
+    public boolean createEmergency(int arg0, java.lang.Object arg1, services.Time arg2, int arg3, java.lang.String arg4, int arg5) {
+        services.ManageHospital port = service_3.getManageHospitalPort();
+        return port.createEmergency(arg0, arg1, arg2, arg3, arg4, arg5);
+    }
+
 
 
     
