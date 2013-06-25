@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'> 
+<html xmlns='http://www.w3.org/1999/xhtml'> 
+<head><title>VVCap Image</title></head> 
+<body style="overflow: hidden;"> 
+
+<div style="position: fixed; top: 5px; left: 5px; right: 165px; bottom: 5px; overflow: auto;">
+	<img alt='Image captured using VVCap' src='ssa-evvAQYXqtZBN0eJd.png'  style='border-width: thin; border-style: groove;' /> 
+	<br /> 
+</div>
+
+<div style='border-width: thin; position: fixed; top: 5px; bottom: 5px; width: 160px; right: 5px; 
+	background-color: #FFFFFF; overflow: hidden;'>
+<table style='width:100%; margin:0 0 0 0;'>
+    <tr>
+    <td style='text-align:center; font-family:Arial; font-size: 9pt; 
+            border-bottom-style: dotted; border-bottom-width: medium;
+            margin-bottom: 5px; padding-bottom: 5px; padding-top: 5px;'>
+        <a href='http://www.vvcap.net'>Download VVCap for free</a>
+    </td>
+    </tr>
+
+    <tr>
+    <td>
+        <div style="width:160px; height:600px">
+        
+<iframe scrolling="no" style="border: 0; width: 160px; height: 600px;" src="http://coinurl.com/get.php?id=365"></iframe>
+        
+        <div style="width:155px; height:155px; border:0px; display:block; font: normal 12px arial; color: #5D5D5D;">
+            <a href="http://kontactr.com/user/vvcap">
+            <p style="text-align:center; font-size:12pt; font-weight:bold">Sponsors Needed</p>
+            </a>
+            <p style="text-align:center; font-size:8pt;">If you want to see your advertisement here, please<br />
+            <a href="http://kontactr.com/user/vvcap">contact vvcap team</a>.<br/>
+            You would not believe how reasonable we are</a></p>
+        </div>
+
+        <div style="width:155px; height:155px; border:0px; display:block; font: normal .12px arial; color: #5D5D5D;">
+            <a href="http://www.btcbuy.info/?from=vvcap">
+            <p style="text-align:center; font-size:12pt; font-weight:bold">www.btcbuy.info</p>
+            <p style="text-align:center; font-size:10pt;">Spend bitcoins on gift cards, and wireless refills.</p>
+            <p style="text-align:center; font-size:10pt;">Start using today. <br />No registration required</p>
+            </a>
+        </div>
+
+        </div>
+
+    </td>
+    </tr>
+</table> 
+</div> 
+
+</body> 
+</html> 

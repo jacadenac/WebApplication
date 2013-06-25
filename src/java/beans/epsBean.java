@@ -4,8 +4,8 @@
  */
 package beans;
 
-//import fachadews.ProcessResult;
-//import fachadews.RegisterEPSBankAccount_Service;
+import fachadews.ProcessResult;
+import fachadews.RegisterEPSBankAccount_Service;
 import fachadews.ProcessResult;
 import fachadews.RegisterEPSBankAccount_Service;
 import java.awt.event.ActionEvent;
@@ -120,6 +120,7 @@ public class epsBean {
     }
 
     private ProcessResult registerEPSBankAccount(java.lang.Long arg0, java.lang.String arg1, java.lang.String arg2) {
+        //return null;
         fachadews.RegisterEPSBankAccount port = service_2.getRegisterEPSBankAccountPort();
         return port.registerEPSBankAccount(arg0, arg1, arg2);
     }

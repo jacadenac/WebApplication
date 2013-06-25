@@ -30,11 +30,12 @@ import util.MyUtil;
 @ManagedBean(name = "loginBean")
 @SessionScoped
 public class loginBean implements Serializable {
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/25.23.97.240_8080/UserRoleWS/UserRoleWS.wsdl")
+    private UserRoleWS_Service service;
 
     @EJB
     private Session session;
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl")
-    private UserRoleWS_Service service;
+    
     private Integer username;
     private String password;
 
@@ -152,6 +153,11 @@ public class loginBean implements Serializable {
     private ProcessResult createUR(java.lang.Integer arg0, facadews.Role arg1, java.lang.Integer arg2) {
         facadews.UserRoleWS port = service.getUserRoleWSPort();
         return port.createUR(arg0, arg1, arg2);
+    }
+
+    private java.util.List<facadews.UserRole> getFullListUR() {
+        facadews.UserRoleWS port = service.getUserRoleWSPort();
+        return port.getFullListUR();
     }
     
     

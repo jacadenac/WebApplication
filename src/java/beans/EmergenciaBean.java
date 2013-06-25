@@ -79,6 +79,6 @@ public class EmergenciaBean {
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(fecha);
         XMLGregorianCalendar xmlCal = DatatypeFactory.newInstance().newXMLGregorianCalendar(cal);
-        conector.createEmergency(idDoctor, xmlCal, new services.Time(),idPaciente , costo, idHospital);
+        //conector.createEmergency(idDoctor, xmlCal, new services.Time(),idPaciente , costo, idHospital);
     }
 }

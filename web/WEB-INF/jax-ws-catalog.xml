@@ -29,4 +29,14 @@
     <system systemId="http://localhost:8080/SRAaccess/SRAaccess?xsd=1" uri="wsdl/localhost_8080/SRAaccess/SRAaccess.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/registerEPSBankAccount/RegisterEPSBankAccount?wsdl" uri="wsdl/localhost_8080/registerEPSBankAccount/RegisterEPSBankAccount.wsdl"/>
     <system systemId="http://localhost:8080/registerEPSBankAccount/RegisterEPSBankAccount?xsd=1" uri="wsdl/localhost_8080/registerEPSBankAccount/RegisterEPSBankAccount.xsd_1.xsd"/>
+    <system systemId="http://25.23.97.240:8080/UserRoleWS/UserRoleWS?wsdl" uri="wsdl/25.23.97.240_8080/UserRoleWS/UserRoleWS.wsdl"/>
+    <system systemId="http://25.23.97.240:8080/UserRoleWS/UserRoleWS?xsd=1" uri="wsdl/25.23.97.240_8080/UserRoleWS/UserRoleWS.xsd_1.xsd"/>
+    <system systemId="http://madmoira:8080/CRUDHospital/CRUDHospitalWS?wsdl" uri="wsdl/madmoira_8080/CRUDHospital/CRUDHospitalWS.wsdl"/>
+    <system systemId="http://madmoira:8080/CRUDHospital/CRUDHospitalWS?xsd=1" uri="wsdl/madmoira_8080/CRUDHospital/CRUDHospitalWS.xsd_1.xsd"/>
+    <system systemId="http://madmoira:8080/ManageHospital/ManageHospital?wsdl" uri="wsdl/madmoira_8080/ManageHospital/ManageHospital.wsdl"/>
+    <system systemId="http://madmoira:8080/ManageHospital/ManageHospital?xsd=1" uri="wsdl/madmoira_8080/ManageHospital/ManageHospital.xsd_1.xsd"/>
+    <system systemId="http://madmoira:8080/ManageHospital/ManageHospital?xsd=2" uri="wsdl/madmoira_8080/ManageHospital/ManageHospital.xsd_2.xsd"/>
+    <system systemId="http://madmoira:8080/ManageHospital/ManageHospital?xsd=3" uri="wsdl/madmoira_8080/ManageHospital/ManageHospital.xsd_3.xsd"/>
+    <system systemId="http://localhost:8080/ManageHospital/ManageHospital?xsd=2" uri="wsdl/localhost_8080/ManageHospital/ManageHospital.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/ManageHospital/ManageHospital?xsd=3" uri="wsdl/localhost_8080/ManageHospital/ManageHospital.xsd_3.xsd"/>
 </catalog>

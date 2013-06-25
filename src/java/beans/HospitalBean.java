@@ -27,22 +27,22 @@ public class HospitalBean {
     @EJB
     private Conector conector;
     
-    private List<services.Hospital> hospitales;
+    private List<servicios.Hospital> hospitales;
     private List<String> nombresHospitales;
     private Hospital selectedHospital;
     
     public HospitalBean() {
-        this.hospitales = new ArrayList<services.Hospital>();
+        this.hospitales = new ArrayList<servicios.Hospital>();
         this.nombresHospitales = new ArrayList<String>();
         this.selectedHospital = new Hospital();
     }
     
-    public List<services.Hospital> getHospitales() {
+    public List<servicios.Hospital> getHospitales() {
         hospitales=leerHospitales();
         return hospitales;
     }
 
-    public void setHospitales(List<services.Hospital> hospitales) {
+    public void setHospitales(List<servicios.Hospital> hospitales) {
         this.hospitales = hospitales;
     }
 
@@ -103,12 +103,12 @@ public class HospitalBean {
         FacesContext.getCurrentInstance().addMessage(null, message);           
     }
     
-    public List<services.Hospital> leerHospitales() {
+    public List<servicios.Hospital> leerHospitales() {
         
-        List<services.Hospital> listaWS = conector.readAllHospital();
+        List<servicios.Hospital> listaWS = conector.readAllHospital();
         List<Hospital> rta = new ArrayList<Hospital>();
         
-        for(services.Hospital sh:listaWS) {
+        for(servicios.Hospital sh:listaWS) {
             Hospital h = new Hospital(sh.getID(), sh.getName(), sh.getURL());
             rta.add(h);
         }
@@ -117,17 +117,17 @@ public class HospitalBean {
     
     public List<String> leerNombresHospitales() {
         
-        List<services.Hospital> listaWS = conector.readAllHospital();
+        List<servicios.Hospital> listaWS = conector.readAllHospital();
         List<String> nombres = new ArrayList<String>();
         
-        for(services.Hospital sh:listaWS) {
+        for(servicios.Hospital sh:listaWS) {
             nombres.add(sh.getName());
         }
         return nombres;       
     } 
     
     public boolean existeHospital(Integer id) {
-        services.Hospital sh = conector.readHospitalbyId(id);
+        servicios.Hospital sh = conector.readHospitalbyId(id);
         if(sh==null) return false;
         return true;
     }

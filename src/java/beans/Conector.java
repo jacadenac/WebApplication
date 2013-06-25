@@ -7,6 +7,7 @@ package beans;
 import classes.Cita;
 import classes.Doctor;
 import classes.Hospital;
+import com.dataejbsra.ws.ROb;
 import facadews.ProcessResult;
 import facadews.UserRole;
 import facadews.UserRoleWS_Service;
@@ -17,17 +18,18 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.xml.ws.WebServiceRef;
 import services.AppointmentCRUDUrlWS_Service;
-import services.CRUDHospital;
-import services.ManageHospital_Service;
+import servicios.CRUDHospital;
+import servicios.ManageHospital_Service;
 
 /**
  *
  * @author William
  */
 @Stateless
-public class Conector {
+public class Conector {    
+        
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/ManageHospital/ManageHospital.wsdl")
-    private ManageHospital_Service service_3;
+    private ManageHospital_Service service_3;   
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl")
     private AppointmentCRUDUrlWS_Service service_2;
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.wsdl")
@@ -133,27 +135,22 @@ public class Conector {
     
     //CRUDHospitalWS
     public void createHospital(int arg0, java.lang.String arg1, java.lang.String arg2) {
-        services.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
+        servicios.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
         port.createHospital(arg0, arg1, arg2);
     }
 
     public void deleteHospital(int arg0) {
-        services.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
+        servicios.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
         port.deleteHospital(arg0);
     }
 
-    public java.util.List<services.Hospital> readAllHospital() {
-        services.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
-        return port.readAllHospital();
-    }
-
-    public services.Hospital readHospitalbyId(int arg0) {
-        services.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
+    public servicios.Hospital readHospitalbyId(int arg0) {
+        servicios.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
         return port.readHospitalbyId(arg0);
     }    
 
     public void updateHospital(int arg0, java.lang.String arg1, java.lang.String arg2) {
-        services.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
+        servicios.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
         port.updateHospital(arg0, arg1, arg2);
     }
 
@@ -165,26 +162,29 @@ public class Conector {
   
     //ManageHospital
 
-    public boolean reportBirth(java.lang.String arg0, int arg1) {
+    public ROb reportBirth(java.lang.String arg0, String arg1) {
         System.out.println();
-        services.ManageHospital port = service_3.getManageHospitalPort();
-        boolean b = port.reportBirth(arg0, arg1);
+        servicios.ManageHospital port = service_3.getManageHospitalPort();
+        ROb b = port.reportBirth(arg0, arg1);
         System.out.println(b);
         return b;
     }
 
-    public boolean reportDeath(java.lang.Long arg0, int arg1) {
-        services.ManageHospital port = service_3.getManageHospitalPort();
+    
+
+    /*public boolean createEmergency(int arg0, java.lang.Object arg1, servicios.Time arg2, int arg3, java.lang.String arg4, int arg5) {
+        servicios.ManageHospital port = service_3.getManageHospitalPort();
+        return port.createEmergency(arg0, arg1, arg2, arg3, arg4, arg5);
+    }*/    
+
+    public java.util.List<servicios.Hospital> readAllHospital() {
+        servicios.CRUDHospitalWS port = service_1.getCRUDHospitalWSPort();
+        return port.readAllHospital();
+    }   
+
+    public ROb reportDeath(java.lang.Long arg0, java.lang.String arg1) {
+        servicios.ManageHospital port = service_3.getManageHospitalPort();
         return port.reportDeath(arg0, arg1);
     }
-
-    public boolean createEmergency(int arg0, java.lang.Object arg1, services.Time arg2, int arg3, java.lang.String arg4, int arg5) {
-        services.ManageHospital port = service_3.getManageHospitalPort();
-        return port.createEmergency(arg0, arg1, arg2, arg3, arg4, arg5);
-    }
-
-
-
-    
     
 }

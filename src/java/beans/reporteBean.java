@@ -4,7 +4,6 @@
  */
 package beans;
 
-import classes.Hospital;
 import classes.Reporte;
 import java.awt.event.ActionEvent;
 import java.util.List;
@@ -66,16 +65,16 @@ public class reporteBean {
 
     public void btnReportarNacimiento(ActionEvent actionEvent) {
         System.out.println("Reportar Nacimiento " + nombreHospital);
-        List<services.Hospital> listHospital = conector.readAllHospital();
-        services.Hospital hospital = new services.Hospital();
+        List<servicios.Hospital> listHospital = conector.readAllHospital();
+        servicios.Hospital hospital = new servicios.Hospital();
         
-        for(services.Hospital h : listHospital) {
+        for(servicios.Hospital h : listHospital) {
             if(h.getName().equals(nombreHospital)) {
                 hospital = h;
             }
         }
 
-        conector.reportBirth(nombre, hospital.getID());
+        conector.reportBirth(nombre, hospital.getName());
     }  
     
     public void btnReportarMuerte(ActionEvent actionEvent ) {
