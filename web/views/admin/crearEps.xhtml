@@ -13,7 +13,6 @@
             <ui:define name="content">
                 <h2>Modificar EPS</h2>
                 <p:separator/>
-                <p>//Aquí el administrador puede añadir nuevas Eps</p>
                 <p:growl id="msgs" showDetail="true" />  
 
                 <h:form id="btnCrear">
@@ -28,24 +27,29 @@
                         <f:facet name="header">  
                             <h:outputText value="EPS" />  
                         </f:facet> 
-                        <p:column headerText="Id Eps" filterBy="#{eps.id}" style="width: 46%;"   
+                        <p:column headerText="Id Eps" filterBy="#{eps.id}"    
                                   footerText="contains" filterMatchMode="contains">  
                             <h:outputText value="#{eps.id}" />  
                         </p:column>  
 
-                        <p:column headerText="Nombre Eps" filterBy="#{eps.name}"   
+                        <p:column headerText="Nombre Eps" filterBy="#{eps.name}"   style="width: 20%;"
                                   footerText="contains" filterMatchMode="contains">  
                             <h:outputText value="#{eps.name}" />  
                         </p:column>  
                         
-                        <p:column headerText="URL Historia Clinica" filterBy="#{eps.urlRecords}"   
+                        <p:column headerText="URL Historia Clinica" filterBy="#{eps.urlRecords}"   style="width: 20%;"
                                   footerText="contains" filterMatchMode="contains">  
                             <h:outputText value="#{eps.urlRecords}" />  
                         </p:column>  
                         
-                        <p:column headerText="URL Citas" filterBy="#{eps.urlAppointments}"   
+                        <p:column headerText="URL Citas" filterBy="#{eps.urlAppointments}"   style="width: 20%;"
                                   footerText="contains" filterMatchMode="contains">  
                             <h:outputText value="#{eps.urlAppointments}" />  
+                        </p:column>  
+                        
+                        <p:column headerText="URL Citas" filterBy="#{eps.urlFinancial}"   style="width: 20%;"
+                                  footerText="contains" filterMatchMode="contains">  
+                            <h:outputText value="#{eps.urlFinancial}" />  
                         </p:column>  
 
                         <p:column style="width: 4em;">          
@@ -76,6 +80,9 @@
                             
                             <h:outputText value="IP:Puerto :" />  
                             <p:inputText value="#{epsBean.selectedEps.urlRecords}"/> 
+                            
+                            <h:outputText value="Pass SRA :" />  
+                            <p:inputText value="#{epsBean.password}"/> 
 
                             <f:facet name="footer">
                                 <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogEpsCreate.hide()" actionListener="#{epsBean.btnCreateEps(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
@@ -95,6 +102,9 @@
                             <h:outputText value="Numero cuenta:" />  
                             <p:inputText value="#{epsBean.accountNumber}"/> 
 
+                            <h:outputText value="Password:" />  
+                            <p:inputText value="#{epsBean.password}"/> 
+                            
                             <f:facet name="footer">
                                 <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogEpsRegister.hide()" actionListener="#{epsBean.btnRegisterEps(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
                                 <p:commandButton id="btnCreateCancelar" oncomplete="dialogEpsRegister.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
@@ -114,11 +124,14 @@
                             <h:outputText value="Nombre Eps:" />  
                             <p:inputText value="#{epsBean.selectedEps.name}"/> 
                             
-                            <h:outputText value="IP:Puerto :" />  
+                            <h:outputText value="Url Hist :" />  
                             <p:inputText value="#{epsBean.selectedEps.urlRecords}"/> 
                             
-                            <h:outputText value="IP:Puerto :" />  
+                            <h:outputText value="Url Cita :" />  
                             <p:inputText value="#{epsBean.selectedEps.urlAppointments}"/> 
+                            
+                            <h:outputText value="Url Fin :" />  
+                            <p:inputText value="#{epsBean.selectedEps.urlFinancial}"/> 
 
                             <f:facet name="footer">
                                 <p:commandButton id="btnUpdateAceptar" update=":formDataTable, :msgs" oncomplete="dialogEpsUpdate.hide()" actionListener="#{epsBean.btnUpdateEps(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.xml.ws.WebServiceRef;
-import services.AppointmentCRUDUrlWS_Service;
+import servicios.AdmEPSService_Service;
 import servicios.CRUDHospital;
 import servicios.ManageHospital_Service;
 
@@ -30,8 +30,8 @@ public class Conector {
         
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/ManageHospital/ManageHospital.wsdl")
     private ManageHospital_Service service_3;   
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl")
-    private AppointmentCRUDUrlWS_Service service_2;
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/AdmEPSService/AdmEPSService.wsdl")
+    private AdmEPSService_Service service_2;
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.wsdl")
     private CRUDHospital service_1;
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl")
@@ -67,7 +67,9 @@ public class Conector {
         listaDoctores.add(new Doctor(22, "FERNANDO JIMENEZ", "GENERAL",4));
         listaDoctores.add(new Doctor(23, "HUGO PINEDA", "ODONTOLOGIA",4));
         listaDoctores.add(new Doctor(24, "JAVIER GIRALDO", "OPTOMETRIA",4));   
-        listaDoctores.add(new Doctor(25, "GUSTAVO PAYARES", "PEDIATRIA",4));           
+        listaDoctores.add(new Doctor(25, "GUSTAVO PAYARES", "PEDIATRIA",4));    
+        
+        System.out.println("Initialize Doctors");
     }
 
     public List<Hospital> getHospitales() {
@@ -78,12 +80,7 @@ public class Conector {
     //se supone que en cada hospital se cuenta con todas las especialidades
     //así que resulta más práctico dejar las opciones como están en la vista
     public List<String> getTipoCita() {
-        List<String> lista = new ArrayList<String>();
-        lista.add("GENERAL");
-        lista.add("OPTOMETRIA");
-        lista.add("PEDIATRIA");
-        lista.add("ODONTOLOGIA");
-        return lista;
+        return getSpecialties();
     }
     
     public List<Doctor> getDoctores() {
@@ -156,7 +153,7 @@ public class Conector {
 
     //AppoitmentCRUD
     public void addAppoinment(int idRecord, fachadews.Appointment appointment, int idEPS) {
-        services.AppointmentCRUDUrlWS port = service_2.getAppointmentCRUDUrlWSPort();
+        servicios.AdmEPSService port = service_2.getAdmEPSServicePort();
         port.addAppoinment(idRecord, appointment, idEPS);
     }
   
@@ -186,5 +183,36 @@ public class Conector {
         servicios.ManageHospital port = service_3.getManageHospitalPort();
         return port.reportDeath(arg0, arg1);
     }
+
+    public java.util.List<java.lang.String> getSpecialties() {
+        servicios.ManageHospital port = service_3.getManageHospitalPort();
+        return port.getSpecialties();
+    }
     
+        //Acceso al administrador de EPS
+
+    public void createEPS(int idEPS, java.lang.String nombreEPS, java.lang.String iPandPort, java.lang.String password) {
+        servicios.AdmEPSService port = service_2.getAdmEPSServicePort();
+        port.createEPS(idEPS, nombreEPS, iPandPort, password);
+    }
+
+    public void deleteEPS(int idEPS) {
+        servicios.AdmEPSService port = service_2.getAdmEPSServicePort();
+        port.deleteEPS(idEPS);
+    }
+
+    public java.util.List<servicios.Eps> readAllEPS() {
+        servicios.AdmEPSService port = service_2.getAdmEPSServicePort();
+        return port.readAllEPS();
+    }
+
+    public void updateEPS(int idEPS, java.lang.String nombreEPS, java.lang.String urlMedicalRecord, java.lang.String urlAppointment, java.lang.String urlFinancial) {
+        servicios.AdmEPSService port = service_2.getAdmEPSServicePort();
+        port.updateEPS(idEPS, nombreEPS, urlMedicalRecord, urlAppointment, urlFinancial);
+    }
+
+    public void registerEPS(java.lang.String name, java.lang.Long accountNumber) {
+      /* servicios.OPIaccess port = service_4.getOPIaccessPort();
+        port.registerEPS(name, accountNumber);*/
+    }
 }

@@ -12,7 +12,6 @@
             <ui:define name="content">
                 <h2>Editar Doctores</h2>
                 <p:separator/>
-                <p>//Aquí los hospitales pueden editar la información de sus doctores</p>
                 <p:growl id="msgs" showDetail="true" />  
 
                 <h:form id="btnCrear">
@@ -20,7 +19,7 @@
                 </h:form>
 
                 <h:form id="formDataTable">  
-                    <p:dataTable id="doctores" var="doctor" value="#{doctorBean.doctores}/"
+                    <p:dataTable id="doctores" value="#{doctorBean.getDoctores()}" var="doctor" 
                                  paginator="true" rows="10" paginatorPosition="bottom"
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"> 
 
@@ -30,17 +29,17 @@
 
                         <p:column headerText="Id Doctor" filterBy="#{doctor.id}"  
                                   footerText="contains" filterMatchMode="contains">  
-                            <h:outputText value="#{doctorBean.selectedDoctor.id}" />  
+                            <h:outputText value="#{doctor.id}" />  
                         </p:column>  
 
                         <p:column headerText="Nombre" filterBy="#{doctor.nombre}"  
                                   footerText="contains" filterMatchMode="contains">  
-                            <h:outputText value="#{doctorBean.selectedDoctor.nombre}" />  
+                            <h:outputText value="#{doctor.nombre}" />  
                         </p:column>  
 
                         <p:column headerText="Especialidad" filterBy="#{doctor.especialidad}"  
                                   footerText="contains" filterMatchMode="contains">  
-                            <h:outputText value="#{doctorBean.selectedDoctor.especialidad}" />  
+                            <h:outputText value="#{doctor.especialidad}" />  
                         </p:column>  
 
                         <p:column style="width:7em;">          
@@ -111,8 +110,10 @@
                             <p:inputText value="#{doctorBean.selectedDoctor.nombre}"/> 
 
                             <h:outputText value="Especialidad:" />  
-                            <p:inputText value="#{doctorBean.selectedDoctor.especialidad}"/> 
-
+                            
+                            <p:selectOneMenu id="selEsp" value="#{doctorBean.selectedDoctor.especialidad}" style="width: 13.35em;">  
+                                <f:selectItems value="#{doctorBean.getSpecialties()}" />
+                            </p:selectOneMenu> 
                             <f:facet name="footer">
                                 <p:commandButton id="btnUpdateAceptar" update=":formDataTable, :msgs" oncomplete="dialogDoctorUpdate.hide()" actionListener="#{doctorBean.btnUpdateDoctor(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
                                 <p:commandButton id="btnUpdateCancelar" oncomplete="dialogDoctorUpdate.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  

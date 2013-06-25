@@ -11,9 +11,8 @@ import java.util.List;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.xml.ws.WebServiceRef;
-import services.AppointmentCRUDUrlWS_Service;
-import services.Eps;
-import services.MedicalRecordsCRUDUrlWS_Service;
+import servicios.AdmEPSService_Service;
+import servicios.Eps;
 
 /**
  *
@@ -22,18 +21,16 @@ import services.MedicalRecordsCRUDUrlWS_Service;
 @Named(value = "historiaClinicaBean")
 @RequestScoped
 public class historiaClinicaBean {
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/AppointmentCRUDUrlWS/AppointmentCRUDUrlWS.wsdl")
-    private AppointmentCRUDUrlWS_Service service_1;
-
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS.wsdl")
-    private MedicalRecordsCRUDUrlWS_Service service;
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/AdmEPSService/AdmEPSService.wsdl")
+    private AdmEPSService_Service service_2;
+    
     private List<MedicalRecord> historias;
     private MedicalRecord selectedHistoria;
     private Eps epsAsociada;
 
     public historiaClinicaBean() {
         this.epsAsociada = new Eps();
-        this.epsAsociada.setId(new Integer(99));
+        this.epsAsociada.setId(new Integer(1));
         this.selectedHistoria = new MedicalRecord();
         this.historias = new ArrayList<MedicalRecord>();
     }
@@ -58,7 +55,7 @@ public class historiaClinicaBean {
     }
 
     private void createMedicalRecord(int idRecord, int idEPS) {
-        services.MedicalRecordsCRUDUrlWS port = service.getMedicalRecordsCRUDUrlWSPort();
+        servicios.AdmEPSService port = service_2.getAdmEPSServicePort();
         port.createMedicalRecord(idRecord, idEPS);
     }
 
@@ -67,7 +64,7 @@ public class historiaClinicaBean {
     }
 
     private void updateMedicalRecord(fachadews.MedicalRecord record, int idEPS) {
-        services.MedicalRecordsCRUDUrlWS port = service.getMedicalRecordsCRUDUrlWSPort();
+        servicios.AdmEPSService port = service_2.getAdmEPSServicePort();
         port.updateMedicalRecord(record, idEPS);
     }
 
@@ -76,17 +73,17 @@ public class historiaClinicaBean {
     }
 
     private void deleteMedicalRecord(int idRecord, int idEPS) {
-        services.MedicalRecordsCRUDUrlWS port = service.getMedicalRecordsCRUDUrlWSPort();
+        servicios.AdmEPSService port = service_2.getAdmEPSServicePort();
         port.deleteMedicalRecord(idRecord, idEPS);
     }
 
     private List<MedicalRecord> readAllMedicalRecords(int idEPS) {
-        services.MedicalRecordsCRUDUrlWS port = service.getMedicalRecordsCRUDUrlWSPort();
+        servicios.AdmEPSService port = service_2.getAdmEPSServicePort();
         return port.readAllMedicalRecord(idEPS);
     }
     
     private MedicalRecord readMedicalRecord(int idRecord, int idEPS) {
-        services.MedicalRecordsCRUDUrlWS port = service.getMedicalRecordsCRUDUrlWSPort();
+        servicios.AdmEPSService port = service_2.getAdmEPSServicePort();
         return port.readMedicalRecord(idRecord, idEPS);
     }
 

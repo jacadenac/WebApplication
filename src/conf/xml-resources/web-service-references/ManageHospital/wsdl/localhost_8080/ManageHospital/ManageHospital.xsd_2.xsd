@@ -32,6 +32,10 @@
 
 <xs:element name="getDoctorsbySpecialtyResponse" type="tns:getDoctorsbySpecialtyResponse"/>
 
+<xs:element name="getSpecialties" type="tns:getSpecialties"/>
+
+<xs:element name="getSpecialtiesResponse" type="tns:getSpecialtiesResponse"/>
+
 <xs:element name="reportBirth" type="tns:reportBirth"/>
 
 <xs:element name="reportBirthResponse" type="tns:reportBirthResponse"/>
@@ -63,6 +67,16 @@
 <xs:complexType name="getAppointmentsByPersonResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSpecialties">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getSpecialtiesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -105,6 +119,17 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="completeAppointment">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="completeAppointmentResponse">
+<xs:sequence/>
+</xs:complexType>
+
 <xs:complexType name="reportBirth">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"/>
@@ -116,17 +141,6 @@
 <xs:sequence>
 <xs:element name="return" type="ns1:rOb" minOccurs="0"/>
 </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="completeAppointment">
-<xs:sequence>
-<xs:element name="arg0" type="xs:int"/>
-<xs:element name="arg1" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="completeAppointmentResponse">
-<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="createEmergency">

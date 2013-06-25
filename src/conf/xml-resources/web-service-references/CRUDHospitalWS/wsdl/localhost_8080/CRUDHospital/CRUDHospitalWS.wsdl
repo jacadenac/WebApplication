@@ -4,29 +4,11 @@
 <xsd:import namespace="http://Servicios/" schemaLocation="http://localhost:8080/CRUDHospital/CRUDHospitalWS?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="readAllHospital">
-<part name="parameters" element="tns:readAllHospital"/>
-</message>
-<message name="readAllHospitalResponse">
-<part name="parameters" element="tns:readAllHospitalResponse"/>
-</message>
 <message name="readHospitalbyId">
 <part name="parameters" element="tns:readHospitalbyId"/>
 </message>
 <message name="readHospitalbyIdResponse">
 <part name="parameters" element="tns:readHospitalbyIdResponse"/>
-</message>
-<message name="updateHospital">
-<part name="parameters" element="tns:updateHospital"/>
-</message>
-<message name="updateHospitalResponse">
-<part name="parameters" element="tns:updateHospitalResponse"/>
-</message>
-<message name="createHospital">
-<part name="parameters" element="tns:createHospital"/>
-</message>
-<message name="createHospitalResponse">
-<part name="parameters" element="tns:createHospitalResponse"/>
 </message>
 <message name="deleteHospital">
 <part name="parameters" element="tns:deleteHospital"/>
@@ -34,31 +16,49 @@
 <message name="deleteHospitalResponse">
 <part name="parameters" element="tns:deleteHospitalResponse"/>
 </message>
+<message name="updateHospital">
+<part name="parameters" element="tns:updateHospital"/>
+</message>
+<message name="updateHospitalResponse">
+<part name="parameters" element="tns:updateHospitalResponse"/>
+</message>
+<message name="readAllHospital">
+<part name="parameters" element="tns:readAllHospital"/>
+</message>
+<message name="readAllHospitalResponse">
+<part name="parameters" element="tns:readAllHospitalResponse"/>
+</message>
+<message name="createHospital">
+<part name="parameters" element="tns:createHospital"/>
+</message>
+<message name="createHospitalResponse">
+<part name="parameters" element="tns:createHospitalResponse"/>
+</message>
 <portType name="CRUDHospitalWS">
-<operation name="readAllHospital">
-<input wsam:Action="http://Servicios/CRUDHospitalWS/readAllHospitalRequest" message="tns:readAllHospital"/>
-<output wsam:Action="http://Servicios/CRUDHospitalWS/readAllHospitalResponse" message="tns:readAllHospitalResponse"/>
-</operation>
 <operation name="readHospitalbyId">
 <input wsam:Action="http://Servicios/CRUDHospitalWS/readHospitalbyIdRequest" message="tns:readHospitalbyId"/>
 <output wsam:Action="http://Servicios/CRUDHospitalWS/readHospitalbyIdResponse" message="tns:readHospitalbyIdResponse"/>
-</operation>
-<operation name="updateHospital">
-<input wsam:Action="http://Servicios/CRUDHospitalWS/updateHospitalRequest" message="tns:updateHospital"/>
-<output wsam:Action="http://Servicios/CRUDHospitalWS/updateHospitalResponse" message="tns:updateHospitalResponse"/>
-</operation>
-<operation name="createHospital">
-<input wsam:Action="http://Servicios/CRUDHospitalWS/createHospitalRequest" message="tns:createHospital"/>
-<output wsam:Action="http://Servicios/CRUDHospitalWS/createHospitalResponse" message="tns:createHospitalResponse"/>
 </operation>
 <operation name="deleteHospital">
 <input wsam:Action="http://Servicios/CRUDHospitalWS/deleteHospitalRequest" message="tns:deleteHospital"/>
 <output wsam:Action="http://Servicios/CRUDHospitalWS/deleteHospitalResponse" message="tns:deleteHospitalResponse"/>
 </operation>
+<operation name="updateHospital">
+<input wsam:Action="http://Servicios/CRUDHospitalWS/updateHospitalRequest" message="tns:updateHospital"/>
+<output wsam:Action="http://Servicios/CRUDHospitalWS/updateHospitalResponse" message="tns:updateHospitalResponse"/>
+</operation>
+<operation name="readAllHospital">
+<input wsam:Action="http://Servicios/CRUDHospitalWS/readAllHospitalRequest" message="tns:readAllHospital"/>
+<output wsam:Action="http://Servicios/CRUDHospitalWS/readAllHospitalResponse" message="tns:readAllHospitalResponse"/>
+</operation>
+<operation name="createHospital">
+<input wsam:Action="http://Servicios/CRUDHospitalWS/createHospitalRequest" message="tns:createHospital"/>
+<output wsam:Action="http://Servicios/CRUDHospitalWS/createHospitalResponse" message="tns:createHospitalResponse"/>
+</operation>
 </portType>
 <binding name="CRUDHospitalWSPortBinding" type="tns:CRUDHospitalWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="readAllHospital">
+<operation name="readHospitalbyId">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -67,7 +67,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="readHospitalbyId">
+<operation name="deleteHospital">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -85,7 +85,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="createHospital">
+<operation name="readAllHospital">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -94,7 +94,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="deleteHospital">
+<operation name="createHospital">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

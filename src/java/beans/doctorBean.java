@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 
 /**
@@ -17,10 +18,11 @@ import javax.inject.Named;
  * @author Alejandro
  */
 @Named(value = "doctorBean")
+@ManagedBean
 @RequestScoped
 public class doctorBean {
     @EJB
-    Conector conector;    
+    private Conector conector;    
     
     private List<Doctor> doctores;
     private Doctor selectedDoctor;
@@ -28,10 +30,14 @@ public class doctorBean {
     public doctorBean() {
         this.doctores = new ArrayList<Doctor>();
         //this.doctores = conector.getDoctores();
-        //selectedDoctor = doctores.get(0);
-        selectedDoctor = new Doctor(90, "MAURO MARTINEZ", "GENERAL", 1);
+        this.selectedDoctor = new Doctor();
+        //selectedDoctor = new Doctor(90, "MAURO MARTINEZ", "GENERAL", 1);
     }
 
+    public List<String> getSpecialties() {
+        return conector.getTipoCita();
+    }
+    
     //método editado
     public List<Doctor> getDoctores() {
         return conector.getDoctores();
