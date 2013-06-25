@@ -92,17 +92,6 @@
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="completeAppointment">
-<xs:sequence>
-<xs:element name="arg0" type="xs:int"/>
-<xs:element name="arg1" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="completeAppointmentResponse">
-<xs:sequence/>
-</xs:complexType>
-
 <xs:complexType name="reportBirth">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"/>
@@ -114,6 +103,17 @@
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="completeAppointment">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="completeAppointmentResponse">
+<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="createAppoinment">

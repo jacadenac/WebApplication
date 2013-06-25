@@ -27,20 +27,22 @@ public class HospitalBean {
     @EJB
     private Conector conector;
     
-    private List<Hospital> hospitales;
+    private List<services.Hospital> hospitales;
+    private List<String> nombresHospitales;
     private Hospital selectedHospital;
     
     public HospitalBean() {
-        this.hospitales = new ArrayList<Hospital>();
+        this.hospitales = new ArrayList<services.Hospital>();
+        this.nombresHospitales = new ArrayList<String>();
         this.selectedHospital = new Hospital();
     }
-
-    public List<Hospital> getHospitales() {
+    
+    public List<services.Hospital> getHospitales() {
         hospitales=leerHospitales();
         return hospitales;
     }
 
-    public void setHospitales(List<Hospital> hospitales) {
+    public void setHospitales(List<services.Hospital> hospitales) {
         this.hospitales = hospitales;
     }
 
@@ -51,7 +53,15 @@ public class HospitalBean {
     public void setSelectedHospital(Hospital selectedHospital) {
         this.selectedHospital = selectedHospital;
     }
-    
+
+    public List<String> getNombresHospitales() {
+        nombresHospitales = leerNombresHospitales();
+        return nombresHospitales;
+    }
+
+    public void setNombresHospitales(List<String> nombresHospitales) {
+        this.nombresHospitales = nombresHospitales;
+    }
     
     //métodos intermediarios entre los métodos del ws y la webapp
     public void btnCreateHospital(ActionEvent actionEvent) {
@@ -93,7 +103,7 @@ public class HospitalBean {
         FacesContext.getCurrentInstance().addMessage(null, message);           
     }
     
-    public List<Hospital> leerHospitales() {
+    public List<services.Hospital> leerHospitales() {
         
         List<services.Hospital> listaWS = conector.readAllHospital();
         List<Hospital> rta = new ArrayList<Hospital>();
@@ -102,7 +112,18 @@ public class HospitalBean {
             Hospital h = new Hospital(sh.getID(), sh.getName(), sh.getURL());
             rta.add(h);
         }
-        return rta;       
+        return listaWS;       
+    } 
+    
+    public List<String> leerNombresHospitales() {
+        
+        List<services.Hospital> listaWS = conector.readAllHospital();
+        List<String> nombres = new ArrayList<String>();
+        
+        for(services.Hospital sh:listaWS) {
+            nombres.add(sh.getName());
+        }
+        return nombres;       
     } 
     
     public boolean existeHospital(Integer id) {

@@ -8,6 +8,10 @@
 
 <xs:element name="DeleteURResponse" type="tns:DeleteURResponse"/>
 
+<xs:element name="GetFullListUR" type="tns:GetFullListUR"/>
+
+<xs:element name="GetFullListURResponse" type="tns:GetFullListURResponse"/>
+
 <xs:element name="GetListUR" type="tns:GetListUR"/>
 
 <xs:element name="GetListURByEntity" type="tns:GetListURByEntity"/>
@@ -42,6 +46,18 @@
 <xs:sequence/>
 </xs:complexType>
 
+<xs:complexType name="GetUR">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetURResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:userRole" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="GetListURByEntity">
 <xs:sequence>
 <xs:element name="arg0" type="tns:role" minOccurs="0"/>
@@ -52,18 +68,6 @@
 <xs:complexType name="GetListURByEntityResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:userRole" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="GetUR">
-<xs:sequence>
-<xs:element name="arg0" type="xs:int" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="GetURResponse">
-<xs:sequence>
-<xs:element name="return" type="tns:userRole" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -102,6 +106,16 @@
 <xs:complexType name="CreateURResponse">
 <xs:sequence>
 <xs:element name="return" type="tns:processResult" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GetFullListUR">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="GetFullListURResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:userRole" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 

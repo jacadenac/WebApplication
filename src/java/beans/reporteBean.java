@@ -7,6 +7,7 @@ package beans;
 import classes.Hospital;
 import classes.Reporte;
 import java.awt.event.ActionEvent;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
@@ -26,10 +27,9 @@ public class reporteBean {
     private Long idPersona;
     private String nombreHospital;
     private Reporte selectedReporte;
-    private Hospital selectedHospital;
+    private String selected;
 
     public reporteBean() {
-        selectedHospital = new Hospital();
     }
 
     public String getNombre() {
@@ -55,15 +55,6 @@ public class reporteBean {
     public void setNombreHospital(String nombreHospital) {
         this.nombreHospital = nombreHospital;
     }
-
-    public Hospital getSelectedHospital() {
-        System.out.println("Id " + selectedHospital.getId() + "  " + " Nombre  " + selectedHospital.getNombre());
-        return selectedHospital;
-    }
-
-    public void setSelectedHospital(Hospital selectedHospital) {
-        this.selectedHospital = selectedHospital;
-    }
     
     public Reporte getSelectedReporte() {
         return selectedReporte;
@@ -72,15 +63,22 @@ public class reporteBean {
     public void setSelectedReporte(Reporte selectedReporte) {
         this.selectedReporte = selectedReporte;
     }
-    
-    
-    
-    public void btnReportarNacimiento( ) {
-        System.out.println("Reportar Nacimiento");
-        conector.reportBirth(nombre, selectedHospital.getId());
+
+    public void btnReportarNacimiento(ActionEvent actionEvent) {
+        System.out.println("Reportar Nacimiento " + nombreHospital);
+        List<services.Hospital> listHospital = conector.readAllHospital();
+        services.Hospital hospital = new services.Hospital();
+        
+        for(services.Hospital h : listHospital) {
+            if(h.getName().equals(nombreHospital)) {
+                hospital = h;
+            }
+        }
+
+        conector.reportBirth(nombre, hospital.getID());
     }  
     
     public void btnReportarMuerte(ActionEvent actionEvent ) {
-        conector.reportDeath(idPersona, selectedHospital.getId());
+        //conector.reportDeath(idPersona, selectedHospital.getID());
     }      
 }

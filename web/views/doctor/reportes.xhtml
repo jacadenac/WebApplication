@@ -35,12 +35,12 @@
                             <p:inputText value="#{reporteBean.nombre}"/>  
 
                             <h:outputText value="Hospital:" />  
-                            <p:selectOneMenu id="selHosp" value="#{reporteBean.selectedHospital}" style="width: 13.35em;">  
-                                <f:selectItems value="#{hospitalBean.hospitales}" var="hospital" itemLabel="#{hospital.nombre}" itemValue="#{hospital}"/>
+                            <p:selectOneMenu id="selHosp" value="#{reporteBean.nombreHospital}" style="width: 13.35em;" >  
+                                <f:selectItems value="#{hospitalBean.nombresHospitales}" />
                             </p:selectOneMenu>                             
 
                             <f:facet name="footer">
-                                <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogNacimientoReport.hide()" icon="icon-send" actionListener="#{reporteBean.btnReportarNacimiento}" title="Enviar" value="Enviar" style="margin-top: 0.35em;"/>  
+                                <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogNacimientoReport.hide()" actionListener="#{reporteBean.btnReportarNacimiento(actionEvent)}" icon="icon-send" title="Enviar" value="Enviar" style="margin-top: 0.35em;"/>  
                                 <p:commandButton id="btnCreateCancelar" oncomplete="dialogNacimientoReport.hide()" icon="icon-cancel"  title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
                             </f:facet>
                         </h:panelGrid>  
@@ -56,8 +56,8 @@
                             <p:inputText value="#{reporteBean.idPersona}"/>  
 
                             <h:outputText value="Hospital:" />  
-                            <p:selectOneMenu id="selHosp2" value="#{reporteBean.selectedHospital}" style="width: 13.35em;">  
-                                <f:selectItems value="#{hospitalBean.hospitales}" var="hospital" itemLabel="#{hospital.nombre}" itemValue="#{hospital}"/>
+                            <p:selectOneMenu id="selHosp2" value="#{reporteBean.nombreHospital}" style="width: 13.35em;">  
+                                <f:selectItems value="#{hospitalBean.hospitales}" var="hospital" itemLabel="#{hospital.name}" itemValue="#{hospital}"/>
                             </p:selectOneMenu>                                
 
                             <f:facet name="footer">

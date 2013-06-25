@@ -7,18 +7,6 @@
 <xsd:import namespace="http://fachadews/" schemaLocation="http://localhost:8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS?xsd=2"/>
 </xsd:schema>
 </types>
-<message name="readMedicalRecord">
-<part name="parameters" element="tns:readMedicalRecord"/>
-</message>
-<message name="readMedicalRecordResponse">
-<part name="parameters" element="tns:readMedicalRecordResponse"/>
-</message>
-<message name="updateMedicalRecord">
-<part name="parameters" element="tns:updateMedicalRecord"/>
-</message>
-<message name="updateMedicalRecordResponse">
-<part name="parameters" element="tns:updateMedicalRecordResponse"/>
-</message>
 <message name="createMedicalRecord">
 <part name="parameters" element="tns:createMedicalRecord"/>
 </message>
@@ -37,15 +25,19 @@
 <message name="readAllMedicalRecordResponse">
 <part name="parameters" element="tns:readAllMedicalRecordResponse"/>
 </message>
+<message name="readMedicalRecord">
+<part name="parameters" element="tns:readMedicalRecord"/>
+</message>
+<message name="readMedicalRecordResponse">
+<part name="parameters" element="tns:readMedicalRecordResponse"/>
+</message>
+<message name="updateMedicalRecord">
+<part name="parameters" element="tns:updateMedicalRecord"/>
+</message>
+<message name="updateMedicalRecordResponse">
+<part name="parameters" element="tns:updateMedicalRecordResponse"/>
+</message>
 <portType name="MedicalRecordsCRUDUrlWS">
-<operation name="readMedicalRecord">
-<input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readMedicalRecordRequest" message="tns:readMedicalRecord"/>
-<output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readMedicalRecordResponse" message="tns:readMedicalRecordResponse"/>
-</operation>
-<operation name="updateMedicalRecord">
-<input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/updateMedicalRecordRequest" message="tns:updateMedicalRecord"/>
-<output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/updateMedicalRecordResponse" message="tns:updateMedicalRecordResponse"/>
-</operation>
 <operation name="createMedicalRecord">
 <input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/createMedicalRecordRequest" message="tns:createMedicalRecord"/>
 <output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/createMedicalRecordResponse" message="tns:createMedicalRecordResponse"/>
@@ -58,27 +50,17 @@
 <input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readAllMedicalRecordRequest" message="tns:readAllMedicalRecord"/>
 <output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readAllMedicalRecordResponse" message="tns:readAllMedicalRecordResponse"/>
 </operation>
+<operation name="readMedicalRecord">
+<input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readMedicalRecordRequest" message="tns:readMedicalRecord"/>
+<output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/readMedicalRecordResponse" message="tns:readMedicalRecordResponse"/>
+</operation>
+<operation name="updateMedicalRecord">
+<input wsam:Action="http://services/MedicalRecordsCRUDUrlWS/updateMedicalRecordRequest" message="tns:updateMedicalRecord"/>
+<output wsam:Action="http://services/MedicalRecordsCRUDUrlWS/updateMedicalRecordResponse" message="tns:updateMedicalRecordResponse"/>
+</operation>
 </portType>
 <binding name="MedicalRecordsCRUDUrlWSPortBinding" type="tns:MedicalRecordsCRUDUrlWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="readMedicalRecord">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="updateMedicalRecord">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="createMedicalRecord">
 <soap:operation soapAction=""/>
 <input>
@@ -98,6 +80,24 @@
 </output>
 </operation>
 <operation name="readAllMedicalRecord">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="readMedicalRecord">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="updateMedicalRecord">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

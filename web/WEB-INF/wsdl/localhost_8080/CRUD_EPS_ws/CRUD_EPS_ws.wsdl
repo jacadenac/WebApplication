@@ -22,17 +22,17 @@
 <message name="createEPSResponse">
 <part name="parameters" element="tns:createEPSResponse"/>
 </message>
-<message name="updateEPS">
-<part name="parameters" element="tns:updateEPS"/>
-</message>
-<message name="updateEPSResponse">
-<part name="parameters" element="tns:updateEPSResponse"/>
-</message>
 <message name="deleteEPS">
 <part name="parameters" element="tns:deleteEPS"/>
 </message>
 <message name="deleteEPSResponse">
 <part name="parameters" element="tns:deleteEPSResponse"/>
+</message>
+<message name="updateEPS">
+<part name="parameters" element="tns:updateEPS"/>
+</message>
+<message name="updateEPSResponse">
+<part name="parameters" element="tns:updateEPSResponse"/>
 </message>
 <message name="changeEPS">
 <part name="parameters" element="tns:changeEPS"/>
@@ -53,13 +53,13 @@
 <input wsam:Action="http://services/CRUD_EPS_ws/createEPSRequest" message="tns:createEPS"/>
 <output wsam:Action="http://services/CRUD_EPS_ws/createEPSResponse" message="tns:createEPSResponse"/>
 </operation>
-<operation name="updateEPS">
-<input wsam:Action="http://services/CRUD_EPS_ws/updateEPSRequest" message="tns:updateEPS"/>
-<output wsam:Action="http://services/CRUD_EPS_ws/updateEPSResponse" message="tns:updateEPSResponse"/>
-</operation>
 <operation name="deleteEPS">
 <input wsam:Action="http://services/CRUD_EPS_ws/deleteEPSRequest" message="tns:deleteEPS"/>
 <output wsam:Action="http://services/CRUD_EPS_ws/deleteEPSResponse" message="tns:deleteEPSResponse"/>
+</operation>
+<operation name="updateEPS">
+<input wsam:Action="http://services/CRUD_EPS_ws/updateEPSRequest" message="tns:updateEPS"/>
+<output wsam:Action="http://services/CRUD_EPS_ws/updateEPSResponse" message="tns:updateEPSResponse"/>
 </operation>
 <operation name="changeEPS">
 <input wsam:Action="http://services/CRUD_EPS_ws/changeEPSRequest" message="tns:changeEPS"/>
@@ -95,7 +95,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="updateEPS">
+<operation name="deleteEPS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -104,7 +104,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="deleteEPS">
+<operation name="updateEPS">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

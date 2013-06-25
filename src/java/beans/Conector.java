@@ -166,8 +166,11 @@ public class Conector {
     //ManageHospital
 
     public boolean reportBirth(java.lang.String arg0, int arg1) {
+        System.out.println();
         services.ManageHospital port = service_3.getManageHospitalPort();
-        return port.reportBirth(arg0, arg1);
+        boolean b = port.reportBirth(arg0, arg1);
+        System.out.println(b);
+        return b;
     }
 
     public boolean reportDeath(java.lang.Long arg0, int arg1) {
