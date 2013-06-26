@@ -38,38 +38,11 @@ public class Conector {
     private UserRoleWS_Service service;
      
     private List<Hospital> listaHospitales;
-    private List<Doctor> listaDoctores;
+    private List<services.Doctor> listaDoctores;
     private List<Cita> listaCitas;
     private DateFormat df = new SimpleDateFormat("dd/MM/yyyy"); 
 
     public Conector() {
-        //creación de un listado de hospitales
-        listaHospitales = new ArrayList<Hospital>();
-        listaHospitales.add(new Hospital(1, "HOSPITAL DE FONTIBON","www.com"));
-        listaHospitales.add(new Hospital(2, "HOSPITAL TUNAL","www.com"));
-        listaHospitales.add(new Hospital(3, "HOSPITAL USME","www.com"));
-        listaHospitales.add(new Hospital(4, "HOSPITAL MEISSEN","www.com"));
-        
-        //creación de un listado de doctores
-        listaDoctores = new ArrayList<Doctor>();
-        listaDoctores.add(new Doctor(10, "ROBERTO SANCHEZ", "GENERAL",1));
-        listaDoctores.add(new Doctor(12, "MARCELA PARRA", "ODONTOLOGIA",1));
-        listaDoctores.add(new Doctor(13, "PEDRO PEREZ", "OPTOMETRIA",1));   
-        listaDoctores.add(new Doctor(13, "PEDRO PEREZ", "PEDIATRIA",1));  
-        listaDoctores.add(new Doctor(14, "BERTA BARRERA", "GENERAL",2));
-        listaDoctores.add(new Doctor(15, "SOFIA SUAREZ", "ODONTOLOGIA",2));
-        listaDoctores.add(new Doctor(16, "WILSON HERRERA", "OPTOMETRIA",2));   
-        listaDoctores.add(new Doctor(17, "FABIO GONZALEZ", "PEDIATRIA",2)); 
-        listaDoctores.add(new Doctor(18, "ADRIANA ARIAS", "GENERAL",3));
-        listaDoctores.add(new Doctor(19, "CESAR CORREA", "ODONTOLOGIA",3));
-        listaDoctores.add(new Doctor(20, "DANIEL DUARTE", "OPTOMETRIA",3));   
-        listaDoctores.add(new Doctor(21, "EDUARDO ESTRELLA", "PEDIATRIA",3));  
-        listaDoctores.add(new Doctor(22, "FERNANDO JIMENEZ", "GENERAL",4));
-        listaDoctores.add(new Doctor(23, "HUGO PINEDA", "ODONTOLOGIA",4));
-        listaDoctores.add(new Doctor(24, "JAVIER GIRALDO", "OPTOMETRIA",4));   
-        listaDoctores.add(new Doctor(25, "GUSTAVO PAYARES", "PEDIATRIA",4));    
-        
-        System.out.println("Initialize Doctors");
     }
 
     public List<Hospital> getHospitales() {
@@ -79,22 +52,22 @@ public class Conector {
     
     //se supone que en cada hospital se cuenta con todas las especialidades
     //así que resulta más práctico dejar las opciones como están en la vista
-    public List<String> getTipoCita() {
-        return getSpecialties();
-    }
+
     
-    public List<Doctor> getDoctores() {
+    public List<services.Doctor> getDoctores(String hospitalName) {
+        listaDoctores = this.getListDoctor(hospitalName);
         return listaDoctores;
     }      
     
-    public List<Doctor> getDoctores(Integer idHospital, String especialidad) {
-       List<Doctor> lista = new ArrayList<Doctor>();
+    public List<services.Doctor> getDoctores(Integer idHospital, String especialidad) {
+      /*List<Doctor> lista = new ArrayList<Doctor>();
        for(Doctor d:listaDoctores) {
            if(d.getHospital().intValue()==idHospital.intValue() && d.getEspecialidad().equals(especialidad))                
                lista.add(d);
         }
        lista.add(new Doctor(idHospital, "IdHospital"+idHospital.toString(), especialidad, idHospital));
-       return lista;
+       return lista;*/
+        return null;
     }    
     
     
@@ -184,9 +157,9 @@ public class Conector {
         return port.reportDeath(arg0, arg1);
     }
 
-    public java.util.List<java.lang.String> getSpecialties() {
+    public java.util.List<java.lang.String> getSpecialties(java.lang.String arg0) {
         servicios.ManageHospital port = service_3.getManageHospitalPort();
-        return port.getSpecialties();
+        return port.getSpecialties(arg0);
     }
     
         //Acceso al administrador de EPS
@@ -214,5 +187,31 @@ public class Conector {
     public void registerEPS(java.lang.String name, java.lang.Long accountNumber) {
       /* servicios.OPIaccess port = service_4.getOPIaccessPort();
         port.registerEPS(name, accountNumber);*/
+    }
+
+    public void createDoctor(int arg0, int idH, java.lang.String arg1, java.lang.String arg2, java.lang.String arg3) {
+        servicios.ManageHospital port = service_3.getManageHospitalPort();
+        System.out.println("ID " + arg0 + "ID Hospital " + idH + " Nombre " + arg1 + " Especialidad " + arg2);
+        port.createDoctor(arg0, idH, arg1, arg2, arg3);
+    }
+
+    public java.util.List<services.Doctor> getListDoctor(java.lang.String arg0) {
+        servicios.ManageHospital port = service_3.getManageHospitalPort();
+        return port.getListDoctor(arg0);
+    }
+
+    public services.Doctor getDoctor(int arg0, java.lang.String arg1) {
+        servicios.ManageHospital port = service_3.getManageHospitalPort();
+        return port.getDoctor(arg0, arg1);
+    }
+
+    public void deleteDoctor(int arg0, java.lang.String arg1) {
+        servicios.ManageHospital port = service_3.getManageHospitalPort();
+        port.deleteDoctor(arg0, arg1);
+    }
+
+    public void updateDoctor(services.Doctor doctor, java.lang.String arg1) {
+        servicios.ManageHospital port = service_3.getManageHospitalPort();
+        port.updateDoctor(doctor, arg1);
     }
 }

@@ -28,7 +28,7 @@ public class ControladorCita {
     Conector conector;
 
     private List<Hospital> hospitales = new ArrayList<Hospital>();
-    private List<Doctor> doctores;
+    private List<services.Doctor> doctores;
     private List<Cita> citas;
     private Hospital selectedHospital;
     private Cita selectedCita;
@@ -40,7 +40,7 @@ public class ControladorCita {
         
         this.hospitales = new ArrayList<Hospital>();
         this.selectedHospital = new Hospital(3, "HOSPITAL TUNAL","www.com");
-        this.doctores = new ArrayList<Doctor>();
+        this.doctores = new ArrayList<services.Doctor>();
         this.selectedDoctor = new Doctor();
         this.citas = new ArrayList<Cita>();
         this.selectedCita = new Cita();
@@ -55,7 +55,7 @@ public class ControladorCita {
         this.hospitales = hospitales;
     }
 
-    public List<Doctor> getDoctores() {
+    public List<services.Doctor> getDoctores() {
         doctores = conector.getDoctores(selectedHospital.getId(),selectedEspecialidad);
         return doctores;
     }
@@ -67,7 +67,7 @@ public class ControladorCita {
             FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 
-    public void setDoctores(List<Doctor> doctores) {
+    public void setDoctores(List<services.Doctor> doctores) {
         this.doctores = doctores;
     }
 

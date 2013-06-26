@@ -1,6 +1,35 @@
-<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Services/">
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.0-1 (tags/2.2.0u1-7139; 2012-06-02T10:55:19+0000) JAXWS-RI/2.2.6-2 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://Services/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Services/">
 
 <xs:complexType name="time">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="doctor">
+<xs:sequence>
+<xs:element name="appointments" type="tns:appointment" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="idDoctor" type="xs:int"/>
+<xs:element name="idHospital" type="xs:int"/>
+<xs:element name="lastname" type="xs:string" minOccurs="0"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="specialty" type="tns:specialty" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="appointment">
+<xs:sequence>
+<xs:element name="cost" type="xs:string" minOccurs="0"/>
+<xs:element name="date" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="id" type="tns:objectId" minOccurs="0"/>
+<xs:element name="idAppointment" type="xs:int"/>
+<xs:element name="idPerson" type="xs:int"/>
+<xs:element name="notes" type="xs:string" minOccurs="0"/>
+<xs:element name="status" type="tns:appointmentStatus" minOccurs="0"/>
+<xs:element name="time" type="tns:time" minOccurs="0"/>
+<xs:element name="type" type="tns:appointmentType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="objectId">
 <xs:sequence/>
 </xs:complexType>
 
@@ -9,6 +38,25 @@
 <xs:enumeration value="EMERGENCY"/>
 <xs:enumeration value="SURGERY"/>
 <xs:enumeration value="GENERAL"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="appointmentStatus">
+<xs:restriction base="xs:string">
+<xs:enumeration value="COMPLETED"/>
+<xs:enumeration value="ASSIGNED"/>
+<xs:enumeration value="CANCELLED"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="specialty">
+<xs:restriction base="xs:string">
+<xs:enumeration value="GENERAL"/>
+<xs:enumeration value="OPTOMETRIA"/>
+<xs:enumeration value="PEDIATRIA"/>
+<xs:enumeration value="ODONTOLOGIA"/>
+<xs:enumeration value="ORTODONCIA"/>
+<xs:enumeration value="CARDIOLOGIA"/>
 </xs:restriction>
 </xs:simpleType>
 </xs:schema>

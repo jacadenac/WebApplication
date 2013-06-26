@@ -27,19 +27,19 @@
                             Doctores
                         </f:facet> 
 
-                        <p:column headerText="Id Doctor" filterBy="#{doctor.id}"  
+                        <p:column headerText="Id Doctor" filterBy="#{doctor.idDoctor}"  
                                   footerText="contains" filterMatchMode="contains">  
-                            <h:outputText value="#{doctor.id}" />  
+                            <h:outputText value="#{doctor.idDoctor}" />  
                         </p:column>  
 
-                        <p:column headerText="Nombre" filterBy="#{doctor.nombre}"  
+                        <p:column headerText="Nombre" filterBy="#{doctor.name}"  
                                   footerText="contains" filterMatchMode="contains">  
-                            <h:outputText value="#{doctor.nombre}" />  
+                            <h:outputText value="#{doctor.name}" />  
                         </p:column>  
 
-                        <p:column headerText="Especialidad" filterBy="#{doctor.especialidad}"  
+                        <p:column headerText="Especialidad" filterBy="#{doctor.specialty}"  
                                   footerText="contains" filterMatchMode="contains">  
-                            <h:outputText value="#{doctor.especialidad}" />  
+                            <h:outputText value="#{doctor.specialty}" />  
                         </p:column>  
 
                         <p:column style="width:7em;">          
@@ -63,13 +63,13 @@
                         <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
 
                             <h:outputText value="Id Doctor:" />  
-                            <p:outputLabel value="#{doctorBean.selectedDoctor.id}" />  
+                            <p:outputLabel value="#{doctorBean.selectedDoctor.idDoctor}" />  
 
                             <h:outputText value="Nombre:" />  
-                            <p:outputLabel value="#{doctorBean.selectedDoctor.nombre}" />  
+                            <p:outputLabel value="#{doctorBean.selectedDoctor.name}" />  
 
                             <h:outputText value="Especialidad:" />  
-                            <p:outputLabel value="#{doctorBean.selectedDoctor.especialidad}" /> 
+                            <p:outputLabel value="#{doctorBean.selectedDoctor.specialty}" /> 
 
                             <f:facet name="footer">
                                 <p:commandButton id="btnLookAceptar" oncomplete="dialogDoctorLook.hide()" icon="icon-check" title="Aceptar" value="Aceptar" style="margin-top: 0.35em;"/>  
@@ -84,13 +84,15 @@
                         <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">  
 
                             <h:outputText value="Id Doctor:" />  
-                            <p:inputText value="#{doctorBean.selectedDoctor.id}"/>  
+                            <p:inputText value="#{doctorBean.selectedDoctor.idDoctor}"/>  
 
                             <h:outputText value="Nombre:" />  
-                            <p:inputText value="#{doctorBean.selectedDoctor.nombre}"/>  
+                            <p:inputText value="#{doctorBean.selectedDoctor.name}"/>  
 
                             <h:outputText value="Especialidad:" />  
-                            <p:inputText value="#{doctorBean.selectedDoctor.especialidad}"/> 
+                            <p:selectOneMenu id="selEsp2" value="#{doctorBean.selectedDoctor.specialty}" style="width: 13.35em;">  
+                                <f:selectItems value="#{doctorBean.getSpecialties()}" />
+                            </p:selectOneMenu> 
 
                             <f:facet name="footer">
                                 <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogDoctorCreate.hide()" actionListener="#{doctorBean.btnCreateDoctor(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
@@ -107,13 +109,16 @@
                         <h:panelGrid id="display" columns="2" cellpadding="4" style="margin:0 auto; padding-top:0.4em;">                 
 
                             <h:outputText value="Nombre:" />  
-                            <p:inputText value="#{doctorBean.selectedDoctor.nombre}"/> 
-
+                            <p:inputText value="#{doctorBean.selectedDoctor.name}"/>  
+                            
                             <h:outputText value="Especialidad:" />  
                             
-                            <p:selectOneMenu id="selEsp" value="#{doctorBean.selectedDoctor.especialidad}" style="width: 13.35em;">  
+                            <p:selectOneMenu id="selEsp" value="#{doctorBean.selectedDoctor.specialty}" style="width: 13.35em;">  
                                 <f:selectItems value="#{doctorBean.getSpecialties()}" />
                             </p:selectOneMenu> 
+                            
+                            <h:inputHidden value="#{doctorBean.selectedDoctor.idDoctor}"/>
+                            
                             <f:facet name="footer">
                                 <p:commandButton id="btnUpdateAceptar" update=":formDataTable, :msgs" oncomplete="dialogDoctorUpdate.hide()" actionListener="#{doctorBean.btnUpdateDoctor(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  
                                 <p:commandButton id="btnUpdateCancelar" oncomplete="dialogDoctorUpdate.hide()" icon="icon-cancel" title="Cancelar" value="Cancelar" style="margin-top: 0.35em;"/>  
@@ -125,7 +130,7 @@
                 <h:form id="formDelete">
                     <p:confirmDialog id="confirmDialog" message="¿Estas seguro de eliminar el registro?"  showEffect="fade" hideEffect="explode"
                                      header="Eliminar Doctor" severity="alert" widgetVar="dialogDoctorDelete">  
-                        <h:inputHidden value="#{doctorBean.selectedDoctor.id}"/>
+                        <h:inputHidden value="#{doctorBean.selectedDoctor.idDoctor}"/>
                         <p:commandButton id="confirm" value="Aceptar" update=":formDataTable, :msgs" oncomplete="dialogDoctorDelete.hide()"  
                                          actionListener="#{doctorBean.btnDeleteDoctor(actionEvent)}" icon="icon-check"/>  
                         <p:commandButton id="decline" value="Cancelar" onclick="dialogDoctorDelete.hide();" type="button" icon="icon-cancel"/>   
