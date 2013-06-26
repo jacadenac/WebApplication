@@ -22,35 +22,17 @@
 <message name="reportDeathResponse">
 <part name="parameters" element="tns:reportDeathResponse"/>
 </message>
-<message name="checkAvailability">
-<part name="parameters" element="tns:checkAvailability"/>
-</message>
-<message name="checkAvailabilityResponse">
-<part name="parameters" element="tns:checkAvailabilityResponse"/>
-</message>
-<message name="cancelAppointment">
-<part name="parameters" element="tns:cancelAppointment"/>
-</message>
-<message name="cancelAppointmentResponse">
-<part name="parameters" element="tns:cancelAppointmentResponse"/>
-</message>
-<message name="completeAppointment">
-<part name="parameters" element="tns:completeAppointment"/>
-</message>
-<message name="completeAppointmentResponse">
-<part name="parameters" element="tns:completeAppointmentResponse"/>
-</message>
-<message name="createEmergency">
-<part name="parameters" element="tns:createEmergency"/>
-</message>
-<message name="createEmergencyResponse">
-<part name="parameters" element="tns:createEmergencyResponse"/>
-</message>
 <message name="getSpecialties">
 <part name="parameters" element="tns:getSpecialties"/>
 </message>
 <message name="getSpecialtiesResponse">
 <part name="parameters" element="tns:getSpecialtiesResponse"/>
+</message>
+<message name="getDoctorsbySpecialty">
+<part name="parameters" element="tns:getDoctorsbySpecialty"/>
+</message>
+<message name="getDoctorsbySpecialtyResponse">
+<part name="parameters" element="tns:getDoctorsbySpecialtyResponse"/>
 </message>
 <message name="createAppoinment">
 <part name="parameters" element="tns:createAppoinment"/>
@@ -58,17 +40,35 @@
 <message name="createAppoinmentResponse">
 <part name="parameters" element="tns:createAppoinmentResponse"/>
 </message>
+<message name="completeAppointment">
+<part name="parameters" element="tns:completeAppointment"/>
+</message>
+<message name="completeAppointmentResponse">
+<part name="parameters" element="tns:completeAppointmentResponse"/>
+</message>
+<message name="checkAvailability">
+<part name="parameters" element="tns:checkAvailability"/>
+</message>
+<message name="checkAvailabilityResponse">
+<part name="parameters" element="tns:checkAvailabilityResponse"/>
+</message>
+<message name="createEmergency">
+<part name="parameters" element="tns:createEmergency"/>
+</message>
+<message name="createEmergencyResponse">
+<part name="parameters" element="tns:createEmergencyResponse"/>
+</message>
 <message name="getAppointmentsByPerson">
 <part name="parameters" element="tns:getAppointmentsByPerson"/>
 </message>
 <message name="getAppointmentsByPersonResponse">
 <part name="parameters" element="tns:getAppointmentsByPersonResponse"/>
 </message>
-<message name="getDoctorsbySpecialty">
-<part name="parameters" element="tns:getDoctorsbySpecialty"/>
+<message name="cancelAppointment">
+<part name="parameters" element="tns:cancelAppointment"/>
 </message>
-<message name="getDoctorsbySpecialtyResponse">
-<part name="parameters" element="tns:getDoctorsbySpecialtyResponse"/>
+<message name="cancelAppointmentResponse">
+<part name="parameters" element="tns:cancelAppointmentResponse"/>
 </message>
 <portType name="ManageHospital">
 <operation name="reportBirth">
@@ -79,37 +79,37 @@
 <input wsam:Action="http://Servicios/ManageHospital/reportDeathRequest" message="tns:reportDeath"/>
 <output wsam:Action="http://Servicios/ManageHospital/reportDeathResponse" message="tns:reportDeathResponse"/>
 </operation>
-<operation name="checkAvailability">
-<input wsam:Action="http://Servicios/ManageHospital/checkAvailabilityRequest" message="tns:checkAvailability"/>
-<output wsam:Action="http://Servicios/ManageHospital/checkAvailabilityResponse" message="tns:checkAvailabilityResponse"/>
-</operation>
-<operation name="cancelAppointment">
-<input wsam:Action="http://Servicios/ManageHospital/cancelAppointmentRequest" message="tns:cancelAppointment"/>
-<output wsam:Action="http://Servicios/ManageHospital/cancelAppointmentResponse" message="tns:cancelAppointmentResponse"/>
-</operation>
-<operation name="completeAppointment">
-<input wsam:Action="http://Servicios/ManageHospital/completeAppointmentRequest" message="tns:completeAppointment"/>
-<output wsam:Action="http://Servicios/ManageHospital/completeAppointmentResponse" message="tns:completeAppointmentResponse"/>
-</operation>
-<operation name="createEmergency">
-<input wsam:Action="http://Servicios/ManageHospital/createEmergencyRequest" message="tns:createEmergency"/>
-<output wsam:Action="http://Servicios/ManageHospital/createEmergencyResponse" message="tns:createEmergencyResponse"/>
-</operation>
 <operation name="getSpecialties">
 <input wsam:Action="http://Servicios/ManageHospital/getSpecialtiesRequest" message="tns:getSpecialties"/>
 <output wsam:Action="http://Servicios/ManageHospital/getSpecialtiesResponse" message="tns:getSpecialtiesResponse"/>
+</operation>
+<operation name="getDoctorsbySpecialty">
+<input wsam:Action="http://Servicios/ManageHospital/getDoctorsbySpecialtyRequest" message="tns:getDoctorsbySpecialty"/>
+<output wsam:Action="http://Servicios/ManageHospital/getDoctorsbySpecialtyResponse" message="tns:getDoctorsbySpecialtyResponse"/>
 </operation>
 <operation name="createAppoinment">
 <input wsam:Action="http://Servicios/ManageHospital/createAppoinmentRequest" message="tns:createAppoinment"/>
 <output wsam:Action="http://Servicios/ManageHospital/createAppoinmentResponse" message="tns:createAppoinmentResponse"/>
 </operation>
+<operation name="completeAppointment">
+<input wsam:Action="http://Servicios/ManageHospital/completeAppointmentRequest" message="tns:completeAppointment"/>
+<output wsam:Action="http://Servicios/ManageHospital/completeAppointmentResponse" message="tns:completeAppointmentResponse"/>
+</operation>
+<operation name="checkAvailability">
+<input wsam:Action="http://Servicios/ManageHospital/checkAvailabilityRequest" message="tns:checkAvailability"/>
+<output wsam:Action="http://Servicios/ManageHospital/checkAvailabilityResponse" message="tns:checkAvailabilityResponse"/>
+</operation>
+<operation name="createEmergency">
+<input wsam:Action="http://Servicios/ManageHospital/createEmergencyRequest" message="tns:createEmergency"/>
+<output wsam:Action="http://Servicios/ManageHospital/createEmergencyResponse" message="tns:createEmergencyResponse"/>
+</operation>
 <operation name="getAppointmentsByPerson">
 <input wsam:Action="http://Servicios/ManageHospital/getAppointmentsByPersonRequest" message="tns:getAppointmentsByPerson"/>
 <output wsam:Action="http://Servicios/ManageHospital/getAppointmentsByPersonResponse" message="tns:getAppointmentsByPersonResponse"/>
 </operation>
-<operation name="getDoctorsbySpecialty">
-<input wsam:Action="http://Servicios/ManageHospital/getDoctorsbySpecialtyRequest" message="tns:getDoctorsbySpecialty"/>
-<output wsam:Action="http://Servicios/ManageHospital/getDoctorsbySpecialtyResponse" message="tns:getDoctorsbySpecialtyResponse"/>
+<operation name="cancelAppointment">
+<input wsam:Action="http://Servicios/ManageHospital/cancelAppointmentRequest" message="tns:cancelAppointment"/>
+<output wsam:Action="http://Servicios/ManageHospital/cancelAppointmentResponse" message="tns:cancelAppointmentResponse"/>
 </operation>
 </portType>
 <binding name="ManageHospitalPortBinding" type="tns:ManageHospital">
@@ -132,43 +132,16 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="checkAvailability">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="cancelAppointment">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="completeAppointment">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="createEmergency">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="getSpecialties">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getDoctorsbySpecialty">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -186,6 +159,33 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="completeAppointment">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="checkAvailability">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="createEmergency">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="getAppointmentsByPerson">
 <soap:operation soapAction=""/>
 <input>
@@ -195,7 +195,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="getDoctorsbySpecialty">
+<operation name="cancelAppointment">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

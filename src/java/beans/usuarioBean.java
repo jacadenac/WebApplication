@@ -28,6 +28,7 @@ public class usuarioBean {
     
     private List<Usuario> usuarios;
     private Usuario selectedUsuario;
+    private int password;
 
     public usuarioBean() {
         this.usuarios = new ArrayList<Usuario>();
@@ -67,6 +68,22 @@ public class usuarioBean {
     public void setSelectedUsuario(Usuario SelectedUsuario) {
         this.selectedUsuario = SelectedUsuario;
     }
+
+    public int getPassword() {
+        return password;
+    }
+
+    public void setPassword(int password) {
+        this.password = password;
+    }
+
+    public Conector getConector() {
+        return conector;
+    }
+
+    public void setConector(Conector conector) {
+        this.conector = conector;
+    }
     
     /*métodos intermedios (entre el ws y el resto de la aplicación)*/
     public void btnCreateUsuario(ActionEvent actionEvent) {
@@ -77,7 +94,16 @@ public class usuarioBean {
             message = new FacesMessage(FacesMessage.SEVERITY_FATAL, msg, null);
         }
         else {
+            
+            //se registra al usuario en la base del sistema de salud
             conector.createUR(selectedUsuario.getId(), getRoleFromString(selectedUsuario.getRol()), selectedUsuario.getIdEntity());
+            
+            //se asocia al usuario con la clave, en el ws de la registraduria
+            //IMPORTANTE: por ahora se deja un valor constante para todo el sistema hospitalario, 972279
+            String idString = selectedUsuario.getId().toString();
+            conector.registerRelation(Long.parseLong(idString), new Long("972279"), selectedUsuario.getRol(),String.valueOf(password));
+            
+            //mensaje en la interfaz
             msg = "Se ha creado un usuario";
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, msg, null);            
         }

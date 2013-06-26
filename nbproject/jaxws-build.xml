@@ -26,25 +26,9 @@
             <isset property="conf.dir"/>
         </condition>
     </target>
-    <target name="wsimport-client-UserRoleWS" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/UserRoleWS"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/UserRoleWS" destdir="${build.generated.dir}/jax-wsCache/UserRoleWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/UserRoleWS/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/UserRoleWS/UserRoleWS?wsdl" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/UserRoleWS/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/UserRoleWS"/>
-        </wsimport>
-        <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/UserRoleWS">
-                <include name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="wsimport-client-clean-UserRoleWS" depends="-init-project">
-        <delete dir="${build.generated.sources.dir}/jax-ws/facadews"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/UserRoleWS"/>
-    </target>
     <target name="wsimport-client-CRUDHospitalWS" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/CRUDHospitalWS"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CRUDHospitalWS" destdir="${build.generated.dir}/jax-wsCache/CRUDHospitalWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CRUDHospitalWS/wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/CRUDHospital/CRUDHospitalWS?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CRUDHospitalWS" destdir="${build.generated.dir}/jax-wsCache/CRUDHospitalWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CRUDHospitalWS/wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/CRUDHospital/CRUDHospitalWS?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/CRUDHospitalWS/wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/CRUDHospitalWS"/>
         </wsimport>
@@ -60,7 +44,7 @@
     </target>
     <target name="wsimport-client-ManageHospital" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/ManageHospital"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ManageHospital" destdir="${build.generated.dir}/jax-wsCache/ManageHospital" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ManageHospital/wsdl/localhost_8080/ManageHospital/ManageHospital.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/ManageHospital/ManageHospital?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ManageHospital" destdir="${build.generated.dir}/jax-wsCache/ManageHospital" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/ManageHospital/wsdl/localhost_8080/ManageHospital/ManageHospital.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/ManageHospital/ManageHospital?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/ManageHospital/wsdl/localhost_8080/ManageHospital/ManageHospital.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/ManageHospital"/>
         </wsimport>
@@ -76,7 +60,7 @@
     </target>
     <target name="wsimport-client-RegisterEPSBankAccount" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/RegisterEPSBankAccount"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegisterEPSBankAccount" destdir="${build.generated.dir}/jax-wsCache/RegisterEPSBankAccount" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/RegisterEPSBankAccount/wsdl/localhost_8080/registerEPSBankAccount/RegisterEPSBankAccount.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/registerEPSBankAccount/RegisterEPSBankAccount?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/RegisterEPSBankAccount" destdir="${build.generated.dir}/jax-wsCache/RegisterEPSBankAccount" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/RegisterEPSBankAccount/wsdl/localhost_8080/registerEPSBankAccount/RegisterEPSBankAccount.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/registerEPSBankAccount/RegisterEPSBankAccount?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/RegisterEPSBankAccount/wsdl/localhost_8080/registerEPSBankAccount/RegisterEPSBankAccount.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/RegisterEPSBankAccount"/>
         </wsimport>
@@ -92,7 +76,7 @@
     </target>
     <target name="wsimport-client-AdmEPSService" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/AdmEPSService"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/AdmEPSService" destdir="${build.generated.dir}/jax-wsCache/AdmEPSService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/AdmEPSService/wsdl/localhost_8080/AdmEPSService/AdmEPSService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" wsdlLocation="http://localhost:8080/AdmEPSService/AdmEPSService?wsdl" xnocompile="true" xendorsed="true">
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/AdmEPSService" destdir="${build.generated.dir}/jax-wsCache/AdmEPSService" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/AdmEPSService/wsdl/localhost_8080/AdmEPSService/AdmEPSService.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/AdmEPSService/AdmEPSService?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/AdmEPSService/wsdl/localhost_8080/AdmEPSService/AdmEPSService.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/AdmEPSService"/>
         </wsimport>
@@ -106,5 +90,37 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
         <delete dir="${build.generated.dir}/jax-wsCache/AdmEPSService"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-UserRoleWS, wsimport-client-CRUDHospitalWS, wsimport-client-ManageHospital, wsimport-client-RegisterEPSBankAccount, wsimport-client-AdmEPSService"/>
+    <target name="wsimport-client-UserRoleWS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/UserRoleWS"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/UserRoleWS" destdir="${build.generated.dir}/jax-wsCache/UserRoleWS" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/UserRoleWS/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://localhost:8080/UserRoleWS/UserRoleWS?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/UserRoleWS/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/UserRoleWS"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/UserRoleWS">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-UserRoleWS" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/facadews"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/UserRoleWS"/>
+    </target>
+    <target name="wsimport-client-CompanyPersonWs" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/CompanyPersonWs"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/CompanyPersonWs" destdir="${build.generated.dir}/jax-wsCache/CompanyPersonWs" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/CompanyPersonWs/wsdl/25.16.26.205_8080/CompanyPersonWs/CompanyPersonWs.wsdl" catalog="catalog.xml" extension="true" verbose="true" wsdlLocation="http://25.16.26.205:8080/CompanyPersonWs/CompanyPersonWs?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/CompanyPersonWs/wsdl/25.16.26.205_8080/CompanyPersonWs/CompanyPersonWs.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/CompanyPersonWs"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/CompanyPersonWs">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-CompanyPersonWs" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/com/dataejbsra/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/CompanyPersonWs"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-CRUDHospitalWS, wsimport-client-ManageHospital, wsimport-client-RegisterEPSBankAccount, wsimport-client-AdmEPSService, wsimport-client-UserRoleWS, wsimport-client-CompanyPersonWs"/>
 </project>

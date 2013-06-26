@@ -42,4 +42,6 @@
     <system systemId="http://localhost:8080/AdmEPSService/AdmEPSService?wsdl" uri="wsdl/localhost_8080/AdmEPSService/AdmEPSService.wsdl"/>
     <system systemId="http://localhost:8080/AdmEPSService/AdmEPSService?xsd=1" uri="wsdl/localhost_8080/AdmEPSService/AdmEPSService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/AdmEPSService/AdmEPSService?xsd=2" uri="wsdl/localhost_8080/AdmEPSService/AdmEPSService.xsd_2.xsd"/>
+    <system systemId="http://25.16.26.205:8080/CompanyPersonWs/CompanyPersonWs?WSDL" uri="wsdl/25.16.26.205_8080/CompanyPersonWs/CompanyPersonWs.wsdl"/>
+    <system systemId="http://25.16.26.205:8080/CompanyPersonWs/CompanyPersonWs?xsd=1" uri="wsdl/25.16.26.205_8080/CompanyPersonWs/CompanyPersonWs.xsd_1.xsd"/>
 </catalog>

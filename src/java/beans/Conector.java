@@ -7,6 +7,7 @@ package beans;
 import classes.Cita;
 import classes.Doctor;
 import classes.Hospital;
+import com.dataejbsra.ws.CompanyPersonWs_Service;
 import com.dataejbsra.ws.ROb;
 import facadews.ProcessResult;
 import facadews.UserRole;
@@ -27,6 +28,8 @@ import servicios.ManageHospital_Service;
  */
 @Stateless
 public class Conector {    
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/25.16.26.205_8080/CompanyPersonWs/CompanyPersonWs.wsdl")
+    private CompanyPersonWs_Service service_4;
         
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/ManageHospital/ManageHospital.wsdl")
     private ManageHospital_Service service_3;   
@@ -215,4 +218,12 @@ public class Conector {
       /* servicios.OPIaccess port = service_4.getOPIaccessPort();
         port.registerEPS(name, accountNumber);*/
     }
+    
+    //métodos de la registraduría para el registro, validación y eliminación de claves
+
+    public ROb registerRelation(java.lang.Long personCedule, java.lang.Long companyId, java.lang.String rolPerson, java.lang.String passwordCompany) {
+        com.dataejbsra.ws.CompanyPersonWs port = service_4.getCompanyPersonWsPort();
+        return port.registerRelation(personCedule, companyId, rolPerson, passwordCompany);
+    }
+    
 }
