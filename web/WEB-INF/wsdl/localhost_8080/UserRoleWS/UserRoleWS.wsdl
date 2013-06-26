@@ -4,30 +4,6 @@
 <xsd:import namespace="http://facadews/" schemaLocation="http://localhost:8080/UserRoleWS/UserRoleWS?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="DeleteUR">
-<part name="parameters" element="tns:DeleteUR"/>
-</message>
-<message name="DeleteURResponse">
-<part name="parameters" element="tns:DeleteURResponse"/>
-</message>
-<message name="GetListURByEntity">
-<part name="parameters" element="tns:GetListURByEntity"/>
-</message>
-<message name="GetListURByEntityResponse">
-<part name="parameters" element="tns:GetListURByEntityResponse"/>
-</message>
-<message name="GetListUR">
-<part name="parameters" element="tns:GetListUR"/>
-</message>
-<message name="GetListURResponse">
-<part name="parameters" element="tns:GetListURResponse"/>
-</message>
-<message name="GetFullListUR">
-<part name="parameters" element="tns:GetFullListUR"/>
-</message>
-<message name="GetFullListURResponse">
-<part name="parameters" element="tns:GetFullListURResponse"/>
-</message>
 <message name="GetUR">
 <part name="parameters" element="tns:GetUR"/>
 </message>
@@ -46,23 +22,25 @@
 <message name="CreateURResponse">
 <part name="parameters" element="tns:CreateURResponse"/>
 </message>
+<message name="GetListUR">
+<part name="parameters" element="tns:GetListUR"/>
+</message>
+<message name="GetListURResponse">
+<part name="parameters" element="tns:GetListURResponse"/>
+</message>
+<message name="GetListURByEntity">
+<part name="parameters" element="tns:GetListURByEntity"/>
+</message>
+<message name="GetListURByEntityResponse">
+<part name="parameters" element="tns:GetListURByEntityResponse"/>
+</message>
+<message name="DeleteUR">
+<part name="parameters" element="tns:DeleteUR"/>
+</message>
+<message name="DeleteURResponse">
+<part name="parameters" element="tns:DeleteURResponse"/>
+</message>
 <portType name="UserRoleWS">
-<operation name="DeleteUR">
-<input wsam:Action="http://facadews/UserRoleWS/DeleteURRequest" message="tns:DeleteUR"/>
-<output wsam:Action="http://facadews/UserRoleWS/DeleteURResponse" message="tns:DeleteURResponse"/>
-</operation>
-<operation name="GetListURByEntity">
-<input wsam:Action="http://facadews/UserRoleWS/GetListURByEntityRequest" message="tns:GetListURByEntity"/>
-<output wsam:Action="http://facadews/UserRoleWS/GetListURByEntityResponse" message="tns:GetListURByEntityResponse"/>
-</operation>
-<operation name="GetListUR">
-<input wsam:Action="http://facadews/UserRoleWS/GetListURRequest" message="tns:GetListUR"/>
-<output wsam:Action="http://facadews/UserRoleWS/GetListURResponse" message="tns:GetListURResponse"/>
-</operation>
-<operation name="GetFullListUR">
-<input wsam:Action="http://facadews/UserRoleWS/GetFullListURRequest" message="tns:GetFullListUR"/>
-<output wsam:Action="http://facadews/UserRoleWS/GetFullListURResponse" message="tns:GetFullListURResponse"/>
-</operation>
 <operation name="GetUR">
 <input wsam:Action="http://facadews/UserRoleWS/GetURRequest" message="tns:GetUR"/>
 <output wsam:Action="http://facadews/UserRoleWS/GetURResponse" message="tns:GetURResponse"/>
@@ -75,45 +53,21 @@
 <input wsam:Action="http://facadews/UserRoleWS/CreateURRequest" message="tns:CreateUR"/>
 <output wsam:Action="http://facadews/UserRoleWS/CreateURResponse" message="tns:CreateURResponse"/>
 </operation>
+<operation name="GetListUR">
+<input wsam:Action="http://facadews/UserRoleWS/GetListURRequest" message="tns:GetListUR"/>
+<output wsam:Action="http://facadews/UserRoleWS/GetListURResponse" message="tns:GetListURResponse"/>
+</operation>
+<operation name="GetListURByEntity">
+<input wsam:Action="http://facadews/UserRoleWS/GetListURByEntityRequest" message="tns:GetListURByEntity"/>
+<output wsam:Action="http://facadews/UserRoleWS/GetListURByEntityResponse" message="tns:GetListURByEntityResponse"/>
+</operation>
+<operation name="DeleteUR">
+<input wsam:Action="http://facadews/UserRoleWS/DeleteURRequest" message="tns:DeleteUR"/>
+<output wsam:Action="http://facadews/UserRoleWS/DeleteURResponse" message="tns:DeleteURResponse"/>
+</operation>
 </portType>
 <binding name="UserRoleWSPortBinding" type="tns:UserRoleWS">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="DeleteUR">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="GetListURByEntity">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="GetListUR">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="GetFullListUR">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="GetUR">
 <soap:operation soapAction=""/>
 <input>
@@ -133,6 +87,33 @@
 </output>
 </operation>
 <operation name="CreateUR">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GetListUR">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GetListURByEntity">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="DeleteUR">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

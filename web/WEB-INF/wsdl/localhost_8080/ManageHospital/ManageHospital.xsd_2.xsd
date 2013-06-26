@@ -171,6 +171,17 @@
 <xs:sequence/>
 </xs:complexType>
 
+<xs:complexType name="updateDoctor">
+<xs:sequence>
+<xs:element name="arg0" type="ns2:doctor" minOccurs="0"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateDoctorResponse">
+<xs:sequence/>
+</xs:complexType>
+
 <xs:complexType name="getDoctorsbySpecialty">
 <xs:sequence>
 <xs:element name="arg0" type="xs:int"/>
@@ -182,17 +193,6 @@
 <xs:sequence>
 <xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="updateDoctor">
-<xs:sequence>
-<xs:element name="arg0" type="ns2:doctor" minOccurs="0"/>
-<xs:element name="arg1" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="updateDoctorResponse">
-<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="getDoctorsByHospitalId">
@@ -208,6 +208,17 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="completeAppointment">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="completeAppointmentResponse">
+<xs:sequence/>
+</xs:complexType>
+
 <xs:complexType name="reportBirth">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"/>
@@ -219,17 +230,6 @@
 <xs:sequence>
 <xs:element name="return" type="ns1:rOb" minOccurs="0"/>
 </xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="completeAppointment">
-<xs:sequence>
-<xs:element name="arg0" type="xs:int"/>
-<xs:element name="arg1" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="completeAppointmentResponse">
-<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="getListDoctor">

@@ -2,15 +2,9 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8080/DataService/DataService?wsdl" uri="src/conf/xml-resources/web-service-references/DataService/wsdl/localhost_8080/DataService/DataService.wsdl"/>
     <system systemId="http://localhost:8080/DataService/DataService?xsd=1" uri="src/conf/xml-resources/web-service-references/DataService/wsdl/localhost_8080/DataService/DataService.xsd_1.xsd"/>
-<<<<<<< HEAD
     
     
     
-=======
-    <system systemId="http://vvcap.net/db/iQWRrSt4w602B3ta7ME8.htp" uri="src/conf/xml-resources/web-service-references/iQWRrSt4w602B3ta7ME8/wsdl/vvcap.net/db/iQWRrSt4w602B3ta7ME8.htp"/>
-    <system systemId="http://25.18.215.115:8080/CRUDHospital/CRUDHospitalWS?WSDL" uri="src/conf/xml-resources/web-service-references/CRUDHospitalWS/wsdl/25.18.215.115_8080/CRUDHospital/CRUDHospitalWS.wsdl"/>
-    <system systemId="http://25.18.215.115:8080/CRUDHospital/CRUDHospitalWS?xsd=1" uri="src/conf/xml-resources/web-service-references/CRUDHospitalWS/wsdl/25.18.215.115_8080/CRUDHospital/CRUDHospitalWS.xsd_1.xsd"/>
->>>>>>> Will
 
     
     
@@ -37,7 +31,6 @@
     <system systemId="http://localhost:8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS?wsdl" uri="src/conf/xml-resources/web-service-references/MedicalRecordsCRUDUrlWS/wsdl/localhost_8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS.wsdl"/>
     <system systemId="http://localhost:8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS?xsd=1" uri="src/conf/xml-resources/web-service-references/MedicalRecordsCRUDUrlWS/wsdl/localhost_8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS?xsd=2" uri="src/conf/xml-resources/web-service-references/MedicalRecordsCRUDUrlWS/wsdl/localhost_8080/MedicalRecordsCRUDUrlWS/MedicalRecordsCRUDUrlWS.xsd_2.xsd"/>
-    <system systemId="http://localhost:8080/UserRoleWS/UserRoleWS?WSDL" uri="src/conf/xml-resources/web-service-references/UserRoleWS/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl"/>
     <system systemId="http://vvcap.net/db/ssa-evvAQYXqtZBN0eJd.htp" uri="src/conf/xml-resources/web-service-references/ssa-evvAQYXqtZBN0eJd/wsdl/vvcap.net/db/ssa-evvAQYXqtZBN0eJd.htp"/>
     <system systemId="http://25.23.97.240:8080/UserRoleWS/UserRoleWS?wsdl" uri="src/conf/xml-resources/web-service-references/UserRoleWS/wsdl/25.23.97.240_8080/UserRoleWS/UserRoleWS.wsdl"/>
     <system systemId="http://25.23.97.240:8080/UserRoleWS/UserRoleWS?xsd=1" uri="src/conf/xml-resources/web-service-references/UserRoleWS/wsdl/25.23.97.240_8080/UserRoleWS/UserRoleWS.xsd_1.xsd"/>
@@ -50,7 +43,6 @@
     <system systemId="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?wsdl" uri="src/conf/xml-resources/web-service-references/CRUD_EPS_ws/wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.wsdl"/>
     <system systemId="http://localhost:8080/CRUD_EPS_ws/CRUD_EPS_ws?xsd=1" uri="src/conf/xml-resources/web-service-references/CRUD_EPS_ws/wsdl/localhost_8080/CRUD_EPS_ws/CRUD_EPS_ws.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/UserRoleWS/UserRoleWS?wsdl" uri="src/conf/xml-resources/web-service-references/UserRoleWS/wsdl/localhost_8080/UserRoleWS/UserRoleWS.wsdl"/>
-    <system systemId="http://localhost:8080/UserRoleWS/UserRoleWS?xsd=1" uri="src/conf/xml-resources/web-service-references/UserRoleWS/wsdl/localhost_8080/UserRoleWS/UserRoleWS.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/CRUDHospital/CRUDHospitalWS?wsdl" uri="src/conf/xml-resources/web-service-references/CRUDHospitalWS/wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.wsdl"/>
     <system systemId="http://localhost:8080/CRUDHospital/CRUDHospitalWS?xsd=1" uri="src/conf/xml-resources/web-service-references/CRUDHospitalWS/wsdl/localhost_8080/CRUDHospital/CRUDHospitalWS.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/registerEPSBankAccount/RegisterEPSBankAccount?wsdl" uri="src/conf/xml-resources/web-service-references/RegisterEPSBankAccount/wsdl/localhost_8080/registerEPSBankAccount/RegisterEPSBankAccount.wsdl"/>
@@ -58,6 +50,8 @@
     <system systemId="http://localhost:8080/AdmEPSService/AdmEPSService?wsdl" uri="src/conf/xml-resources/web-service-references/AdmEPSService/wsdl/localhost_8080/AdmEPSService/AdmEPSService.wsdl"/>
     <system systemId="http://localhost:8080/AdmEPSService/AdmEPSService?xsd=1" uri="src/conf/xml-resources/web-service-references/AdmEPSService/wsdl/localhost_8080/AdmEPSService/AdmEPSService.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/AdmEPSService/AdmEPSService?xsd=2" uri="src/conf/xml-resources/web-service-references/AdmEPSService/wsdl/localhost_8080/AdmEPSService/AdmEPSService.xsd_2.xsd"/>
+    <system systemId="http://25.16.26.205:8080/CompanyPersonWs/CompanyPersonWs?WSDL" uri="src/conf/xml-resources/web-service-references/CompanyPersonWs/wsdl/25.16.26.205_8080/CompanyPersonWs/CompanyPersonWs.wsdl"/>
+    <system systemId="http://25.16.26.205:8080/CompanyPersonWs/CompanyPersonWs?xsd=1" uri="src/conf/xml-resources/web-service-references/CompanyPersonWs/wsdl/25.16.26.205_8080/CompanyPersonWs/CompanyPersonWs.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/ManageHospital/ManageHospital?wsdl" uri="src/conf/xml-resources/web-service-references/ManageHospital/wsdl/localhost_8080/ManageHospital/ManageHospital.wsdl"/>
     <system systemId="http://localhost:8080/ManageHospital/ManageHospital?xsd=1" uri="src/conf/xml-resources/web-service-references/ManageHospital/wsdl/localhost_8080/ManageHospital/ManageHospital.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/ManageHospital/ManageHospital?xsd=2" uri="src/conf/xml-resources/web-service-references/ManageHospital/wsdl/localhost_8080/ManageHospital/ManageHospital.xsd_2.xsd"/>

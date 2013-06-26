@@ -6,6 +6,8 @@ package beans;
 
 //import dao.UsuarioDao;
 //import dao.UsuarioDaoImpl;
+import com.dataejbsra.ws.CompanyPersonWs_Service;
+import com.dataejbsra.ws.ROb;
 import facadews.CreateUR;
 import facadews.ProcessResult;
 import facadews.Role;
@@ -30,6 +32,8 @@ import util.MyUtil;
 @ManagedBean(name = "loginBean")
 @SessionScoped
 public class loginBean implements Serializable {
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/25.16.26.205_8080/CompanyPersonWs/CompanyPersonWs.wsdl")
+    private CompanyPersonWs_Service service_1;
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/25.23.97.240_8080/UserRoleWS/UserRoleWS.wsdl")
     private UserRoleWS_Service service;
 
@@ -65,6 +69,10 @@ public class loginBean implements Serializable {
         String ruta = "";
         FacesMessage msg;
         boolean loggedIn;
+        
+        if(claveCorrecta()) {
+            System.out.println("La contraseña coincide con la almacenada en registraduría");
+        }
         
         if (this.findUser()) {
             loggedIn = true;
@@ -157,8 +165,22 @@ public class loginBean implements Serializable {
 
     private java.util.List<facadews.UserRole> getFullListUR() {
         facadews.UserRoleWS port = service.getUserRoleWSPort();
-        return port.getFullListUR();
+        return port.getListUR(Role.USER);
     }
     
+    private boolean claveCorrecta() {
+        String idString = username.toString();
+        ROb rta = validateRelation(Long.parseLong(idString), new Long("972279"), password);
+        
+        if(rta != null) {
+            return true;
+        }
+        return false;
+    }
+
+    private ROb validateRelation(java.lang.Long personCedule, java.lang.Long companyId, java.lang.String personPassword) {
+        com.dataejbsra.ws.CompanyPersonWs port = service_1.getCompanyPersonWsPort();
+        return port.validateRelation(personCedule, companyId, personPassword);
+    }    
     
 }

@@ -41,7 +41,7 @@
                         <p:column headerText="Id de la entidad asociada" filterBy="#{usuario.idEntity}"   
                                   footerText="contains" filterMatchMode="contains">  
                             <h:outputText value="#{usuario.idEntity}" />  
-                        </p:column>                         
+                        </p:column>                        
 
                         <p:column style="width: 4em;">          
                             <p:commandButton id="btnUpdate" update=":formUpdate" oncomplete="dialogHospitalUpdate.show()" icon="icon-edit" title="Modificar">  
@@ -74,7 +74,10 @@
                             </p:selectOneMenu>                              
 
                             <h:outputText value="id del la entidad asociada:" />                              
-                            <p:inputText value="#{usuarioBean.selectedUsuario.idEntity}"/>                             
+                            <p:inputText value="#{usuarioBean.selectedUsuario.idEntity}"/>      
+                            
+                            <h:outputText value="Contraseña del nuevo usuario:" />                              
+                            <p:inputText value="#{usuarioBean.password}"/>                               
 
                             <f:facet name="footer">
                                 <p:commandButton id="btnCreateAceptar" update=":formDataTable, :msgs" oncomplete="dialogHospitalCreate.hide()" actionListener="#{usuarioBean.btnCreateUsuario(actionEvent)}" icon="icon-save" title="Guardar" value="Guardar" style="margin-top: 0.35em;"/>  

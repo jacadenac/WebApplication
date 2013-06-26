@@ -10,47 +10,23 @@
 <xsd:import namespace="http://Services/" schemaLocation="http://localhost:8080/ManageHospital/ManageHospital?xsd=3"/>
 </xsd:schema>
 </types>
-<message name="getListDoctor">
-<part name="parameters" element="tns:getListDoctor"/>
+<message name="createAppoinment">
+<part name="parameters" element="tns:createAppoinment"/>
 </message>
-<message name="getListDoctorResponse">
-<part name="parameters" element="tns:getListDoctorResponse"/>
+<message name="createAppoinmentResponse">
+<part name="parameters" element="tns:createAppoinmentResponse"/>
 </message>
-<message name="getDoctorsByHospitalId">
-<part name="parameters" element="tns:getDoctorsByHospitalId"/>
+<message name="getAppointmentsByPerson">
+<part name="parameters" element="tns:getAppointmentsByPerson"/>
 </message>
-<message name="getDoctorsByHospitalIdResponse">
-<part name="parameters" element="tns:getDoctorsByHospitalIdResponse"/>
+<message name="getAppointmentsByPersonResponse">
+<part name="parameters" element="tns:getAppointmentsByPersonResponse"/>
 </message>
-<message name="createDoctor">
-<part name="parameters" element="tns:createDoctor"/>
+<message name="getDoctorsbySpecialty">
+<part name="parameters" element="tns:getDoctorsbySpecialty"/>
 </message>
-<message name="createDoctorResponse">
-<part name="parameters" element="tns:createDoctorResponse"/>
-</message>
-<message name="reportBirth">
-<part name="parameters" element="tns:reportBirth"/>
-</message>
-<message name="reportBirthResponse">
-<part name="parameters" element="tns:reportBirthResponse"/>
-</message>
-<message name="reportDeath">
-<part name="parameters" element="tns:reportDeath"/>
-</message>
-<message name="reportDeathResponse">
-<part name="parameters" element="tns:reportDeathResponse"/>
-</message>
-<message name="deleteDoctor">
-<part name="parameters" element="tns:deleteDoctor"/>
-</message>
-<message name="deleteDoctorResponse">
-<part name="parameters" element="tns:deleteDoctorResponse"/>
-</message>
-<message name="updateDoctor">
-<part name="parameters" element="tns:updateDoctor"/>
-</message>
-<message name="updateDoctorResponse">
-<part name="parameters" element="tns:updateDoctorResponse"/>
+<message name="getDoctorsbySpecialtyResponse">
+<part name="parameters" element="tns:getDoctorsbySpecialtyResponse"/>
 </message>
 <message name="checkAvailability">
 <part name="parameters" element="tns:checkAvailability"/>
@@ -76,23 +52,47 @@
 <message name="getSpecialtiesResponse">
 <part name="parameters" element="tns:getSpecialtiesResponse"/>
 </message>
-<message name="createAppoinment">
-<part name="parameters" element="tns:createAppoinment"/>
+<message name="getListDoctor">
+<part name="parameters" element="tns:getListDoctor"/>
 </message>
-<message name="createAppoinmentResponse">
-<part name="parameters" element="tns:createAppoinmentResponse"/>
+<message name="getListDoctorResponse">
+<part name="parameters" element="tns:getListDoctorResponse"/>
 </message>
-<message name="getAppointmentsByPerson">
-<part name="parameters" element="tns:getAppointmentsByPerson"/>
+<message name="getDoctorsByHospitalId">
+<part name="parameters" element="tns:getDoctorsByHospitalId"/>
 </message>
-<message name="getAppointmentsByPersonResponse">
-<part name="parameters" element="tns:getAppointmentsByPersonResponse"/>
+<message name="getDoctorsByHospitalIdResponse">
+<part name="parameters" element="tns:getDoctorsByHospitalIdResponse"/>
 </message>
-<message name="getDoctorsbySpecialty">
-<part name="parameters" element="tns:getDoctorsbySpecialty"/>
+<message name="reportDeath">
+<part name="parameters" element="tns:reportDeath"/>
 </message>
-<message name="getDoctorsbySpecialtyResponse">
-<part name="parameters" element="tns:getDoctorsbySpecialtyResponse"/>
+<message name="reportDeathResponse">
+<part name="parameters" element="tns:reportDeathResponse"/>
+</message>
+<message name="reportBirth">
+<part name="parameters" element="tns:reportBirth"/>
+</message>
+<message name="reportBirthResponse">
+<part name="parameters" element="tns:reportBirthResponse"/>
+</message>
+<message name="createDoctor">
+<part name="parameters" element="tns:createDoctor"/>
+</message>
+<message name="createDoctorResponse">
+<part name="parameters" element="tns:createDoctorResponse"/>
+</message>
+<message name="deleteDoctor">
+<part name="parameters" element="tns:deleteDoctor"/>
+</message>
+<message name="deleteDoctorResponse">
+<part name="parameters" element="tns:deleteDoctorResponse"/>
+</message>
+<message name="updateDoctor">
+<part name="parameters" element="tns:updateDoctor"/>
+</message>
+<message name="updateDoctorResponse">
+<part name="parameters" element="tns:updateDoctorResponse"/>
 </message>
 <message name="getDoctor">
 <part name="parameters" element="tns:getDoctor"/>
@@ -101,33 +101,17 @@
 <part name="parameters" element="tns:getDoctorResponse"/>
 </message>
 <portType name="ManageHospital">
-<operation name="getListDoctor">
-<input wsam:Action="http://Servicios/ManageHospital/getListDoctorRequest" message="tns:getListDoctor"/>
-<output wsam:Action="http://Servicios/ManageHospital/getListDoctorResponse" message="tns:getListDoctorResponse"/>
+<operation name="createAppoinment">
+<input wsam:Action="http://Servicios/ManageHospital/createAppoinmentRequest" message="tns:createAppoinment"/>
+<output wsam:Action="http://Servicios/ManageHospital/createAppoinmentResponse" message="tns:createAppoinmentResponse"/>
 </operation>
-<operation name="getDoctorsByHospitalId">
-<input wsam:Action="http://Servicios/ManageHospital/getDoctorsByHospitalIdRequest" message="tns:getDoctorsByHospitalId"/>
-<output wsam:Action="http://Servicios/ManageHospital/getDoctorsByHospitalIdResponse" message="tns:getDoctorsByHospitalIdResponse"/>
+<operation name="getAppointmentsByPerson">
+<input wsam:Action="http://Servicios/ManageHospital/getAppointmentsByPersonRequest" message="tns:getAppointmentsByPerson"/>
+<output wsam:Action="http://Servicios/ManageHospital/getAppointmentsByPersonResponse" message="tns:getAppointmentsByPersonResponse"/>
 </operation>
-<operation name="createDoctor">
-<input wsam:Action="http://Servicios/ManageHospital/createDoctorRequest" message="tns:createDoctor"/>
-<output wsam:Action="http://Servicios/ManageHospital/createDoctorResponse" message="tns:createDoctorResponse"/>
-</operation>
-<operation name="reportBirth">
-<input wsam:Action="http://Servicios/ManageHospital/reportBirthRequest" message="tns:reportBirth"/>
-<output wsam:Action="http://Servicios/ManageHospital/reportBirthResponse" message="tns:reportBirthResponse"/>
-</operation>
-<operation name="reportDeath">
-<input wsam:Action="http://Servicios/ManageHospital/reportDeathRequest" message="tns:reportDeath"/>
-<output wsam:Action="http://Servicios/ManageHospital/reportDeathResponse" message="tns:reportDeathResponse"/>
-</operation>
-<operation name="deleteDoctor">
-<input wsam:Action="http://Servicios/ManageHospital/deleteDoctorRequest" message="tns:deleteDoctor"/>
-<output wsam:Action="http://Servicios/ManageHospital/deleteDoctorResponse" message="tns:deleteDoctorResponse"/>
-</operation>
-<operation name="updateDoctor">
-<input wsam:Action="http://Servicios/ManageHospital/updateDoctorRequest" message="tns:updateDoctor"/>
-<output wsam:Action="http://Servicios/ManageHospital/updateDoctorResponse" message="tns:updateDoctorResponse"/>
+<operation name="getDoctorsbySpecialty">
+<input wsam:Action="http://Servicios/ManageHospital/getDoctorsbySpecialtyRequest" message="tns:getDoctorsbySpecialty"/>
+<output wsam:Action="http://Servicios/ManageHospital/getDoctorsbySpecialtyResponse" message="tns:getDoctorsbySpecialtyResponse"/>
 </operation>
 <operation name="checkAvailability">
 <input wsam:Action="http://Servicios/ManageHospital/checkAvailabilityRequest" message="tns:checkAvailability"/>
@@ -145,17 +129,33 @@
 <input wsam:Action="http://Servicios/ManageHospital/getSpecialtiesRequest" message="tns:getSpecialties"/>
 <output wsam:Action="http://Servicios/ManageHospital/getSpecialtiesResponse" message="tns:getSpecialtiesResponse"/>
 </operation>
-<operation name="createAppoinment">
-<input wsam:Action="http://Servicios/ManageHospital/createAppoinmentRequest" message="tns:createAppoinment"/>
-<output wsam:Action="http://Servicios/ManageHospital/createAppoinmentResponse" message="tns:createAppoinmentResponse"/>
+<operation name="getListDoctor">
+<input wsam:Action="http://Servicios/ManageHospital/getListDoctorRequest" message="tns:getListDoctor"/>
+<output wsam:Action="http://Servicios/ManageHospital/getListDoctorResponse" message="tns:getListDoctorResponse"/>
 </operation>
-<operation name="getAppointmentsByPerson">
-<input wsam:Action="http://Servicios/ManageHospital/getAppointmentsByPersonRequest" message="tns:getAppointmentsByPerson"/>
-<output wsam:Action="http://Servicios/ManageHospital/getAppointmentsByPersonResponse" message="tns:getAppointmentsByPersonResponse"/>
+<operation name="getDoctorsByHospitalId">
+<input wsam:Action="http://Servicios/ManageHospital/getDoctorsByHospitalIdRequest" message="tns:getDoctorsByHospitalId"/>
+<output wsam:Action="http://Servicios/ManageHospital/getDoctorsByHospitalIdResponse" message="tns:getDoctorsByHospitalIdResponse"/>
 </operation>
-<operation name="getDoctorsbySpecialty">
-<input wsam:Action="http://Servicios/ManageHospital/getDoctorsbySpecialtyRequest" message="tns:getDoctorsbySpecialty"/>
-<output wsam:Action="http://Servicios/ManageHospital/getDoctorsbySpecialtyResponse" message="tns:getDoctorsbySpecialtyResponse"/>
+<operation name="reportDeath">
+<input wsam:Action="http://Servicios/ManageHospital/reportDeathRequest" message="tns:reportDeath"/>
+<output wsam:Action="http://Servicios/ManageHospital/reportDeathResponse" message="tns:reportDeathResponse"/>
+</operation>
+<operation name="reportBirth">
+<input wsam:Action="http://Servicios/ManageHospital/reportBirthRequest" message="tns:reportBirth"/>
+<output wsam:Action="http://Servicios/ManageHospital/reportBirthResponse" message="tns:reportBirthResponse"/>
+</operation>
+<operation name="createDoctor">
+<input wsam:Action="http://Servicios/ManageHospital/createDoctorRequest" message="tns:createDoctor"/>
+<output wsam:Action="http://Servicios/ManageHospital/createDoctorResponse" message="tns:createDoctorResponse"/>
+</operation>
+<operation name="deleteDoctor">
+<input wsam:Action="http://Servicios/ManageHospital/deleteDoctorRequest" message="tns:deleteDoctor"/>
+<output wsam:Action="http://Servicios/ManageHospital/deleteDoctorResponse" message="tns:deleteDoctorResponse"/>
+</operation>
+<operation name="updateDoctor">
+<input wsam:Action="http://Servicios/ManageHospital/updateDoctorRequest" message="tns:updateDoctor"/>
+<output wsam:Action="http://Servicios/ManageHospital/updateDoctorResponse" message="tns:updateDoctorResponse"/>
 </operation>
 <operation name="getDoctor">
 <input wsam:Action="http://Servicios/ManageHospital/getDoctorRequest" message="tns:getDoctor"/>
@@ -164,7 +164,7 @@
 </portType>
 <binding name="ManageHospitalPortBinding" type="tns:ManageHospital">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="getListDoctor">
+<operation name="createAppoinment">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -173,7 +173,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="getDoctorsByHospitalId">
+<operation name="getAppointmentsByPerson">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -182,43 +182,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="createDoctor">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="reportBirth">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="reportDeath">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="deleteDoctor">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="updateDoctor">
+<operation name="getDoctorsbySpecialty">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -263,7 +227,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="createAppoinment">
+<operation name="getListDoctor">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -272,7 +236,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="getAppointmentsByPerson">
+<operation name="getDoctorsByHospitalId">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -281,7 +245,43 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="getDoctorsbySpecialty">
+<operation name="reportDeath">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="reportBirth">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="createDoctor">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="deleteDoctor">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="updateDoctor">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
